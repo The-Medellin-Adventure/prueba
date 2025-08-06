@@ -117,7 +117,9 @@
 
   function createInfoHotspotElement(hotspot) {
     var wrapper = document.createElement('div');
-    wrapper.classList.add('hotspot', 'info-hotspot');
+    wrapper.classList.add('hotspot');
+    wrapper.classList.add('info-hotspot');
+
 
     var header = document.createElement('div');
     header.classList.add('info-hotspot-header');
