@@ -6,11 +6,84 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <style> @-ms-viewport { width: device-width; } </style>
 <link rel="stylesheet" href="vendor/reset.min.css">
-<link rel="stylesheet" href="style.css">
 <!-- Swiper CSS para carrusel -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+<style>
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background-color: #000;
+}
+
+/* Hotspots generales */
+.hotspot {
+  position: absolute;
+  z-index: 2;
+  cursor: pointer;
+}
+
+/* Hotspots de información tipo tarjeta */
+.hotspot.info-hotspot .info-hotspot-text {
+  background: rgba(0,0,0,0.8);
+  color: #fff;
+  padding: 12px;
+  border-radius: 10px;
+  max-width: 320px;
+  display: none;
+  font-size: 14px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.hotspot.info-hotspot.open .info-hotspot-text {
+  display: block;
+}
+
+/* Panel de escenas */
+#sceneList {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 260px;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  overflow-y: auto;
+  padding: 10px;
+  transition: left 0.3s ease;
+  z-index: 5;
+}
+
+#sceneList.hidden {
+  left: -300px;
+}
+
+/* Botón para expandir/ocultar escenas */
+#toggleSceneList {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: rgba(0,0,0,0.85);
+  color: white;
+  padding: 8px 14px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 16px;
+  z-index: 10;
+}
+
+/* Botón cerrar tarjeta */
+.hotspot .info-hotspot-close {
+  display: block;
+  text-align: right;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 5px;
+}
+</style>
+
 </head>
 <body class="multiple-scenes view-control-buttons">
+
+<a href="javascript:void(0)" id="toggleSceneList">☰ Escenas</a>
 
 <div id="pano"></div>
 

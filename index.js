@@ -362,5 +362,11 @@
   }
 
   if (!document.body.classList.contains('mobile')) showSceneList();
+var toggle = document.getElementById('toggleSceneList');
+var sceneList = document.getElementById('sceneList');
+
+toggle.addEventListener('click', function () {
+  sceneList.classList.toggle('hidden');
+});
 
 })();
