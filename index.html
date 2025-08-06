@@ -1,25 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>The Medellin Adventure - City Tour</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<style> @-ms-viewport { width: device-width; } </style>
-<link rel="stylesheet" href="vendor/reset.min.css">
-<link rel="stylesheet" href="style.css">
-<!-- Swiper CSS para carrusel -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <meta charset="utf-8">
+  <title>City Tour Medellín</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="lib/swiper.min.css">
+  <script src="lib/marzipano.js"></script>
+  <script src="lib/bowser.min.js"></script>
+  <script src="lib/screenfull.min.js"></script>
+  <script src="lib/swiper.min.js"></script>
 </head>
-<body class="multiple-scenes view-control-buttons">
+<body class="desktop">
 
-<div id="pano"></div>
+  <div id="pano"></div>
 
-<div id="sceneList">
-  <ul class="scenes">
-    
-      <a href="javascript:void(0)" class="scene" data-id="0-plaza-botero-botero">
-        <li class="text">Plaza Botero Botero</li>
-      </a>
+  <div id="titleBar">
+    <span class="sceneName"></span>
+    <img id="sceneListToggle" src="img/arrow.png" title="Mostrar/Ocultar lista de escenas">
+  </div>
+
+  <div id="sceneList" class="enabled">
+    <ul class="scenes">
+      <li class="scene" data-id="0-plaza-botero-botero">
+        <div class="thumbnail" style="background-image: url('tiles/0-plaza-botero-botero/preview.jpg');"></div>
+        <div class="sceneName">Plaza Botero</div>
+      </li>
     
       <a href="javascript:void(0)" class="scene" data-id="1-plaza-botero-y-palacio-rafael-uribe-uribe">
         <li class="text">Plaza Botero y Palacio Rafael Uribe Uribe</li>
