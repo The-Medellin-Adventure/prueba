@@ -1,3 +1,4 @@
+// index.js completo (versión corregida y estable)
 'use strict';
 
 (function () {
@@ -11,12 +12,8 @@
   var sceneListElement = document.querySelector('#sceneList');
   var sceneElements = document.querySelectorAll('#sceneList .scene');
   var sceneListToggleElement = document.querySelector('#sceneListToggle');
-
-  // OCULTAR MENÚ INFERIOR
   var autorotateToggleElement = document.querySelector('#autorotateToggle');
   var fullscreenToggleElement = document.querySelector('#fullscreenToggle');
-  if (autorotateToggleElement) autorotateToggleElement.style.display = "none";
-  if (fullscreenToggleElement) fullscreenToggleElement.style.display = "none";
 
   var viewerOpts = {
     controls: {
@@ -26,18 +23,30 @@
   var viewer = new Marzipano.Viewer(panoElement, viewerOpts);
   window.viewer = viewer;
 
-  var scenes = data.scenes.map(function (sceneData) {
+  // Función para crear una escena
+  function createScene(data) {
     var urlPrefix = "tiles";
     var source = Marzipano.ImageUrlSource.fromString(
-      urlPrefix + "/" + sceneData.id + "/{z}/{f}/{y}/{x}.jpg",
-      { cubeMapPreviewUrl: urlPrefix + "/" + sceneData.id + "/preview.jpg" });
-    var geometry = new Marzipano.CubeGeometry(sceneData.levels);
-    var limiter = Marzipano.RectilinearView.limit.traditional(sceneData.faceSize, 100 * Math.PI / 180, 120 * Math.PI / 180);
-    var view = new Marzipano.RectilinearView(sceneData.initialViewParameters, limiter);
+      urlPrefix + "/" + data.id + "/{z}/{f}/{y}/{x}.jpg",
+      { cubeMapPreviewUrl: urlPrefix + "/" + data.id + "/preview.jpg" }
+    );
+    var geometry = new Marzipano.CubeGeometry(data.levels);
+    var limiter = Marzipano.RectilinearView.limit.traditional(data.faceSize, 100 * Math.PI / 180, 120 * Math.PI / 180);
+    var view = new Marzipano.RectilinearView(data.initialViewParameters, limiter);
     var scene = viewer.createScene({ source, geometry, view, pinFirstLevel: true });
 
-    if (sceneData.hotSpots && sceneData.hotSpots.length > 0) {
-      sceneData.hotSpots.forEach(function (hotspot) {
+    data.linkHotspots.forEach(function (hotspot) {
+      var element = createLinkHotspotElement(hotspot);
+      scene.hotspotContainer().createHotspot(element, { yaw: hotspot.yaw, pitch: hotspot.pitch });
+    });
+
+    data.infoHotspots.forEach(function (hotspot) {
+      var element = createInfoHotspotElement(hotspot);
+      scene.hotspotContainer().createHotspot(element, { yaw: hotspot.yaw, pitch: hotspot.pitch });
+    });
+
+    if (data.hotSpots && data.hotSpots.length > 0) {
+      data.hotSpots.forEach(function (hotspot) {
         if (hotspot.type === "camera") {
           var element = createCameraHotspot(hotspot);
           scene.hotspotContainer().createHotspot(element, { yaw: hotspot.yaw, pitch: hotspot.pitch });
@@ -45,19 +54,22 @@
       });
     }
 
-    sceneData.linkHotspots.forEach(function (hotspot) {
-      var element = createLinkHotspotElement(hotspot);
-      scene.hotspotContainer().createHotspot(element, { yaw: hotspot.yaw, pitch: hotspot.pitch });
-    });
+    // Hotspot de audio solo en la primera escena
+    if (data.id === "0-plaza-botero-botero") {
+      setTimeout(() => {
+        createAudioHotspot(1.0, 0.1, 'audio/audio1.mp3');
+      }, 500); // Esperamos a que la escena esté completamente cargada
+    }
 
-    sceneData.infoHotspots.forEach(function (hotspot) {
-      var element = createInfoHotspotElement(hotspot);
-      scene.hotspotContainer().createHotspot(element, { yaw: hotspot.yaw, pitch: hotspot.pitch });
-    });
+    return { data, scene, view };
+  }
 
-    return { data: sceneData, scene, view };
-  });
+  var scenes = data.scenes.map(createScene);
 
+  // Activar escena inicial
+  switchScene(scenes[0]);
+
+  // Funciones reutilizables
   function switchScene(scene) {
     stopAutorotate();
     scene.view.setParameters(scene.data.initialViewParameters);
@@ -65,10 +77,6 @@
     updateSceneName(scene);
     updateSceneList(scene);
     startAutorotate();
-
-    if (scene.data.id === "0-plaza-botero-botero") {
-      createAudioHotspot(1.0, 0.1, 'audio/audio1.mp3');
-    }
   }
 
   function updateSceneName(scene) {
@@ -88,6 +96,7 @@
   function createLinkHotspotElement(hotspot) {
     var wrapper = document.createElement('div');
     wrapper.classList.add('hotspot', 'link-hotspot');
+
     var icon = document.createElement('img');
     icon.src = 'img/link.png';
     icon.classList.add('link-hotspot-icon');
@@ -173,15 +182,16 @@
       if (hotspot.carrusel) {
         mostrarCarrusel();
       } else {
-        showImageModal(hotspot.photo, hotspot.title, hotspot.description);
+        showImageModal(hotspot.photo, hotspot.title);
       }
     });
     return element;
   }
 
-  function showImageModal(photoSrc, title, description) {
+  function showImageModal(photoSrc, title) {
     var oldModal = document.getElementById('custom-image-modal');
     if (oldModal) oldModal.remove();
+
     var modal = document.createElement('div');
     modal.id = 'custom-image-modal';
     modal.style = 'position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.8);display:flex;align-items:center;justify-content:center;z-index:10000;';
@@ -202,13 +212,6 @@
       content.appendChild(caption);
     }
 
-    if (description) {
-      var desc = document.createElement('div');
-      desc.textContent = description;
-      desc.style = 'font-size: 0.9rem; margin-top: 5px;';
-      content.appendChild(desc);
-    }
-
     var close = document.createElement('span');
     close.textContent = '×';
     close.style = 'position:absolute;top:8px;right:16px;cursor:pointer;font-size:2rem;color:#222;';
@@ -219,6 +222,7 @@
 
     modal.appendChild(content);
     document.body.appendChild(modal);
+
     modal.addEventListener('click', function (e) {
       if (e.target === modal) modal.remove();
     });
@@ -227,6 +231,7 @@
   function createAudioHotspot(yaw, pitch, audioSrc) {
     var hotspot = document.createElement('div');
     hotspot.classList.add('hotspot-audio');
+
     var icon = document.createElement('img');
     icon.src = 'img/audio-icon.png';
     icon.style = 'width:40px;cursor:pointer;transition:transform 0.2s;';
@@ -234,8 +239,8 @@
     icon.addEventListener('mouseover', () => icon.style.transform = 'scale(1.2)');
     icon.addEventListener('mouseout', () => icon.style.transform = 'scale(1)');
 
-    var audio = new Audio(audioSrc);
-    audio.autoplay = true;
+    var audio = document.createElement('audio');
+    audio.src = audioSrc;
     audio.preload = 'auto';
 
     icon.addEventListener('click', () => {
@@ -244,12 +249,12 @@
     });
 
     hotspot.appendChild(icon);
-    viewer.scene().hotspotContainer().createHotspot(hotspot, { yaw, pitch });
+    hotspot.appendChild(audio);
 
-    // Reproducción automática (si el navegador lo permite)
-    audio.play().catch(() => {
-      console.warn("El navegador bloqueó la reproducción automática");
-    });
+    // Solo insertamos si ya hay una escena activa
+    if (viewer.scene()) {
+      viewer.scene().hotspotContainer().createHotspot(hotspot, { yaw, pitch });
+    }
   }
 
   function mostrarCarrusel() {
@@ -278,12 +283,11 @@
   });
 
   function stopTouchAndScrollEventPropagation(element) {
-    ['touchstart', 'touchmove', 'touchend', 'touchcancel', 'wheel', 'mousewheel']
-      .forEach(function (eventName) {
-        element.addEventListener(eventName, function (event) {
-          event.stopPropagation();
-        });
+    ['touchstart', 'touchmove', 'touchend', 'touchcancel', 'wheel', 'mousewheel'].forEach(function (eventName) {
+      element.addEventListener(eventName, function (event) {
+        event.stopPropagation();
       });
+    });
   }
 
   function findSceneById(id) {
@@ -298,19 +302,39 @@
     var el = document.querySelector('#sceneList .scene[data-id="' + scene.data.id + '"]');
     el.addEventListener('click', function () {
       switchScene(scene);
-      if (document.body.classList.contains('mobile')) {
-        sceneListElement.classList.remove('enabled');
-      }
+      if (document.body.classList.contains('mobile')) hideSceneList();
     });
   });
 
-  sceneListToggleElement.addEventListener('click', function () {
-    sceneListElement.classList.toggle('enabled');
-  });
+  if (screenfull.enabled && data.settings.fullscreenButton) {
+    document.body.classList.add('fullscreen-enabled');
+    fullscreenToggleElement.addEventListener('click', function () {
+      screenfull.toggle();
+    });
+    screenfull.on('change', function () {
+      fullscreenToggleElement.classList.toggle('enabled', screenfull.isFullscreen);
+    });
+  }
+
+  autorotateToggleElement.addEventListener('click', toggleAutorotate);
 
   var autorotate = Marzipano.autorotate({ yawSpeed: 0.03, targetPitch: 0, targetFov: Math.PI / 2 });
+  if (data.settings.autorotateEnabled) {
+    autorotateToggleElement.classList.add('enabled');
+  }
+
+  function toggleAutorotate() {
+    if (autorotateToggleElement.classList.contains('enabled')) {
+      autorotateToggleElement.classList.remove('enabled');
+      stopAutorotate();
+    } else {
+      autorotateToggleElement.classList.add('enabled');
+      startAutorotate();
+    }
+  }
 
   function startAutorotate() {
+    if (!autorotateToggleElement.classList.contains('enabled')) return;
     viewer.startMovement(autorotate);
     viewer.setIdleMovement(3000, autorotate);
   }
@@ -320,5 +344,21 @@
     viewer.setIdleMovement(Infinity);
   }
 
-  switchScene(scenes[0]);
+  function showSceneList() {
+    sceneListElement.classList.add('enabled');
+    sceneListToggleElement.classList.add('enabled');
+  }
+
+  function hideSceneList() {
+    sceneListElement.classList.remove('enabled');
+    sceneListToggleElement.classList.remove('enabled');
+  }
+
+  function toggleSceneList() {
+    sceneListElement.classList.toggle('enabled');
+    sceneListToggleElement.classList.toggle('enabled');
+  }
+
+  if (!document.body.classList.contains('mobile')) showSceneList();
+
 })();
