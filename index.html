@@ -4,6 +4,19 @@
 <title>The Medellin Adventure - City Tour</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>
+    .scene-toggle-button {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      z-index: 1000;
+    }
+  </style>
+
+  <script src="vendor/es6-promise.min.js"></script>
 <style> @-ms-viewport { width: device-width; } </style>
 <link rel="stylesheet" href="vendor/reset.min.css">
 <link rel="stylesheet" href="style.css">
@@ -90,7 +103,7 @@
   <img class="icon on" src="img/windowed.png">
 </a>
 
-<a href="javascript:void(0)" id="sceneListToggle">
+<a href="javascript:void(0)" id="sceneListToggle" class="scene-toggle-button">
   <img class="icon off" src="img/expand.png">
   <img class="icon on" src="img/collapse.png">
 </a>
