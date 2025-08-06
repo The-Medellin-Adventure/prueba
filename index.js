@@ -159,7 +159,7 @@ function createInfoHotspotElement(hotspot) {
   return wrapper;
 }
 
-  function createCameraHotspot(hotspot) {
+function createCameraHotspot(hotspot) {
     var element = document.createElement('img');
     element.src = hotspot.image;
     element.className = 'camera-hotspot-icon';
@@ -174,46 +174,6 @@ function createInfoHotspotElement(hotspot) {
       }
     });
     return element;
-  }
-
-  function showImageModal(photoSrc, title) {
-    var oldModal = document.getElementById('custom-image-modal');
-    if (oldModal) oldModal.remove();
-
-    var modal = document.createElement('div');
-    modal.id = 'custom-image-modal';
-    modal.style = 'position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.8);display:flex;align-items:center;justify-content:center;z-index:10000;';
-
-    var content = document.createElement('div');
-    content.style = 'background:#fff;border-radius:10px;padding:20px;box-shadow:0 8px 32px rgba(0,0,0,0.32);position:relative;';
-
-    var img = document.createElement('img');
-    img.src = photoSrc;
-    img.alt = title || "";
-    img.style = 'max-width:90vw;max-height:80vh;border-radius:8px;';
-    content.appendChild(img);
-
-    if (title) {
-      var caption = document.createElement('div');
-      caption.textContent = title;
-      caption.style = 'margin-top:10px;font-weight:bold;text-align:center;';
-      content.appendChild(caption);
-    }
-
-    var close = document.createElement('span');
-    close.textContent = '×';
-    close.style = 'position:absolute;top:8px;right:16px;cursor:pointer;font-size:2rem;color:#222;';
-    close.addEventListener('click', function () {
-      modal.remove();
-    });
-    content.appendChild(close);
-
-    modal.appendChild(content);
-    document.body.appendChild(modal);
-
-    modal.addEventListener('click', function (e) {
-      if (e.target === modal) modal.remove();
-    });
   }
 
   function createAudioHotspot(yaw, pitch, audioSrc) {
