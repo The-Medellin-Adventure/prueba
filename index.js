@@ -379,5 +379,34 @@ sceneListToggle.addEventListener("click", function () {
     iconOff.style.display = "inline";
   }
 });
+// === CONTROLES DE VISTA CON BOTONES INFERIORES ===
+var view = viewer.view();  // Obtenemos la vista de Marzipano
+var velocity = 0.7;        // Velocidad de rotación (radianes)
+var zoomSpeed = 1;         // Velocidad del zoom (fov)
+
+// Funciones individuales
+document.getElementById('viewLeft').addEventListener('click', function () {
+  view.setYaw(view.yaw() - velocity);
+});
+
+document.getElementById('viewRight').addEventListener('click', function () {
+  view.setYaw(view.yaw() + velocity);
+});
+
+document.getElementById('viewUp').addEventListener('click', function () {
+  view.setPitch(view.pitch() + velocity);
+});
+
+document.getElementById('viewDown').addEventListener('click', function () {
+  view.setPitch(view.pitch() - velocity);
+});
+
+document.getElementById('viewIn').addEventListener('click', function () {
+  view.setFov(view.fov() - zoomSpeed);
+});
+
+document.getElementById('viewOut').addEventListener('click', function () {
+  view.setFov(view.fov() + zoomSpeed);
+});
 
 })();
