@@ -115,51 +115,63 @@
     return wrapper;
   }
 
-  // Función para crear hotspot de tipo información
-function createInfoHotspotElement(hotspot) {
-  var wrapper = document.createElement('div');
-  wrapper.classList.add('hotspot', 'info-hotspot');
+  function createInfoHotspotElement(hotspot) {
+    var wrapper = document.createElement('div');
+    wrapper.classList.add('hotspot', 'info-hotspot');
 
-  // Encabezado: título + ícono de cerrar
-  var header = document.createElement('div');
-  header.classList.add('info-hotspot-header');
+    var header = document.createElement('div');
+    header.classList.add('info-hotspot-header');
 
-  var title = document.createElement('div');
-  title.classList.add('info-hotspot-title');
-  title.innerHTML = hotspot.title;
+    var iconWrapper = document.createElement('div');
+    iconWrapper.classList.add('info-hotspot-icon-wrapper');
+    var icon = document.createElement('img');
+    icon.src = 'img/info.png';
+    icon.classList.add('info-hotspot-icon');
+    iconWrapper.appendChild(icon);
 
-  var closeIcon = document.createElement('img');
-  closeIcon.src = 'img/close.png';
-  closeIcon.classList.add('info-hotspot-close-icon');
+    var titleWrapper = document.createElement('div');
+    titleWrapper.classList.add('info-hotspot-title-wrapper');
+    var title = document.createElement('div');
+    title.classList.add('info-hotspot-title');
+    title.innerHTML = hotspot.title;
+    titleWrapper.appendChild(title);
 
-  // Cerrar tarjeta al hacer clic en X
-  closeIcon.addEventListener('click', function (event) {
-    event.stopPropagation();
-    wrapper.classList.remove('open');
-  });
+    var closeWrapper = document.createElement('div');
+    closeWrapper.classList.add('info-hotspot-close-wrapper');
+    var closeIcon = document.createElement('img');
+    closeIcon.src = 'img/close.png';
+    closeIcon.classList.add('info-hotspot-close-icon');
+    closeWrapper.appendChild(closeIcon);
 
-  header.appendChild(title);
-  header.appendChild(closeIcon);
+    header.appendChild(iconWrapper);
+    header.appendChild(titleWrapper);
+    header.appendChild(closeWrapper);
 
-  // Contenido de texto
-  var text = document.createElement('div');
-  text.classList.add('info-hotspot-text');
-  text.innerHTML = hotspot.text;
+    var text = document.createElement('div');
+    text.classList.add('info-hotspot-text');
+    text.innerHTML = hotspot.text;
 
-  // Estructura completa
-  wrapper.appendChild(header);
-  wrapper.appendChild(text);
+    wrapper.appendChild(header);
+    wrapper.appendChild(text);
 
-  // Abrir tarjeta al hacer clic
-  wrapper.addEventListener('click', function () {
-    wrapper.classList.add('open');
-  });
+    var modal = document.createElement('div');
+    modal.innerHTML = wrapper.innerHTML;
+    modal.classList.add('info-hotspot-modal');
+    document.body.appendChild(modal);
 
-  stopTouchAndScrollEventPropagation(wrapper);
-  return wrapper;
-}
+    var toggle = function () {
+      wrapper.classList.toggle('visible');
+      modal.classList.toggle('visible');
+    };
 
-function createCameraHotspot(hotspot) {
+    wrapper.querySelector('.info-hotspot-header').addEventListener('click', toggle);
+    modal.querySelector('.info-hotspot-close-wrapper').addEventListener('click', toggle);
+
+    stopTouchAndScrollEventPropagation(wrapper);
+    return wrapper;
+  }
+
+  function createCameraHotspot(hotspot) {
     var element = document.createElement('img');
     element.src = hotspot.image;
     element.className = 'camera-hotspot-icon';
@@ -174,6 +186,46 @@ function createCameraHotspot(hotspot) {
       }
     });
     return element;
+  }
+
+  function showImageModal(photoSrc, title) {
+    var oldModal = document.getElementById('custom-image-modal');
+    if (oldModal) oldModal.remove();
+
+    var modal = document.createElement('div');
+    modal.id = 'custom-image-modal';
+    modal.style = 'position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.8);display:flex;align-items:center;justify-content:center;z-index:10000;';
+
+    var content = document.createElement('div');
+    content.style = 'background:#fff;border-radius:10px;padding:20px;box-shadow:0 8px 32px rgba(0,0,0,0.32);position:relative;';
+
+    var img = document.createElement('img');
+    img.src = photoSrc;
+    img.alt = title || "";
+    img.style = 'max-width:90vw;max-height:80vh;border-radius:8px;';
+    content.appendChild(img);
+
+    if (title) {
+      var caption = document.createElement('div');
+      caption.textContent = title;
+      caption.style = 'margin-top:10px;font-weight:bold;text-align:center;';
+      content.appendChild(caption);
+    }
+
+    var close = document.createElement('span');
+    close.textContent = '×';
+    close.style = 'position:absolute;top:8px;right:16px;cursor:pointer;font-size:2rem;color:#222;';
+    close.addEventListener('click', function () {
+      modal.remove();
+    });
+    content.appendChild(close);
+
+    modal.appendChild(content);
+    document.body.appendChild(modal);
+
+    modal.addEventListener('click', function (e) {
+      if (e.target === modal) modal.remove();
+    });
   }
 
   function createAudioHotspot(yaw, pitch, audioSrc) {
