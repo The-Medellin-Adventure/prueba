@@ -1,25 +1,77 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>The Medellin Adventure - City Tour</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<style> @-ms-viewport { width: device-width; } </style>
-<link rel="stylesheet" href="vendor/reset.min.css">
-<link rel="stylesheet" href="style.css">
-<!-- Swiper CSS para carrusel -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <title>The Medellin Adventure - City Tour</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style> @-ms-viewport { width: device-width; } </style>
+  <link rel="stylesheet" href="vendor/reset.min.css">
+  <link rel="stylesheet" href="style.css">
+  <!-- Swiper CSS para carrusel -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+  <!-- 🔧 Estilos para hotspots de información (tarjetas) -->
+  <style>
+    .hotspot.info-hotspot {
+      background-color: rgba(0, 0, 0, 0.8);
+      color: white;
+      border-radius: 12px;
+      padding: 10px;
+      max-width: 250px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+      cursor: pointer;
+      font-family: sans-serif;
+      transition: transform 0.2s;
+    }
+
+    .hotspot.info-hotspot:hover {
+      transform: scale(1.03);
+    }
+
+    .info-hotspot-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .info-hotspot-title {
+      font-size: 16px;
+      font-weight: bold;
+      flex-grow: 1;
+      padding-right: 8px;
+    }
+
+    .info-hotspot-close-icon {
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+    }
+
+    .info-hotspot-text {
+      margin-top: 8px;
+      font-size: 14px;
+    }
+
+    .hotspot.info-hotspot:not(.open) .info-hotspot-text {
+      display: none;
+    }
+
+    .hotspot.info-hotspot.open {
+      z-index: 9999;
+    }
+  </style>
 </head>
+
 <body class="multiple-scenes view-control-buttons">
 
 <div id="pano"></div>
 
 <div id="sceneList">
   <ul class="scenes">
-    
-      <a href="javascript:void(0)" class="scene" data-id="0-plaza-botero-botero">
-        <li class="text">Plaza Botero Botero</li>
-      </a>
+    <a href="javascript:void(0)" class="scene" data-id="0-plaza-botero-botero">
+      <li class="text">Plaza Botero Botero</li>
+    </a>
+
     
       <a href="javascript:void(0)" class="scene" data-id="1-plaza-botero-y-palacio-rafael-uribe-uribe">
         <li class="text">Plaza Botero y Palacio Rafael Uribe Uribe</li>
