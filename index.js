@@ -115,61 +115,49 @@
     return wrapper;
   }
 
-  function createInfoHotspotElement(hotspot) {
-    var wrapper = document.createElement('div');
-    wrapper.classList.add('hotspot', 'info-hotspot');
+  // Función para crear hotspot de tipo información
+function createInfoHotspotElement(hotspot) {
+  var wrapper = document.createElement('div');
+  wrapper.classList.add('hotspot', 'info-hotspot');
 
-    var header = document.createElement('div');
-    header.classList.add('info-hotspot-header');
+  // Encabezado: título + ícono de cerrar
+  var header = document.createElement('div');
+  header.classList.add('info-hotspot-header');
 
-    var iconWrapper = document.createElement('div');
-    iconWrapper.classList.add('info-hotspot-icon-wrapper');
-    var icon = document.createElement('img');
-    icon.src = 'img/info.png';
-    icon.classList.add('info-hotspot-icon');
-    iconWrapper.appendChild(icon);
+  var title = document.createElement('div');
+  title.classList.add('info-hotspot-title');
+  title.innerHTML = hotspot.title;
 
-    var titleWrapper = document.createElement('div');
-    titleWrapper.classList.add('info-hotspot-title-wrapper');
-    var title = document.createElement('div');
-    title.classList.add('info-hotspot-title');
-    title.innerHTML = hotspot.title;
-    titleWrapper.appendChild(title);
+  var closeIcon = document.createElement('img');
+  closeIcon.src = 'img/close.png';
+  closeIcon.classList.add('info-hotspot-close-icon');
 
-    var closeWrapper = document.createElement('div');
-    closeWrapper.classList.add('info-hotspot-close-wrapper');
-    var closeIcon = document.createElement('img');
-    closeIcon.src = 'img/close.png';
-    closeIcon.classList.add('info-hotspot-close-icon');
-    closeWrapper.appendChild(closeIcon);
+  // Cerrar tarjeta al hacer clic en X
+  closeIcon.addEventListener('click', function (event) {
+    event.stopPropagation();
+    wrapper.classList.remove('open');
+  });
 
-    header.appendChild(iconWrapper);
-    header.appendChild(titleWrapper);
-    header.appendChild(closeWrapper);
+  header.appendChild(title);
+  header.appendChild(closeIcon);
 
-    var text = document.createElement('div');
-    text.classList.add('info-hotspot-text');
-    text.innerHTML = hotspot.text;
+  // Contenido de texto
+  var text = document.createElement('div');
+  text.classList.add('info-hotspot-text');
+  text.innerHTML = hotspot.text;
 
-    wrapper.appendChild(header);
-    wrapper.appendChild(text);
+  // Estructura completa
+  wrapper.appendChild(header);
+  wrapper.appendChild(text);
 
-    var modal = document.createElement('div');
-    modal.innerHTML = wrapper.innerHTML;
-    modal.classList.add('info-hotspot-modal');
-    document.body.appendChild(modal);
+  // Abrir tarjeta al hacer clic
+  wrapper.addEventListener('click', function () {
+    wrapper.classList.add('open');
+  });
 
-    var toggle = function () {
-      wrapper.classList.toggle('visible');
-      modal.classList.toggle('visible');
-    };
-
-    wrapper.querySelector('.info-hotspot-header').addEventListener('click', toggle);
-    modal.querySelector('.info-hotspot-close-wrapper').addEventListener('click', toggle);
-
-    stopTouchAndScrollEventPropagation(wrapper);
-    return wrapper;
-  }
+  stopTouchAndScrollEventPropagation(wrapper);
+  return wrapper;
+}
 
   function createCameraHotspot(hotspot) {
     var element = document.createElement('img');
