@@ -360,5 +360,24 @@
   }
 
   if (!document.body.classList.contains('mobile')) showSceneList();
+// Mostrar / Ocultar panel de escenas
+var sceneListToggle = document.getElementById("sceneListToggle");
+var sceneList = document.getElementById("sceneList");
+
+sceneListToggle.addEventListener("click", function () {
+  var isEnabled = sceneList.classList.toggle("enabled");
+
+  // Cambiar íconos expand/collapse según el estado
+  var iconOn = sceneListToggle.querySelector(".icon.on");
+  var iconOff = sceneListToggle.querySelector(".icon.off");
+
+  if (isEnabled) {
+    iconOn.style.display = "inline";
+    iconOff.style.display = "none";
+  } else {
+    iconOn.style.display = "none";
+    iconOff.style.display = "inline";
+  }
+});
 
 })();
