@@ -18,6 +18,7 @@
   transform: translate(-50%, -50%);
   cursor: pointer;
   font-family: sans-serif;
+  z-index: 1000;
 }
 
 .info-hotspot-header {
@@ -25,11 +26,12 @@
   align-items: center;
   justify-content: space-between;
   background: white;
-  padding: 5px 10px;
-  border-radius: 4px 4px 0 0;
+  padding: 6px 10px;
+  border-radius: 8px 8px 0 0;
   font-weight: bold;
   font-size: 14px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+  min-width: 220px;
 }
 
 .info-hotspot-title {
@@ -45,10 +47,11 @@
 .info-hotspot-text {
   background: white;
   padding: 10px;
-  border-radius: 0 0 4px 4px;
+  border-radius: 0 0 8px 8px;
   font-size: 13px;
   line-height: 1.4em;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+  min-width: 220px;
 }
 
 .hotspot.info-hotspot:not(.open) .info-hotspot-text {
