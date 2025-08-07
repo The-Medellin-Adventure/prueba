@@ -28,60 +28,61 @@ window.APP_DATA = {
         "pitch": -0.28108895507963005,
         "fov": 1.2812361540040014
       },
-      "hotSpots": [
-        {
-      "type": "carousel",
-  "pitch": -0.4299,
-  "yaw": 2.7905,
-  "tooltip": "Hotel Nutibara",
-  "images": [
-    {
-      "src": "img/HotelNutibara_1965.jpg",
-      "caption": "Hotel Nutibara en año 1965"
-    },
-    {
-      "src": "img/HotelNutibara.jpg",
-      "caption": "Hotel Nutibara en la actualidad"
-    }
-  ]
-},
-{
-  "type": "carousel",
-  "pitch": -0.2806,
-  "yaw": -1.2813,
-  "tooltip": "Estación Berrío",
-  "images": [
-    {
-      "src": "img/EstacionBerrio.jpg",
-      "caption": "Interior estación Parque Berrio del metro"
-    }
-  ]
-},
- {
-  "type": "carousel",
-  "pitch": -0.687523,
-  "yaw": -0.3319,
-  "tooltip": "Rafael Uribe Uribe",
-  "images": [
-    {
-      "src": "img/RafaelUribeUribe.jpg",
-      "caption": "Fachada Palacio Rafael Uribe Uribe"
- },
-    {
-      "src": "img/RafaelUribeUribe_2.jpg",
-      "caption": "Fachada Palacio Rafael Uribe Uribe"
- },
-    {
-      "src": "img/Vistadesdecupula1.jpg",
-      "caption": "Vista Edificio Coltejer desde la cúpula del Palacio Uribe Uribe"
-},
-    {
-      "src": "img/Vistadesdecupula.jpg",
-      "caption": "Sube hasta la cúpula disfruta y toma fotos increibles"
-    }
+"hotSpots": [
+  {
+    "type": "carousel",
+    "pitch": -0.4299,
+    "yaw": 2.7905,
+    "tooltip": "Hotel Nutibara",
+    "images": [
+      {
+        "src": "img/HotelNutibara_1965.jpg",
+        "caption": "Hotel Nutibara en año 1965"
+      },
+      {
+        "src": "img/HotelNutibara.jpg",
+        "caption": "Hotel Nutibara en la actualidad"
+      }
+    ]
+  },
+  {
+    "type": "carousel",
+    "pitch": -0.2806,
+    "yaw": -1.2813,
+    "tooltip": "Estación Berrío",
+    "images": [
+      {
+        "src": "img/EstacionBerrio.jpg",
+        "caption": "Interior estación Parque Berrio del metro"
+      }
+    ]
+  },
+  {
+    "type": "carousel",
+    "pitch": -0.687523,
+    "yaw": -0.3319,
+    "tooltip": "Rafael Uribe Uribe",
+    "images": [
+      {
+        "src": "img/RafaelUribeUribe.jpg",
+        "caption": "Fachada Palacio Rafael Uribe Uribe"
+      },
+      {
+        "src": "img/RafaelUribeUribe_2.jpg",
+        "caption": "Fachada Palacio Rafael Uribe Uribe"
+      },
+      {
+        "src": "img/Vistadesdecupula1.jpg",
+        "caption": "Vista Edificio Coltejer desde la cúpula del Palacio Uribe Uribe"
+      },
+      {
+        "src": "img/Vistadesdecupula.jpg",
+        "caption": "Sube hasta la cúpula, disfruta y toma fotos increíbles"
+      }
     ]
   }
-  {
+]
+
         // <-- AÑADE ESTE NUEVO HOTSPOT PARA EL CARRUSEL
         {
           "pitch": 0.0122, // Cambia la posición como prefieras
