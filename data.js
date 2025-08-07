@@ -78,11 +78,10 @@ window.APP_DATA = {
       {
         "src": "img/Vistadesdecupula.jpg",
         "caption": "Sube hasta la cúpula, disfruta y toma fotos increíbles"
-      }
+     }
     ]
-  }
-]
-
+  },
+  {
         // <-- AÑADE ESTE NUEVO HOTSPOT PARA EL CARRUSEL
         {
           "pitch": 0.0122, // Cambia la posición como prefieras
