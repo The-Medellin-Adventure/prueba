@@ -53,7 +53,7 @@ window.APP_DATA = {
   "images": [
     {
       "src": "img/EstacionBerrio.jpg",
-      "caption": "Interior estación "Parque Berrio" del metro"
+      "caption": "Interior estación Parque Berrio del metro"
     }
   ]
 }
