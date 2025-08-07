@@ -86,17 +86,8 @@ window.APP_DATA = {
         "caption": "Sube hasta la cúpula, disfruta y toma fotos increíbles"
      }
     ]
-  },
-        // <-- AÑADE ESTE NUEVO HOTSPOT PARA EL CARRUSEL
-        {
-          "pitch": 0.0122, // Cambia la posición como prefieras
-          "yaw": 0.7437,
-          "type": "camera",
-          "image": "img/Camara.png",
-          "title": "Esculturas Maestro Fermando Botero",
-          "carrusel": true // clave especial para el carrusel
-        }
-      ],
+  }        
+ ],
       "linkHotspots": [
         {
           "yaw": 0.4106533973529771,
