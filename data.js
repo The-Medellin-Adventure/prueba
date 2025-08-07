@@ -43,9 +43,11 @@ window.APP_DATA = {
       {
         "src": "img/HotelNutibara.jpg",
         "caption": "Hotel Nutibara en la actualidad"
-      }
-    ]
-  },
+       }
+      ]
+    }
+  ]  
+},
   {
     "type": "camera",
     "image": "img/Camara.png",
