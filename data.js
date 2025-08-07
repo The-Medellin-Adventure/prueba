@@ -56,7 +56,7 @@ window.APP_DATA = {
       "caption": "Interior estación Parque Berrio del metro"
     }
   ]
-}
+},
  {
   "type": "carousel",
   "pitch": -0.687523,
@@ -80,7 +80,7 @@ window.APP_DATA = {
       "caption": "Sube hasta la cúpula disfruta y toma fotos increibles"
     }
     ]
-  },
+  }
   {
         // <-- AÑADE ESTE NUEVO HOTSPOT PARA EL CARRUSEL
         {
