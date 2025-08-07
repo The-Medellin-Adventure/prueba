@@ -81,7 +81,6 @@ window.APP_DATA = {
      }
     ]
   },
-  {
         // <-- AÑADE ESTE NUEVO HOTSPOT PARA EL CARRUSEL
         {
           "pitch": 0.0122, // Cambia la posición como prefieras
