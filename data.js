@@ -31,11 +31,12 @@ window.APP_DATA = {
 "hotSpots": [
   {
     "type": "camera",
+    "carrusel": true,
     "image": "img/Camara.png",
     "pitch": -0.4299,
     "yaw": 2.7905,
     "tooltip": "Hotel Nutibara",
-    "images": [
+     "images": [
       {
         "src": "img/HotelNutibara_1965.jpg",
         "caption": "Hotel Nutibara en año 1965"
@@ -43,13 +44,12 @@ window.APP_DATA = {
       {
         "src": "img/HotelNutibara.jpg",
         "caption": "Hotel Nutibara en la actualidad"
-       }
-      ]
-    }
-  ]  
-},
+      }
+    ]
+  },
   {
     "type": "camera",
+    "carrusel": true,
     "image": "img/Camara.png",
     "pitch": -0.2806,
     "yaw": -1.2813,
@@ -63,6 +63,7 @@ window.APP_DATA = {
   },
   {
     "type": "camera",
+    "carrusel": true,
     "image": "img/Camara.png",
     "pitch": -0.687523,
     "yaw": -0.3319,
