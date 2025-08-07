@@ -30,7 +30,7 @@ window.APP_DATA = {
       },
 "hotSpots": [
   {
-    "type": "carousel",
+    "type": "camera",
     "pitch": -0.4299,
     "yaw": 2.7905,
     "tooltip": "Hotel Nutibara",
@@ -46,7 +46,7 @@ window.APP_DATA = {
     ]
   },
   {
-    "type": "carousel",
+    "type": "camera",
     "pitch": -0.2806,
     "yaw": -1.2813,
     "tooltip": "Estación Berrío",
@@ -58,7 +58,7 @@ window.APP_DATA = {
     ]
   },
   {
-    "type": "carousel",
+    "type": "camera",
     "pitch": -0.687523,
     "yaw": -0.3319,
     "tooltip": "Rafael Uribe Uribe",
