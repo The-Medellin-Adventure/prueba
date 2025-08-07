@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>The Medellin Adventure - City Tour</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<style>
+  <title>The Medellin Adventure - City Tour</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
     .scene-toggle-button {
       position: absolute;
       top: 20px;
@@ -15,12 +15,13 @@
       z-index: 1000;
     }
   </style>
+  <style> @-ms-viewport { width: device-width; } </style>
 
-<style> @-ms-viewport { width: device-width; } </style>
-<link rel="stylesheet" href="vendor/reset.min.css">
-<link rel="stylesheet" href="style.css">
-<!-- Swiper CSS para carrusel -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <link rel="stylesheet" href="vendor/reset.min.css">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Swiper CSS para carrusel (AÚN NECESARIO PARA HOTSPOTS) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 </head>
 <body class="multiple-scenes view-control-buttons">
 
@@ -28,63 +29,20 @@
 
 <div id="sceneList">
   <ul class="scenes">
-    
-      <a href="javascript:void(0)" class="scene" data-id="0-plaza-botero-botero">
-        <li class="text">Plaza Botero Botero</li>
-      </a>
-    
-      <a href="javascript:void(0)" class="scene" data-id="1-plaza-botero-y-palacio-rafael-uribe-uribe">
-        <li class="text">Plaza Botero y Palacio Rafael Uribe Uribe</li>
-      </a>
-    
-      <a href="javascript:void(0)" class="scene" data-id="2-esculturas-y-tradicin">
-        <li class="text">Esculturas y tradición</li>
-      </a>
-    
-      <a href="javascript:void(0)" class="scene" data-id="3-palacio-rafael-uribe-uribe">
-        <li class="text">Palacio Rafael Uribe Uribe</li>
-      </a>
-    
-      <a href="javascript:void(0)" class="scene" data-id="4-parque-de-las-luces">
-        <li class="text">Parque de las Luces</li>
-      </a>
-    
-      <a href="javascript:void(0)" class="scene" data-id="5-antiguo-ferrocarril">
-        <li class="text">Antiguo Ferrocarril</li>
-      </a>
-    
-      <a href="javascript:void(0)" class="scene" data-id="6-antigua-estacin-medelln">
-        <li class="text">Antigua Estación Medellín</li>
-      </a>
-    
-      <a href="javascript:void(0)" class="scene" data-id="7-alpujarra">
-        <li class="text">Alpujarra</li>
-      </a>
-    
-      <a href="javascript:void(0)" class="scene" data-id="8-transicin-ciudad-a-naturaleza">
-        <li class="text">Transición ciudad a naturaleza</li>
-      </a>
-    
-      <a href="javascript:void(0)" class="scene" data-id="9-pies_descalzos">
-        <li class="text">Pies_descalzos</li>
-      </a>
-    
-      <a href="javascript:void(0)" class="scene" data-id="10-conexin-naturaleza">
-        <li class="text">Conexión Naturaleza</li>
-      </a>
-    
-      <a href="javascript:void(0)" class="scene" data-id="11-laberinto-de-bamb">
-        <li class="text">Laberinto de Bambú</li>
-      </a>
-    
-      <a href="javascript:void(0)" class="scene" data-id="12-edificio-inteligente-epm">
-        <li class="text">Edificio Inteligente EPM</li>
-      </a>
-    
-      <a href="javascript:void(0)" class="scene" data-id="13-centro-de-convenciones-y-teatro">
-        <li class="text">Centro de convenciones y Teatro</li>
-      </a>
-    
+    <a href="javascript:void(0)" class="scene" data-id="0-plaza-botero-botero"><li class="text">Plaza Botero Botero</li></a>
+    <a href="javascript:void(0)" class="scene" data-id="1-plaza-botero-y-palacio-rafael-uribe-uribe"><li class="text">Plaza Botero y Palacio Rafael Uribe Uribe</li></a>
+    <a href="javascript:void(0)" class="scene" data-id="2-esculturas-y-tradicin"><li class="text">Esculturas y tradición</li></a>
+    <a href="javascript:void(0)" class="scene" data-id="3-palacio-rafael-uribe-uribe"><li class="text">Palacio Rafael Uribe Uribe</li></a>
+    <a href="javascript:void(0)" class="scene" data-id="4-parque-de-las-luces"><li class="text">Parque de las Luces</li></a>
+    <a href="javascript:void(0)" class="scene" data-id="5-antiguo-ferrocarril"><li class="text">Antiguo Ferrocarril</li></a>
+    <a href="javascript:void(0)" class="scene" data-id="6-antigua-estacin-medelln"><li class="text">Antigua Estación Medellín</li></a>
+    <a href="javascript:void(0)" class="scene" data-id="7-alpujarra"><li class="text">Alpujarra</li></a>
+    <a href="javascript:void(0)" class="scene" data-id="8-transicin-ciudad-a-naturaleza"><li class="text">Transición ciudad a naturaleza</li></a>
+    <a href="javascript:void(0)" class="scene" data-id="9-pies_descalzos"><li class="text">Pies_descalzos</li></a>
+    <a href="javascript:void(0)" class="scene" data-id="10-conexin-naturaleza"><li class="text">Conexión Naturaleza</li></a>
+    <a href="javascript:void(0)" class="scene" data-id="11-laberinto-de-bamb"><li class="text">Laberinto de Bambú</li></a>
+    <a href="javascript:void(0)" class="scene" data-id="12-edificio-inteligente-epm"><li class="text">Edificio Inteligente EPM</li></a>
+    <a href="javascript:void(0)" class="scene" data-id="13-centro-de-convenciones-y-teatro"><li class="text">Centro de convenciones y Teatro</li></a>
   </ul>
 </div>
 
@@ -126,92 +84,16 @@
   <img class="icon" src="img/minus.png">
 </a>
 
-<!-- CARRUSEL MODAL CON FONDO NEGRO TRANSLÚCIDO -->
-<div id="carruselModal" style="
-  display: none;
-  position: fixed;
-  z-index: 10000;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0,0,0,0.8);
-  align-items: center;
-  justify-content: center;
-">
-  <div style="
-    position: relative;
-    background: rgba(0,0,0,0.6); /* Cambiado de #fff a negro translúcido */
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.32);
-    max-width: 700px;
-    width: 90vw;
-    max-height: 80vh;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  ">
-    <!-- Botón de cerrar -->
-    <button id="cerrarCarrusel" style="
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      z-index: 10;
-      font-size: 2rem;
-      background: none;
-      color: #fff;
-      border: none;
-      cursor: pointer;
-    ">&times;</button>
-
-    <!-- Swiper -->
-    <div class="swiper carrusel-swiper" style="width: 100%; height: 100%;">
-      <div class="swiper-wrapper">
-
-        <!-- IMÁGENES -->
-        <!-- Usa un contenedor con aspecto fijo para igualar el formato -->
-        <!-- Puedes reemplazar los nombres si cambian las imágenes -->
-        <div class="swiper-slide"><div style="aspect-ratio: 3 / 2; display: flex; justify-content: center; align-items: center;"><img src="img/carrusel/Maternidad.jpg" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 10px;"></div></div>
-        <div class="swiper-slide"><div style="aspect-ratio: 3 / 2; display: flex; justify-content: center; align-items: center;"><img src="img/carrusel/Mujer_Vestida.jpg" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 10px;"></div></div>
-        <div class="swiper-slide"><div style="aspect-ratio: 3 / 2; display: flex; justify-content: center; align-items: center;"><img src="img/carrusel/Hombre_Vestido.jpg" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 10px;"></div></div>
-        <div class="swiper-slide"><div style="aspect-ratio: 3 / 2; display: flex; justify-content: center; align-items: center;"><img src="img/carrusel/Mujer_con_Espejo.jpg" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 10px;"></div></div>
-        <div class="swiper-slide"><div style="aspect-ratio: 3 / 2; display: flex; justify-content: center; align-items: center;"><img src="img/carrusel/Eva.jpg" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 10px;"></div></div>
-        <div class="swiper-slide"><div style="aspect-ratio: 3 / 2; display: flex; justify-content: center; align-items: center;"><img src="img/carrusel/Adan.jpg" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 10px;"></div></div>
-        <div class="swiper-slide"><div style="aspect-ratio: 3 / 2; display: flex; justify-content: center; align-items: center;"><img src="img/carrusel/Cabeza.jpg" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 10px;"></div></div>
-        <div class="swiper-slide"><div style="aspect-ratio: 3 / 2; display: flex; justify-content: center; align-items: center;"><img src="img/carrusel/Esfinge.jpg" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 10px;"></div></div>
-        <div class="swiper-slide"><div style="aspect-ratio: 3 / 2; display: flex; justify-content: center; align-items: center;"><img src="img/carrusel/Gato.jpg" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 10px;"></div></div>
-        <div class="swiper-slide"><div style="aspect-ratio: 3 / 2; display: flex; justify-content: center; align-items: center;"><img src="img/carrusel/Hombre_Caminante.jpg" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 10px;"></div></div>
-        <div class="swiper-slide"><div style="aspect-ratio: 3 / 2; display: flex; justify-content: center; align-items: center;"><img src="img/carrusel/Mano.jpg" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 10px;"></div></div>
-        <div class="swiper-slide"><div style="aspect-ratio: 3 / 2; display: flex; justify-content: center; align-items: center;"><img src="img/carrusel/Mujer_con_Fruta.jpg" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 10px;"></div></div>
-        <div class="swiper-slide"><div style="aspect-ratio: 3 / 2; display: flex; justify-content: center; align-items: center;"><img src="img/carrusel/Mujer_Reclinada.jpg" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 10px;"></div></div>
-        <div class="swiper-slide"><div style="aspect-ratio: 3 / 2; display: flex; justify-content: center; align-items: center;"><img src="img/carrusel/Mujer_Sentada.jpg" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 10px;"></div></div>
-        <div class="swiper-slide"><div style="aspect-ratio: 3 / 2; display: flex; justify-content: center; align-items: center;"><img src="img/carrusel/Mujer.jpg" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 10px;"></div></div>
-        <div class="swiper-slide"><div style="aspect-ratio: 3 / 2; display: flex; justify-content: center; align-items: center;"><img src="img/carrusel/Pensamiento.jpg" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 10px;"></div></div>
-        <div class="swiper-slide"><div style="aspect-ratio: 3 / 2; display: flex; justify-content: center; align-items: center;"><img src="img/carrusel/Perro.jpg" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 10px;"></div></div>
-        <div class="swiper-slide"><div style="aspect-ratio: 3 / 2; display: flex; justify-content: center; align-items: center;"><img src="img/carrusel/Rapto_de_Europa.jpg" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 10px;"></div></div>
-        <div class="swiper-slide"><div style="aspect-ratio: 3 / 2; display: flex; justify-content: center; align-items: center;"><img src="img/carrusel/Soldado_Romano.jpg" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 10px;"></div></div>
-        <div class="swiper-slide"><div style="aspect-ratio: 3 / 2; display: flex; justify-content: center; align-items: center;"><img src="img/carrusel/Venus_Dormida.jpg" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 10px;"></div></div>
-
-      </div>
-
-      <!-- Controles Swiper -->
-      <div class="swiper-button-next" style="color:#fff;"></div>
-      <div class="swiper-button-prev" style="color:#fff;"></div>
-      <div class="swiper-pagination" style="bottom:5px;"></div>
-    </div>
-  </div>
-</div>
-
-
+<!-- Librerías necesarias -->
 <script src="vendor/screenfull.min.js" ></script>
 <script src="vendor/bowser.min.js" ></script>
 <script src="vendor/marzipano.js" ></script>
 <script src="data.js"></script>
-<!-- Swiper JS para carrusel -->
+
+<!-- Swiper JS para carruseles en hotspots -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<!-- Lógica principal -->
 <script src="index.js"></script>
 
 </body>
