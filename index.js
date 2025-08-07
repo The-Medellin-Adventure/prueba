@@ -180,7 +180,7 @@
 
     element.addEventListener('click', function () {
       if (hotspot.carrusel) {
-        mostrarCarrusel();
+        mostrarCarrusel(hotspot.images, hotspot.title);
       } else {
         showImageModal(hotspot.photo, hotspot.title);
       }
@@ -257,10 +257,30 @@
     }
   }
 
-  function mostrarCarrusel() {
-    document.getElementById('carruselModal').style.display = 'flex';
-    carruselSwiper.update();
-  }
+function mostrarCarrusel(images = [], title = "") {
+  const modal = document.getElementById('carruselModal');
+  const wrapper = modal.querySelector('.swiper-wrapper');
+
+  // Limpiar contenido anterior
+  wrapper.innerHTML = "";
+
+  // Agregar imágenes
+  images.forEach((imgObj) => {
+    const slide = document.createElement('div');
+    slide.className = "swiper-slide";
+    slide.innerHTML = `
+      <div style="aspect-ratio: 3 / 2; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+        <img src="${imgObj.src}" style="max-width: 100%; max-height: 80%; object-fit: contain; border-radius: 10px;">
+        <div style="color: white; padding-top: 8px; font-size: 1rem; text-align: center;">${imgObj.caption || ""}</div>
+      </div>
+    `;
+    wrapper.appendChild(slide);
+  });
+
+  // Mostrar modal
+  modal.style.display = 'flex';
+  carruselSwiper.update();
+}
 
   document.getElementById('cerrarCarrusel').onclick = function () {
     document.getElementById('carruselModal').style.display = 'none';
