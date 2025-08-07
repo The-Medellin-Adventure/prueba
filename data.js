@@ -61,7 +61,7 @@ window.APP_DATA = {
   "type": "carousel",
   "pitch": -0.687523,
   "yaw": -0.3319,
-  "tooltip": "Rafael Uribe Uribe"
+  "tooltip": "Rafael Uribe Uribe",
   "images": [
     {
       "src": "img/RafaelUribeUribe.jpg",
@@ -78,9 +78,10 @@ window.APP_DATA = {
     {
       "src": "img/Vistadesdecupula.jpg",
       "caption": "Sube hasta la cúpula disfruta y toma fotos increibles"
-}
-  ]
-},
+    }
+    ]
+  },
+  {
         // <-- AÑADE ESTE NUEVO HOTSPOT PARA EL CARRUSEL
         {
           "pitch": 0.0122, // Cambia la posición como prefieras
