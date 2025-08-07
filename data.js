@@ -61,6 +61,28 @@ window.APP_DATA = {
       }
     ]
   },
+{
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch":  0.0122,
+    "yaw": 0.7437,
+    "tooltip": "Esculturas Maestro Fernando Botero",
+    "images": [
+      {
+        "src": "img/carrusel/Maternidad.jpg",
+        "caption": "Maternidad. Una de las obras más tiernas de Botero, Maternidad captura el vínculo entre madre e hijo, una representación de la protección y el amor maternal."
+      },
+      {
+        "src": "img/carrusel/Caballo.jpg",
+        "caption": "Caballo. El Caballo es otra pieza monumental que resalta el amor de Botero por los animales, representados en su estilo característico, con líneas suaves y voluminosas."
+      },
+      {
+        "src": "img/carrusel/Hombre_Vestido.jpg",
+"caption": "Hombre Vestido. Es una representación de un hombre robusto, completamente vestido, con una postura erguida que refleja el poder y la presencia masculina."
+      }
+    ]
+  },
   {
     "type": "camera",
     "carrusel": true,
