@@ -58,6 +58,10 @@ window.APP_DATA = {
       {
         "src": "img/EstacionBerrio.jpg",
         "caption": "Interior estación Parque Berrio del metro"
+     },
+      {
+        "src": "img/Rutas_Metro.jpg",
+        "caption": "Mapa rutas del Metro de Medellín"
       }
     ]
   },
