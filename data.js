@@ -61,7 +61,7 @@ window.APP_DATA = {
      },
       {
         "src": "img/Rutas_Metro.jpg",
-        "caption": "Mapa rutas del Metro de Medellín"
+        "caption": "Mapa rutas del Metro de Medellín."
       }
     ]
   },
