@@ -429,4 +429,39 @@
   el = document.getElementById('viewIn'); if (el) el.addEventListener('click', function () { view.setFov(view.fov() - zoomSpeed); });
   el = document.getElementById('viewOut'); if (el) el.addEventListener('click', function () { view.setFov(view.fov() + zoomSpeed); });
 
+
+// =========================
+// VIDEO FIJO POR ESCENA
+// =========================
+
+// Mapea ID de escena -> ruta de video
+const sceneVideos = {
+  "0-plaza-botero-botero": "videos/video1.mp4",
+  // agrega más según necesites
+};
+
+function updateVideoForScene(sceneId) {
+  const videoCard = document.getElementById("videoCard");
+  const sceneVideo = document.getElementById("sceneVideo");
+
+  if (sceneVideos[sceneId]) {
+    sceneVideo.src = sceneVideos[sceneId];
+    videoCard.style.display = "block";
+  } else {
+    videoCard.style.display = "none";
+  }
+}
+
+// Interceptar cuando se cambia de escena
+const originalSwitchScene = switchScene;
+switchScene = function(scene) {
+  originalSwitchScene(scene);
+  updateVideoForScene(scene.data.id);
+};
+
+// Inicializar video en la primera escena
+if (scenes.length > 0) {
+  updateVideoForScene(scenes[0].data.id);
+}
+
 })();
