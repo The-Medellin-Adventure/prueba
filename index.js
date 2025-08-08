@@ -258,59 +258,7 @@
   }
 
 // Función para mostrar el carrusel
-function mostrarCarrusel(imagenes, titulo) {
-  const carruselContainer = document.getElementById('carruselContainer');
-  const carruselTitulo = document.getElementById('carruselTitulo');
-  const carruselDiv = document.getElementById('carrusel');
-
-  if (!carruselContainer || !carruselDiv) {
-    console.error("No se encontró el contenedor del carrusel en el HTML");
-    return;
-  }
-
-  carruselTitulo.textContent = titulo;
-
-  // Estructura HTML del carrusel
-  carruselDiv.innerHTML = `
-    <div class="swiper-wrapper">
-      ${imagenes.map(img => `
-        <div class="swiper-slide">
-          <div class="slide-content">
-            <img src="${img.src}" />
-            <p>${img.texto}</p>
-          </div>
-        </div>
-      `).join('')}
-    </div>
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
-    <div class="swiper-pagination"></div>
-  `;
-
-  carruselContainer.style.display = 'flex';
-
-  // Inicializar Swiper con un retraso para que cuente bien los slides
-  setTimeout(() => {
-    new Swiper('.carrusel-swiper', {
-      loop: imagenes.length > 1,
-      pagination: { el: '.swiper-pagination', clickable: true },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-    });
-  }, 50);
-
-  // Botón cerrar
-  const cerrarBtn = document.getElementById('cerrarCarrusel');
-  if (cerrarBtn) {
-    cerrarBtn.onclick = () => {
-      carruselContainer.style.display = 'none';
-      carruselDiv.innerHTML = '';
-    };
-  }
-}
-
+mostrarCarrusel
 
 // Ejemplo: Evento de un hotspot tipo carrusel
 document.querySelectorAll('.hotspot-carrusel').forEach(hotspot => {
