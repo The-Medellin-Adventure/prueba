@@ -188,6 +188,36 @@
   </div>
 </div>
 
+<!-- Contenedor del carrusel modal -->
+<div id="carruselContainer" style="
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.8);
+  z-index: 10000;
+  justify-content: center;
+  align-items: center;
+">
+  <div style="position: relative; max-width: 800px; width: 90%; background: rgba(0,0,0,0.6); padding: 20px; border-radius: 10px;">
+    <button id="cerrarCarrusel" style="position: absolute; top: 10px; right: 10px; font-size: 2rem; background: none; color: #fff; border: none; cursor: pointer;">&times;</button>
+    
+    <h2 id="carruselTitulo" style="color: white; text-align: center; margin-bottom: 15px;"></h2>
+    
+    <!-- Swiper -->
+    <div id="carrusel" class="swiper carrusel-swiper">
+      <div class="swiper-wrapper">
+        <!-- Las diapositivas se insertan dinámicamente desde index.js -->
+      </div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+</div>
+
 
 <script src="vendor/screenfull.min.js" ></script>
 <script src="vendor/bowser.min.js" ></script>

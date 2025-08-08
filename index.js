@@ -290,13 +290,14 @@ function mostrarCarrusel(imagenes, titulo) {
   carruselContainer.style.display = 'block';
 
   // Inicializar Swiper con navegación activada
-  new Swiper(carruselDiv, {
-    loop: true,
-    navigation: {
-      nextEl: carruselDiv.querySelector('.swiper-button-next'),
-      prevEl: carruselDiv.querySelector('.swiper-button-prev'),
-    },
-  });
+ new Swiper('.carrusel-swiper', {
+  loop: true,
+  pagination: { el: '.swiper-pagination', clickable: true },
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+});
 
   // Botón cerrar carrusel
   const cerrarBtn = document.getElementById('cerrarCarrusel');
