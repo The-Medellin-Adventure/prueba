@@ -366,4 +366,67 @@
     if (!el) return;
     el.addEventListener('click', function () {
       switchScene(scene);
-      if (document.body.
+      if (document.body.classList.contains('mobile')) hideSceneList();
+    });
+  });
+
+  // Fullscreen
+  if (screenfull && screenfull.enabled && data.settings && data.settings.fullscreenButton) {
+    document.body.classList.add('fullscreen-enabled');
+    if (fullscreenToggleElement) {
+      fullscreenToggleElement.addEventListener('click', function () { screenfull.toggle(); });
+      screenfull.on('change', function () { fullscreenToggleElement.classList.toggle('enabled', screenfull.isFullscreen); });
+    }
+  }
+
+  // Autorotate
+  if (autorotateToggleElement) autorotateToggleElement.addEventListener('click', toggleAutorotate);
+  var autorotate = Marzipano.autorotate({ yawSpeed: 0.03, targetPitch: 0, targetFov: Math.PI / 2 });
+  if (data.settings && data.settings.autorotateEnabled) {
+    if (autorotateToggleElement) autorotateToggleElement.classList.add('enabled');
+  }
+
+  function toggleAutorotate() {
+    if (!autorotateToggleElement) return;
+    if (autorotateToggleElement.classList.contains('enabled')) {
+      autorotateToggleElement.classList.remove('enabled'); stopAutorotate();
+    } else {
+      autorotateToggleElement.classList.add('enabled'); startAutorotate();
+    }
+  }
+  function startAutorotate() {
+    if (!autorotateToggleElement || !autorotateToggleElement.classList.contains('enabled')) return;
+    viewer.startMovement(autorotate); viewer.setIdleMovement(3000, autorotate);
+  }
+  function stopAutorotate() { viewer.stopMovement(); viewer.setIdleMovement(Infinity); }
+
+  function showSceneList() { if (sceneListElement) sceneListElement.classList.add('enabled'); if (sceneListToggleElement) sceneListToggleElement.classList.add('enabled'); }
+  function hideSceneList() { if (sceneListElement) sceneListElement.classList.remove('enabled'); if (sceneListToggleElement) sceneListToggleElement.classList.remove('enabled'); }
+  if (!document.body.classList.contains('mobile')) showSceneList();
+
+  // Toggle lista escenas
+  var sceneListToggle = document.getElementById("sceneListToggle");
+  var sceneList = document.getElementById("sceneList");
+  if (sceneListToggle && sceneList) {
+    sceneListToggle.addEventListener("click", function () {
+      var isEnabled = sceneList.classList.toggle("enabled");
+      var iconOn = sceneListToggle.querySelector(".icon.on");
+      var iconOff = sceneListToggle.querySelector(".icon.off");
+      if (iconOn) iconOn.style.display = isEnabled ? "inline" : "none";
+      if (iconOff) iconOff.style.display = isEnabled ? "none" : "inline";
+    });
+  }
+
+  // Controles de vista
+  var view = viewer.view();
+  var velocity = 1;
+  var zoomSpeed = 1;
+  var el;
+  el = document.getElementById('viewLeft'); if (el) el.addEventListener('click', function () { view.setYaw(view.yaw() - velocity); });
+  el = document.getElementById('viewRight'); if (el) el.addEventListener('click', function () { view.setYaw(view.yaw() + velocity); });
+  el = document.getElementById('viewUp'); if (el) el.addEventListener('click', function () { view.setPitch(view.pitch() + velocity); });
+  el = document.getElementById('viewDown'); if (el) el.addEventListener('click', function () { view.setPitch(view.pitch() - velocity); });
+  el = document.getElementById('viewIn'); if (el) el.addEventListener('click', function () { view.setFov(view.fov() - zoomSpeed); });
+  el = document.getElementById('viewOut'); if (el) el.addEventListener('click', function () { view.setFov(view.fov() + zoomSpeed); });
+
+})();
