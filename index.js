@@ -160,13 +160,6 @@ function setVideoForScene(sceneId) {
       }
     });
 
-    // Audio hotspot en primera escena (opcional)
-    if (sceneData.id === "0-plaza-botero-botero") {
-      setTimeout(function () {
-        createAudioHotspot(1.0, 0.1, 'audio/audio1.mp3');
-      }, 500);
-    }
-
     return { data: sceneData, scene: scene, view: view };
   }
 
@@ -341,33 +334,6 @@ function setVideoForScene(sceneId) {
     });
   }
 
-  // Hotspot audio
-  function createAudioHotspot(yaw, pitch, audioSrc) {
-    var hotspot = document.createElement('div');
-    hotspot.classList.add('hotspot-audio');
-
-    var icon = document.createElement('img');
-    icon.src = 'img/audio-icon.png';
-    icon.style = 'width:40px;cursor:pointer;transition:transform 0.2s;';
-
-    icon.addEventListener('mouseover', function () { icon.style.transform = 'scale(1.2)'; });
-    icon.addEventListener('mouseout', function () { icon.style.transform = 'scale(1)'; });
-
-    var audio = document.createElement('audio');
-    audio.src = audioSrc;
-    audio.preload = 'auto';
-
-    icon.addEventListener('click', function () {
-      if (audio.paused) audio.play(); else audio.pause();
-    });
-
-    hotspot.appendChild(icon);
-    hotspot.appendChild(audio);
-
-    if (viewer.scene()) {
-      viewer.scene().hotspotContainer().createHotspot(hotspot, { yaw: yaw, pitch: pitch });
-    }
-  }
 
   function stopTouchAndScrollEventPropagation(element) {
     ['touchstart', 'touchmove', 'touchend', 'touchcancel', 'wheel', 'mousewheel'].forEach(function (eventName) {
