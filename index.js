@@ -1,13 +1,11 @@
-// index.js completo (versión corregida y estable)
-'use strict';
-
+// index.js — versión corregida y robusta
 'use strict';
 
 (function () {
   var Marzipano = window.Marzipano;
   var bowser = window.bowser;
   var screenfull = window.screenfull;
-  var data = window.APP_DATA;
+  var data = window.APP_DATA || {};
 
   var panoElement = document.querySelector('#pano');
   var sceneNameElement = document.querySelector('#titleBar .sceneName');
@@ -19,16 +17,31 @@
 
   var viewerOpts = {
     controls: {
-      mouseViewMode: data.settings.mouseViewMode
+      mouseViewMode: (data.settings && data.settings.mouseViewMode) || 'drag'
     }
   };
   var viewer = new Marzipano.Viewer(panoElement, viewerOpts);
   window.viewer = viewer;
 
+  // Mantener referencia al Swiper actual para destruirlo cuando se cierre / reabra
+  var currentSwiper = null;
+
+  // Helper para escapar texto en HTML (evita inyección en captions)
+  function escapeHtml(str) {
+    if (!str) return '';
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
   // =========================
   // FUNCIÓN MOSTRAR CARRUSEL
   // =========================
   function mostrarCarrusel(imagenes, titulo) {
+    imagenes = Array.isArray(imagenes) ? imagenes : [];
     const carruselContainer = document.getElementById('carruselContainer');
     const carruselTitulo = document.getElementById('carruselTitulo');
     const swiperWrapper = document.querySelector('#carrusel .swiper-wrapper');
@@ -38,90 +51,109 @@
       return;
     }
 
-     // Título
-    carruselTitulo.textContent = titulo || "";
+    // Título
+    carruselTitulo.textContent = titulo || '';
 
     // Limpiar diapositivas anteriores
     swiperWrapper.innerHTML = '';
 
-    // Insertar diapositivas conservando formato original
-    imagenes.forEach(img => {
-      const slide = document.createElement('div');
+    // Insertar diapositivas conservando formato (aspect-ratio, object-fit...)
+    imagenes.forEach(function (img) {
+      var src = img.src || img.url || '';
+      var caption = img.caption || img.texto || '';
+      var slide = document.createElement('div');
       slide.className = 'swiper-slide';
-      slide.innerHTML = `
-        <div class="slide-content">
-          <img src="${img.src}" alt="" style="max-width:100%;border-radius:8px;"/>
-          <p style="color:white;margin-top:8px;text-align:center;">${img.texto || ''}</p>
-        </div>
-      `;
+      slide.innerHTML = ''
+        + '<div style="aspect-ratio:3/2;display:flex;justify-content:center;align-items:center;">'
+        +   '<img src="' + escapeHtml(src) + '" '
+        +       'style="max-width:100%;max-height:100%;object-fit:contain;border-radius:10px;" '
+        +       'alt="' + escapeHtml(caption) + '">'
+        + '</div>'
+        + '<p style="color:white;margin-top:8px;text-align:center;">' + escapeHtml(caption) + '</p>';
       swiperWrapper.appendChild(slide);
     });
 
     // Mostrar contenedor
     carruselContainer.style.display = 'flex';
 
-    // Inicializar Swiper
-    new Swiper('.carrusel-swiper', {
+    // Destruir swiper previo si existe (evita duplicados y warnings)
+    if (currentSwiper) {
+      try { currentSwiper.destroy(true, true); } catch (e) { /* ignorar */ }
+      currentSwiper = null;
+    }
+
+    // Inicializar Swiper (solo loop si hay >1 slide)
+    currentSwiper = new Swiper('.carrusel-swiper', {
       loop: imagenes.length > 1,
+      slidesPerView: 1,
+      spaceBetween: 10,
       pagination: { el: '.swiper-pagination', clickable: true },
-      navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+      navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }
     });
 
-    // Botón cerrar
-    const cerrarBtn = document.getElementById('cerrarCarrusel');
+    // Botón cerrar: ocultar y destruir swiper
+    var cerrarBtn = document.getElementById('cerrarCarrusel');
     if (cerrarBtn) {
-      cerrarBtn.onclick = () => {
+      cerrarBtn.onclick = function () {
         carruselContainer.style.display = 'none';
         swiperWrapper.innerHTML = '';
+        if (currentSwiper) {
+          try { currentSwiper.destroy(true, true); } catch (e) {}
+          currentSwiper = null;
+        }
       };
     }
-  };
+  }
+
+  // Hacer accesible globalmente (por si algún HTML o script externo lo llama)
+  window.mostrarCarrusel = mostrarCarrusel;
 
   // =========================
   // CREAR ESCENAS
   // =========================
-  function createScene(data) {
+  function createScene(sceneData) {
     var urlPrefix = "tiles";
     var source = Marzipano.ImageUrlSource.fromString(
-      urlPrefix + "/" + data.id + "/{z}/{f}/{y}/{x}.jpg",
-      { cubeMapPreviewUrl: urlPrefix + "/" + data.id + "/preview.jpg" }
+      urlPrefix + "/" + sceneData.id + "/{z}/{f}/{y}/{x}.jpg",
+      { cubeMapPreviewUrl: urlPrefix + "/" + sceneData.id + "/preview.jpg" }
     );
-    var geometry = new Marzipano.CubeGeometry(data.levels);
-    var limiter = Marzipano.RectilinearView.limit.traditional(data.faceSize, 100 * Math.PI / 180, 120 * Math.PI / 180);
-    var view = new Marzipano.RectilinearView(data.initialViewParameters, limiter);
-    var scene = viewer.createScene({ source, geometry, view, pinFirstLevel: true });
+    var geometry = new Marzipano.CubeGeometry(sceneData.levels);
+    var limiter = Marzipano.RectilinearView.limit.traditional(sceneData.faceSize, 100 * Math.PI / 180, 120 * Math.PI / 180);
+    var view = new Marzipano.RectilinearView(sceneData.initialViewParameters, limiter);
+    var scene = viewer.createScene({ source: source, geometry: geometry, view: view, pinFirstLevel: true });
 
-    data.linkHotspots.forEach(function (hotspot) {
+    (sceneData.linkHotspots || []).forEach(function (hotspot) {
       var element = createLinkHotspotElement(hotspot);
       scene.hotspotContainer().createHotspot(element, { yaw: hotspot.yaw, pitch: hotspot.pitch });
     });
 
-    data.infoHotspots.forEach(function (hotspot) {
+    (sceneData.infoHotspots || []).forEach(function (hotspot) {
       var element = createInfoHotspotElement(hotspot);
       scene.hotspotContainer().createHotspot(element, { yaw: hotspot.yaw, pitch: hotspot.pitch });
     });
 
-    if (data.hotSpots && data.hotSpots.length > 0) {
-      data.hotSpots.forEach(function (hotspot) {
-        if (hotspot.type === "camera") {
-          var element = createCameraHotspot(hotspot);
-          scene.hotspotContainer().createHotspot(element, { yaw: hotspot.yaw, pitch: hotspot.pitch });
-        }
-      });
-    }
+    (sceneData.hotSpots || []).forEach(function (hotspot) {
+      if (hotspot.type === "camera") {
+        var element = createCameraHotspot(hotspot);
+        scene.hotspotContainer().createHotspot(element, { yaw: hotspot.yaw, pitch: hotspot.pitch });
+      }
+    });
 
-    if (data.id === "0-plaza-botero-botero") {
-      setTimeout(() => {
+    // Audio hotspot en primera escena (opcional)
+    if (sceneData.id === "0-plaza-botero-botero") {
+      setTimeout(function () {
         createAudioHotspot(1.0, 0.1, 'audio/audio1.mp3');
       }, 500);
     }
 
-    return { data, scene, view };
+    return { data: sceneData, scene: scene, view: view };
   }
 
-  var scenes = data.scenes.map(createScene);
+  var scenes = (data.scenes || []).map(createScene);
 
-  switchScene(scenes[0]);
+  if (scenes.length > 0) {
+    switchScene(scenes[0]);
+  }
 
   function switchScene(scene) {
     stopAutorotate();
@@ -133,19 +165,21 @@
   }
 
   function updateSceneName(scene) {
-    sceneNameElement.innerHTML = sanitize(scene.data.name);
+    if (sceneNameElement) sceneNameElement.innerHTML = sanitize(scene.data.name || '');
   }
 
   function updateSceneList(scene) {
-    sceneElements.forEach(function (el) {
+    Array.prototype.forEach.call(sceneElements || [], function (el) {
+      if (!el) return;
       el.classList.toggle('current', el.getAttribute('data-id') === scene.data.id);
     });
   }
 
   function sanitize(s) {
-    return s.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;');
+    return (s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   }
 
+  // Hotspot - link
   function createLinkHotspotElement(hotspot) {
     var wrapper = document.createElement('div');
     wrapper.classList.add('hotspot', 'link-hotspot');
@@ -153,21 +187,24 @@
     var icon = document.createElement('img');
     icon.src = 'img/link.png';
     icon.classList.add('link-hotspot-icon');
-    icon.style.transform = 'rotate(' + hotspot.rotation + 'rad)';
+    if (typeof hotspot.rotation !== 'undefined') icon.style.transform = 'rotate(' + hotspot.rotation + 'rad)';
     wrapper.appendChild(icon);
 
     var tooltip = document.createElement('div');
     tooltip.classList.add('hotspot-tooltip', 'link-hotspot-tooltip');
-    tooltip.innerHTML = findSceneDataById(hotspot.target).name;
+    var sceneData = findSceneDataById(hotspot.target);
+    tooltip.innerHTML = (sceneData && sceneData.name) ? sceneData.name : '';
     wrapper.appendChild(tooltip);
 
     wrapper.addEventListener('click', function () {
-      switchScene(findSceneById(hotspot.target));
+      var s = findSceneById(hotspot.target);
+      if (s) switchScene(s);
     });
     stopTouchAndScrollEventPropagation(wrapper);
     return wrapper;
   }
 
+  // Hotspot - info
   function createInfoHotspotElement(hotspot) {
     var wrapper = document.createElement('div');
     wrapper.classList.add('hotspot', 'info-hotspot');
@@ -186,7 +223,7 @@
     titleWrapper.classList.add('info-hotspot-title-wrapper');
     var title = document.createElement('div');
     title.classList.add('info-hotspot-title');
-    title.innerHTML = hotspot.title;
+    title.innerHTML = hotspot.title || '';
     titleWrapper.appendChild(title);
 
     var closeWrapper = document.createElement('div');
@@ -202,7 +239,7 @@
 
     var text = document.createElement('div');
     text.classList.add('info-hotspot-text');
-    text.innerHTML = hotspot.text;
+    text.innerHTML = hotspot.text || '';
 
     wrapper.appendChild(header);
     wrapper.appendChild(text);
@@ -224,16 +261,17 @@
     return wrapper;
   }
 
+  // Hotspot - camera (imagen / carrusel)
   function createCameraHotspot(hotspot) {
     var element = document.createElement('img');
-    element.src = hotspot.image;
+    element.src = hotspot.image || 'img/Camara.png';
     element.className = 'camera-hotspot-icon';
     element.style = "width:48px;height:48px;cursor:pointer;border-radius:50%;box-shadow:0 2px 8px rgba(0,0,0,0.25);";
-    element.title = hotspot.title || "";
+    element.title = hotspot.tooltip || hotspot.title || "";
 
     element.addEventListener('click', function () {
       if (hotspot.carrusel) {
-        mostrarCarrusel(hotspot.images, hotspot.title);
+        mostrarCarrusel(hotspot.images || [], hotspot.tooltip || hotspot.title || '');
       } else {
         showImageModal(hotspot.photo, hotspot.title);
       }
@@ -241,6 +279,7 @@
     return element;
   }
 
+  // Modal imagen simple
   function showImageModal(photoSrc, title) {
     var oldModal = document.getElementById('custom-image-modal');
     if (oldModal) oldModal.remove();
@@ -254,7 +293,7 @@
 
     var img = document.createElement('img');
     img.src = photoSrc;
-    img.alt = title || "";
+    img.alt = title || '';
     img.style = 'max-width:90vw;max-height:80vh;border-radius:8px;';
     content.appendChild(img);
 
@@ -268,9 +307,7 @@
     var close = document.createElement('span');
     close.textContent = '×';
     close.style = 'position:absolute;top:8px;right:16px;cursor:pointer;font-size:2rem;color:#222;';
-    close.addEventListener('click', function () {
-      modal.remove();
-    });
+    close.addEventListener('click', function () { modal.remove(); });
     content.appendChild(close);
 
     modal.appendChild(content);
@@ -281,6 +318,7 @@
     });
   }
 
+  // Hotspot audio
   function createAudioHotspot(yaw, pitch, audioSrc) {
     var hotspot = document.createElement('div');
     hotspot.classList.add('hotspot-audio');
@@ -289,31 +327,28 @@
     icon.src = 'img/audio-icon.png';
     icon.style = 'width:40px;cursor:pointer;transition:transform 0.2s;';
 
-    icon.addEventListener('mouseover', () => icon.style.transform = 'scale(1.2)');
-    icon.addEventListener('mouseout', () => icon.style.transform = 'scale(1)');
+    icon.addEventListener('mouseover', function () { icon.style.transform = 'scale(1.2)'; });
+    icon.addEventListener('mouseout', function () { icon.style.transform = 'scale(1)'; });
 
     var audio = document.createElement('audio');
     audio.src = audioSrc;
     audio.preload = 'auto';
 
-    icon.addEventListener('click', () => {
-      if (audio.paused) audio.play();
-      else audio.pause();
+    icon.addEventListener('click', function () {
+      if (audio.paused) audio.play(); else audio.pause();
     });
 
     hotspot.appendChild(icon);
     hotspot.appendChild(audio);
 
     if (viewer.scene()) {
-      viewer.scene().hotspotContainer().createHotspot(hotspot, { yaw, pitch });
+      viewer.scene().hotspotContainer().createHotspot(hotspot, { yaw: yaw, pitch: pitch });
     }
   }
 
   function stopTouchAndScrollEventPropagation(element) {
     ['touchstart', 'touchmove', 'touchend', 'touchcancel', 'wheel', 'mousewheel'].forEach(function (eventName) {
-      element.addEventListener(eventName, function (event) {
-        event.stopPropagation();
-      });
+      element.addEventListener(eventName, function (event) { event.stopPropagation(); });
     });
   }
 
@@ -322,110 +357,13 @@
   }
 
   function findSceneDataById(id) {
-    return data.scenes.find(function (s) { return s.id === id; });
+    return (data.scenes || []).find(function (s) { return s.id === id; });
   }
 
+  // Events lista escenas (si existe el elemento)
   scenes.forEach(function (scene) {
     var el = document.querySelector('#sceneList .scene[data-id="' + scene.data.id + '"]');
+    if (!el) return;
     el.addEventListener('click', function () {
       switchScene(scene);
-      if (document.body.classList.contains('mobile')) hideSceneList();
-    });
-  });
-
-  if (screenfull.enabled && data.settings.fullscreenButton) {
-    document.body.classList.add('fullscreen-enabled');
-    fullscreenToggleElement.addEventListener('click', function () {
-      screenfull.toggle();
-    });
-    screenfull.on('change', function () {
-      fullscreenToggleElement.classList.toggle('enabled', screenfull.isFullscreen);
-    });
-  }
-
-  autorotateToggleElement.addEventListener('click', toggleAutorotate);
-
-  var autorotate = Marzipano.autorotate({ yawSpeed: 0.03, targetPitch: 0, targetFov: Math.PI / 2 });
-  if (data.settings.autorotateEnabled) {
-    autorotateToggleElement.classList.add('enabled');
-  }
-
-  function toggleAutorotate() {
-    if (autorotateToggleElement.classList.contains('enabled')) {
-      autorotateToggleElement.classList.remove('enabled');
-      stopAutorotate();
-    } else {
-      autorotateToggleElement.classList.add('enabled');
-      startAutorotate();
-    }
-  }
-
-  function startAutorotate() {
-    if (!autorotateToggleElement.classList.contains('enabled')) return;
-    viewer.startMovement(autorotate);
-    viewer.setIdleMovement(3000, autorotate);
-  }
-
-  function stopAutorotate() {
-    viewer.stopMovement();
-    viewer.setIdleMovement(Infinity);
-  }
-
-  function showSceneList() {
-    sceneListElement.classList.add('enabled');
-    sceneListToggleElement.classList.add('enabled');
-  }
-
-  function hideSceneList() {
-    sceneListElement.classList.remove('enabled');
-    sceneListToggleElement.classList.remove('enabled');
-  }
-
-  if (!document.body.classList.contains('mobile')) showSceneList();
-
-  var sceneListToggle = document.getElementById("sceneListToggle");
-  var sceneList = document.getElementById("sceneList");
-
-  sceneListToggle.addEventListener("click", function () {
-    var isEnabled = sceneList.classList.toggle("enabled");
-    var iconOn = sceneListToggle.querySelector(".icon.on");
-    var iconOff = sceneListToggle.querySelector(".icon.off");
-
-    if (isEnabled) {
-      iconOn.style.display = "inline";
-      iconOff.style.display = "none";
-    } else {
-      iconOn.style.display = "none";
-      iconOff.style.display = "inline";
-    }
-  });
-
-  var view = viewer.view();
-  var velocity = 0.7;
-  var zoomSpeed = 1;
-
-  document.getElementById('viewLeft').addEventListener('click', function () {
-    view.setYaw(view.yaw() - velocity);
-  });
-
-  document.getElementById('viewRight').addEventListener('click', function () {
-    view.setYaw(view.yaw() + velocity);
-  });
-
-  document.getElementById('viewUp').addEventListener('click', function () {
-    view.setPitch(view.pitch() + velocity);
-  });
-
-  document.getElementById('viewDown').addEventListener('click', function () {
-    view.setPitch(view.pitch() - velocity);
-  });
-
-  document.getElementById('viewIn').addEventListener('click', function () {
-    view.setFov(view.fov() - zoomSpeed);
-  });
-
-  document.getElementById('viewOut').addEventListener('click', function () {
-    view.setFov(view.fov() + zoomSpeed);
-  });
-
-})();
+      if (document.body.
