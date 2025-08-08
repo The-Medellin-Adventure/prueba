@@ -270,7 +270,7 @@ function mostrarCarrusel(imagenes, titulo) {
 
   carruselTitulo.textContent = titulo;
 
-  // Estructura HTML del carrusel con flechas
+  // Estructura HTML del carrusel
   carruselDiv.innerHTML = `
     <div class="swiper-wrapper">
       ${imagenes.map(img => `
@@ -282,24 +282,26 @@ function mostrarCarrusel(imagenes, titulo) {
         </div>
       `).join('')}
     </div>
-    <!-- Flechas de navegación -->
     <div class="swiper-button-prev"></div>
     <div class="swiper-button-next"></div>
+    <div class="swiper-pagination"></div>
   `;
 
-  carruselContainer.style.display = 'block';
+  carruselContainer.style.display = 'flex';
 
-  // Inicializar Swiper con navegación activada
- new Swiper('.carrusel-swiper', {
-  loop: true,
-  pagination: { el: '.swiper-pagination', clickable: true },
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-});
+  // Inicializar Swiper con un retraso para que cuente bien los slides
+  setTimeout(() => {
+    new Swiper('.carrusel-swiper', {
+      loop: imagenes.length > 1,
+      pagination: { el: '.swiper-pagination', clickable: true },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+  }, 50);
 
-  // Botón cerrar carrusel
+  // Botón cerrar
   const cerrarBtn = document.getElementById('cerrarCarrusel');
   if (cerrarBtn) {
     cerrarBtn.onclick = () => {
@@ -308,6 +310,7 @@ function mostrarCarrusel(imagenes, titulo) {
     };
   }
 }
+
 
 // Ejemplo: Evento de un hotspot tipo carrusel
 document.querySelectorAll('.hotspot-carrusel').forEach(hotspot => {
