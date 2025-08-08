@@ -21,6 +21,51 @@
       border-radius: 50%;
       padding: 10px;
     }
+/* Marca de agua grande al centro */
+#watermark-bg {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.05; /* Muy transparente */
+  pointer-events: none;
+  z-index: 1;
+}
+
+#watermark-bg img {
+  max-width: 450px;
+}
+
+/* Marca de agua inferior con texto */
+#watermark-footer {
+  position: fixed;
+  bottom: 15px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(0, 0, 0, 0.45);
+  padding: 8px 14px;
+  border-radius: 6px;
+  z-index: 9999;
+}
+
+#watermark-footer img {
+  height: 32px;
+}
+
+.watermark-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.watermark-text span {
+  font-size: 13px;
+  color: white;
+  font-weight: 500;
+}
+
   </style>
 
 <style> @-ms-viewport { width: device-width; } </style>
@@ -180,6 +225,21 @@
     <source src="" type="video/mp4">
     Tu navegador no soporta el video.
   </video>
+</div>
+
+<!-- Marca de agua centrada -->
+<div id="watermark-bg">
+  <img src="img/logo.png" alt="The Medellin Adventure">
+</div>
+
+<!-- Marca de agua inferior con texto -->
+<div id="watermark-footer">
+  <img src="img/logo.png" alt="The Medellin Adventure">
+  <div class="watermark-text">
+    <span>The Medellin Adventure Tour Operador</span>
+    <span>https://themedellinadventure-com.webnode.com.co/</span>
+    <span>📞 +57 3247615677</span>
+  </div>
 </div>
 
 
