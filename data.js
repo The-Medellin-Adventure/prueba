@@ -80,6 +80,82 @@ window.APP_DATA = {
       {
         "src": "img/carrusel/Hombre_Vestido.jpg",
 "caption": "Hombre Vestido. Es una representación de un hombre robusto, completamente vestido, con una postura erguida que refleja el poder y la presencia masculina."
+},
+      {
+        "src": "img/carrusel/Mujer_Vestida.jpg",
+"caption": "Mujer Vestida. Esta figura muestra a una mujer con ropa, su volumen amplificado transmitiendo una sensación de plenitud y fortaleza."
+},
+      {
+        "src": "img/carrusel/Mujer_con_Espejo.jpg",
+"caption": "Mujer con Espejo. En esta escultura, una mujer sostiene un espejo, una obra que hace referencia tanto a la belleza femenina como a la introspección y el reflejo personal."
+},
+      {
+        "src": "img/carrusel/Adan.jpg",
+"caption": "Adan."
+},
+      {
+        "src": "img/carrusel/Eva.jpg",
+"caption": "Eva."
+},
+      {
+        "src": "img/carrusel/Mujer_con_Espejo.jpg",
+"caption": "Mujer con Espejo. Esta escultura muestra una mujer que sostiene una fruta, otra de las representaciones clásicas de Botero, que fusiona la figura humana con objetos de la vida cotidiana."
+},
+      {
+        "src": "img/carrusel/Gato.jpg",
+"caption": "Una de las esculturas más emblemáticas, El Gato ha llegado a ser un ícono de la ciudad. Con sus orejas grandes y cuerpo voluminoso, el gato destaca por su tamaño y su invitación a la interacción del público."
+},
+      {
+        "src": "img/carrusel/Perro.jpg",
+"caption": "Perro."
+},
+      {
+        "src": "img/carrusel/Mujer_Sentada.jpg",
+"caption": "Mujer Sentada. Esta figura de mujer sentada es una representación de la serenidad y el descanso, con las proporciones exageradas que dan cuenta de la sensualidad en la quietud."
+},
+      {
+        "src": "img/carrusel/Pensamiento.jpg",
+"caption": "Pensamiento. Esta escultura muestra una mujer voluptuosa recostada sobre una gran cabeza masculina, simbolizando que las ideas y la reflexión reposan en la mente humana. Es una metáfora visual de la relación entre cuerpo, mente y pensamiento."
+},
+      {
+        "src": "img/carrusel/Cabeza.jpg",
+"caption": "Cabeza. Esta figura de mujer sentada es una representación de la serenidad y el descanso, con las proporciones exageradas que dan cuenta de la sensualidad en la quietud."
+},
+      {
+        "src": "img/carrusel/Esfinge.jpg",
+"caption": "Esfinge. Figura mitológica transformada en su característico estilo voluminoso, con un aire de misterio y sabiduría."
+},
+      {
+        "src": "img/carrusel/Rapto_de_Europa.jpg",
+"caption": "Rapto de Europa. Una obra que hace alusión a la mitología clásica, donde Europa es raptada por Zeus transformado en toro."
+},
+      {
+        "src": "img/carrusel/Mujer_Reclinada.jpg",
+"caption": "Mujer Reclinada."
+},
+      {
+        "src": "img/carrusel/Hombre_Caminante.jpg",
+"caption": "Hombre Caminante. Muestra una figura humana en movimiento, capturando la fuerza y determinación de un ser humano que avanza en su camino."
+},
+      {
+        "src": "img/carrusel/Soldado_Romano.jpg",
+"caption": "Soldado Romano. Es una obra que hace alusión a los guerreros del Imperio Romano, representados con la fuerte presencia de las figuras de Botero."
+},
+      {
+        "src": "img/carrusel/Venus_Dormida.jpg",
+"caption": "Venus Dormida. Esta figura representa la figura típica de Venus (la diosa del amor), reclinada en actitud serena y sensual. Más que un símbolo mitológico, esta Venus parece invitarnos al disfrute tranquilo y contemplativo de la belleza en el espacio público"
+},
+      {
+        "src": "img/carrusel/Hombre_a_Caballo.jpg",
+"caption": "Hombre a caballo. Esta escultura presenta a un jinete y su montura en proporciones generosas y pausadas, invitando a la contemplación más que al movimiento. Es una metáfora del equilibrio entre fuerza y calma, enmarcada en un entorno urbano que dialoga entre arquitectura y naturaleza, memoria y renovación."
+},
+      {
+        "src": "img/carrusel/Mujer.jpg",
+"caption": "Mujer. Una figura femenina de grandes proporciones, representando la sensualidad y la fortaleza femenina en la tradición boterista."
+},
+      {
+        "src": "img/carrusel/Mano.jpg",
+"caption": "La Mano de Botero es una escultura que resalta la importancia de este órgano humano, representado de manera gigantesca y detallada, invitando a la reflexión sobre la acción humana."
       }
     ]
   },
