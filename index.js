@@ -1,6 +1,8 @@
 // index.js completo (versión corregida y estable)
 'use strict';
 
+'use strict';
+
 (function () {
   var Marzipano = window.Marzipano;
   var bowser = window.bowser;
@@ -23,7 +25,63 @@
   var viewer = new Marzipano.Viewer(panoElement, viewerOpts);
   window.viewer = viewer;
 
-  // Función para crear una escena
+  // =========================
+  // FUNCIÓN MOSTRAR CARRUSEL
+  // =========================
+  function mostrarCarrusel(imagenes, titulo) {
+    const carruselContainer = document.getElementById('carruselContainer');
+    const carruselTitulo = document.getElementById('carruselTitulo');
+    const carruselDiv = document.getElementById('carrusel');
+
+    if (!carruselContainer || !carruselDiv) {
+      console.error("No se encontró el contenedor del carrusel en el HTML");
+      return;
+    }
+
+    carruselTitulo.textContent = titulo;
+
+    carruselDiv.innerHTML = `
+      <div class="swiper-wrapper">
+        ${imagenes.map(img => `
+          <div class="swiper-slide">
+            <div class="slide-content">
+              <img src="${img.src}" />
+              <p>${img.texto}</p>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-pagination"></div>
+    `;
+
+    carruselContainer.style.display = 'flex';
+
+    new Swiper('.carrusel-swiper', {
+      loop: imagenes.length > 1, // Evita el warning si solo hay 1
+      pagination: { el: '.swiper-pagination', clickable: true },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+
+    const cerrarBtn = document.getElementById('cerrarCarrusel');
+    if (cerrarBtn) {
+      cerrarBtn.onclick = () => {
+        carruselContainer.style.display = 'none';
+        carruselDiv.innerHTML = '';
+      };
+    }
+  }
+ // Hacerla accesible globalmente
+  window.mostrarCarrusel = mostrarCarrusel;
+
+
+  // =========================
+  // CREAR ESCENAS
+  // =========================
   function createScene(data) {
     var urlPrefix = "tiles";
     var source = Marzipano.ImageUrlSource.fromString(
@@ -54,11 +112,10 @@
       });
     }
 
-    // Hotspot de audio solo en la primera escena
     if (data.id === "0-plaza-botero-botero") {
       setTimeout(() => {
         createAudioHotspot(1.0, 0.1, 'audio/audio1.mp3');
-      }, 500); // Esperamos a que la escena esté completamente cargada
+      }, 500);
     }
 
     return { data, scene, view };
@@ -66,10 +123,8 @@
 
   var scenes = data.scenes.map(createScene);
 
-  // Activar escena inicial
   switchScene(scenes[0]);
 
-  // Funciones reutilizables
   function switchScene(scene) {
     stopAutorotate();
     scene.view.setParameters(scene.data.initialViewParameters);
@@ -251,23 +306,10 @@
     hotspot.appendChild(icon);
     hotspot.appendChild(audio);
 
-    // Solo insertamos si ya hay una escena activa
     if (viewer.scene()) {
       viewer.scene().hotspotContainer().createHotspot(hotspot, { yaw, pitch });
     }
   }
-
-// Función para mostrar el carrusel
-mostrarCarrusel
-
-// Ejemplo: Evento de un hotspot tipo carrusel
-document.querySelectorAll('.hotspot-carrusel').forEach(hotspot => {
-  hotspot.addEventListener('click', () => {
-    const imagenes = JSON.parse(hotspot.dataset.imagenes || '[]');
-    const titulo = hotspot.dataset.titulo || 'Galería';
-    mostrarCarrusel(imagenes, titulo);
-  });
-});
 
   function stopTouchAndScrollEventPropagation(element) {
     ['touchstart', 'touchmove', 'touchend', 'touchcancel', 'wheel', 'mousewheel'].forEach(function (eventName) {
@@ -341,59 +383,51 @@ document.querySelectorAll('.hotspot-carrusel').forEach(hotspot => {
     sceneListToggleElement.classList.remove('enabled');
   }
 
-  function toggleSceneList() {
-    sceneListElement.classList.toggle('enabled');
-    sceneListToggleElement.classList.toggle('enabled');
-  }
-
   if (!document.body.classList.contains('mobile')) showSceneList();
-// Mostrar / Ocultar panel de escenas
-var sceneListToggle = document.getElementById("sceneListToggle");
-var sceneList = document.getElementById("sceneList");
 
-sceneListToggle.addEventListener("click", function () {
-  var isEnabled = sceneList.classList.toggle("enabled");
+  var sceneListToggle = document.getElementById("sceneListToggle");
+  var sceneList = document.getElementById("sceneList");
 
-  // Cambiar íconos expand/collapse según el estado
-  var iconOn = sceneListToggle.querySelector(".icon.on");
-  var iconOff = sceneListToggle.querySelector(".icon.off");
+  sceneListToggle.addEventListener("click", function () {
+    var isEnabled = sceneList.classList.toggle("enabled");
+    var iconOn = sceneListToggle.querySelector(".icon.on");
+    var iconOff = sceneListToggle.querySelector(".icon.off");
 
-  if (isEnabled) {
-    iconOn.style.display = "inline";
-    iconOff.style.display = "none";
-  } else {
-    iconOn.style.display = "none";
-    iconOff.style.display = "inline";
-  }
-});
-// === CONTROLES DE VISTA CON BOTONES INFERIORES ===
-var view = viewer.view();  // Obtenemos la vista de Marzipano
-var velocity = 0.7;        // Velocidad de rotación (radianes)
-var zoomSpeed = 1;         // Velocidad del zoom (fov)
+    if (isEnabled) {
+      iconOn.style.display = "inline";
+      iconOff.style.display = "none";
+    } else {
+      iconOn.style.display = "none";
+      iconOff.style.display = "inline";
+    }
+  });
 
-// Funciones individuales
-document.getElementById('viewLeft').addEventListener('click', function () {
-  view.setYaw(view.yaw() - velocity);
-});
+  var view = viewer.view();
+  var velocity = 0.7;
+  var zoomSpeed = 1;
 
-document.getElementById('viewRight').addEventListener('click', function () {
-  view.setYaw(view.yaw() + velocity);
-});
+  document.getElementById('viewLeft').addEventListener('click', function () {
+    view.setYaw(view.yaw() - velocity);
+  });
 
-document.getElementById('viewUp').addEventListener('click', function () {
-  view.setPitch(view.pitch() + velocity);
-});
+  document.getElementById('viewRight').addEventListener('click', function () {
+    view.setYaw(view.yaw() + velocity);
+  });
 
-document.getElementById('viewDown').addEventListener('click', function () {
-  view.setPitch(view.pitch() - velocity);
-});
+  document.getElementById('viewUp').addEventListener('click', function () {
+    view.setPitch(view.pitch() + velocity);
+  });
 
-document.getElementById('viewIn').addEventListener('click', function () {
-  view.setFov(view.fov() - zoomSpeed);
-});
+  document.getElementById('viewDown').addEventListener('click', function () {
+    view.setPitch(view.pitch() - velocity);
+  });
 
-document.getElementById('viewOut').addEventListener('click', function () {
-  view.setFov(view.fov() + zoomSpeed);
-});
+  document.getElementById('viewIn').addEventListener('click', function () {
+    view.setFov(view.fov() - zoomSpeed);
+  });
+
+  document.getElementById('viewOut').addEventListener('click', function () {
+    view.setFov(view.fov() + zoomSpeed);
+  });
 
 })();
