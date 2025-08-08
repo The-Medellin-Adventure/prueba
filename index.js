@@ -257,50 +257,65 @@
     }
   }
 
-function mostrarCarrusel(images = [], title = "") {
-  const modal = document.getElementById('carruselModal');
-  const wrapper = modal.querySelector('.swiper-wrapper');
+// Función para mostrar el carrusel
+function mostrarCarrusel(imagenes, titulo) {
+  const carruselContainer = document.getElementById('carruselContainer');
+  const carruselTitulo = document.getElementById('carruselTitulo');
+  const carruselDiv = document.getElementById('carrusel');
 
-  // Limpiar contenido anterior
-  wrapper.innerHTML = "";
+  if (!carruselContainer || !carruselDiv) {
+    console.error("No se encontró el contenedor del carrusel en el HTML");
+    return;
+  }
 
-  // Agregar imágenes
-  images.forEach((imgObj) => {
-    const slide = document.createElement('div');
-    slide.className = "swiper-slide";
-    slide.innerHTML = `
-      <div style="aspect-ratio: 3 / 2; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-        <img src="${imgObj.src}" style="max-width: 100%; max-height: 80%; object-fit: contain; border-radius: 10px;">
-        <div style="color: white; padding-top: 8px; font-size: 1rem; text-align: center;">${imgObj.caption || ""}</div>
-      </div>
-    `;
-    wrapper.appendChild(slide);
-  });
+  carruselTitulo.textContent = titulo;
 
-  // Mostrar modal
-  modal.style.display = 'flex';
-  carruselSwiper.update();
-}
+  // Estructura HTML del carrusel con flechas
+  carruselDiv.innerHTML = `
+    <div class="swiper-wrapper">
+      ${imagenes.map(img => `
+        <div class="swiper-slide">
+          <div class="slide-content">
+            <img src="${img.src}" />
+            <p>${img.texto}</p>
+          </div>
+        </div>
+      `).join('')}
+    </div>
+    <!-- Flechas de navegación -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  `;
 
-  document.getElementById('cerrarCarrusel').onclick = function () {
-    document.getElementById('carruselModal').style.display = 'none';
-  };
+  carruselContainer.style.display = 'block';
 
-  document.getElementById('carruselModal').addEventListener('click', function (e) {
-    if (e.target === this) this.style.display = 'none';
-  });
-
-  var carruselSwiper = new Swiper('.carrusel-swiper', {
+  // Inicializar Swiper con navegación activada
+  new Swiper(carruselDiv, {
     loop: true,
     navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev'
+      nextEl: carruselDiv.querySelector('.swiper-button-next'),
+      prevEl: carruselDiv.querySelector('.swiper-button-prev'),
     },
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true
-    }
   });
+
+  // Botón cerrar carrusel
+  const cerrarBtn = document.getElementById('cerrarCarrusel');
+  if (cerrarBtn) {
+    cerrarBtn.onclick = () => {
+      carruselContainer.style.display = 'none';
+      carruselDiv.innerHTML = '';
+    };
+  }
+}
+
+// Ejemplo: Evento de un hotspot tipo carrusel
+document.querySelectorAll('.hotspot-carrusel').forEach(hotspot => {
+  hotspot.addEventListener('click', () => {
+    const imagenes = JSON.parse(hotspot.dataset.imagenes || '[]');
+    const titulo = hotspot.dataset.titulo || 'Galería';
+    mostrarCarrusel(imagenes, titulo);
+  });
+});
 
   function stopTouchAndScrollEventPropagation(element) {
     ['touchstart', 'touchmove', 'touchend', 'touchcancel', 'wheel', 'mousewheel'].forEach(function (eventName) {
