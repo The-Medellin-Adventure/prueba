@@ -69,17 +69,31 @@
 /* Tarjeta flotante para video vertical */
 #videoCard {
   position: fixed;
-  bottom: 80px;
+  bottom: 20px;
   right: 20px;
-  width: 200px;
-  height: 355px;
+  width: 180px;
+  height: 320px;
   background: rgba(0, 0, 0, 0.6);
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.3);
   overflow: hidden;
   z-index: 10000;
 }
-
+#videoCard video {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+/* En móviles, que ocupe un poco más pero siga siendo vertical */
+@media (max-width: 768px) {
+  #videoCard {
+    max-width: 140px;
+    max-height: 260px;
+    bottom: 15px;
+    right: 15px;
+    padding: 4px;
+  }
+}
   </style>
 
 <style> @-ms-viewport { width: device-width; } </style>
@@ -223,23 +237,13 @@
   </div>
 </div>
 <!-- Tarjeta de Video Fija -->
-<div id="videoCard" style="
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 320px;
-  background: rgba(0,0,0,0.85);
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-  z-index: 9999;
-  display: none;
-">
-  <video id="sceneVideo" width="100%" controls style="display:block;">
+<div id="videoCard" style="display: none;">
+  <video id="sceneVideo" controls muted playsinline>
     <source src="" type="video/mp4">
     Tu navegador no soporta el video.
   </video>
 </div>
+
 
 <!-- Marca de agua centrada -->
 <div id="watermark-bg">
