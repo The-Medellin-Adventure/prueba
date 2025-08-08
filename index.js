@@ -108,6 +108,27 @@
   // Hacer accesible globalmente (por si algún HTML o script externo lo llama)
   window.mostrarCarrusel = mostrarCarrusel;
 
+// Cambia el video según la escena
+function setVideoForScene(sceneId) {
+  const videoElement = document.querySelector("#videoCard video");
+  if (!videoElement) return;
+
+  let videoSrc = "";
+  if (sceneId === "0-plaza-botero-botero") {
+    videoSrc = "videos/video1.mp4";
+  } else if (sceneId === "1-plaza-botero-y-palacio-rafael-uribe-uribe") {
+    videoSrc = "videos/video2.mp4";
+  }
+  // Agrega más escenas si es necesario
+
+  if (videoSrc) {
+    videoElement.querySelector("source").src = videoSrc;
+    videoElement.load();
+    videoElement.play();
+  }
+}
+
+
   // =========================
   // CREAR ESCENAS
   // =========================
@@ -162,6 +183,8 @@
     updateSceneName(scene);
     updateSceneList(scene);
     startAutorotate();
+// Cambiar video según escena
+  setVideoForScene(scene.data.id);
   }
 
   function updateSceneName(scene) {
