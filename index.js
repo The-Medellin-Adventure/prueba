@@ -31,53 +31,51 @@
   function mostrarCarrusel(imagenes, titulo) {
     const carruselContainer = document.getElementById('carruselContainer');
     const carruselTitulo = document.getElementById('carruselTitulo');
-    const carruselDiv = document.getElementById('carrusel');
+    const swiperWrapper = document.querySelector('#carrusel .swiper-wrapper');
 
-    if (!carruselContainer || !carruselDiv) {
+    if (!carruselContainer || !swiperWrapper) {
       console.error("No se encontró el contenedor del carrusel en el HTML");
       return;
     }
 
-    carruselTitulo.textContent = titulo;
+     // Título
+    carruselTitulo.textContent = titulo || "";
 
-    carruselDiv.innerHTML = `
-      <div class="swiper-wrapper">
-        ${imagenes.map(img => `
-          <div class="swiper-slide">
-            <div class="slide-content">
-              <img src="${img.src}" />
-              <p>${img.texto}</p>
-            </div>
-          </div>
-        `).join('')}
-      </div>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
-      <div class="swiper-pagination"></div>
-    `;
+    // Limpiar diapositivas anteriores
+    swiperWrapper.innerHTML = '';
 
-    carruselContainer.style.display = 'flex';
-
-    new Swiper('.carrusel-swiper', {
-      loop: imagenes.length > 1, // Evita el warning si solo hay 1
-      pagination: { el: '.swiper-pagination', clickable: true },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
+    // Insertar diapositivas conservando formato original
+    imagenes.forEach(img => {
+      const slide = document.createElement('div');
+      slide.className = 'swiper-slide';
+      slide.innerHTML = `
+        <div class="slide-content">
+          <img src="${img.src}" alt="" style="max-width:100%;border-radius:8px;"/>
+          <p style="color:white;margin-top:8px;text-align:center;">${img.texto || ''}</p>
+        </div>
+      `;
+      swiperWrapper.appendChild(slide);
     });
 
+    // Mostrar contenedor
+    carruselContainer.style.display = 'flex';
+
+    // Inicializar Swiper
+    new Swiper('.carrusel-swiper', {
+      loop: imagenes.length > 1,
+      pagination: { el: '.swiper-pagination', clickable: true },
+      navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+    });
+
+    // Botón cerrar
     const cerrarBtn = document.getElementById('cerrarCarrusel');
     if (cerrarBtn) {
       cerrarBtn.onclick = () => {
         carruselContainer.style.display = 'none';
-        carruselDiv.innerHTML = '';
+        swiperWrapper.innerHTML = '';
       };
     }
-  }
- // Hacerla accesible globalmente
-  window.mostrarCarrusel = mostrarCarrusel;
-
+  };
 
   // =========================
   // CREAR ESCENAS
