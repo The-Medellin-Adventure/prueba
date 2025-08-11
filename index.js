@@ -26,7 +26,7 @@
   // Mantener referencia al Swiper actual para destruirlo cuando se cierre / reabra
   var currentSwiper = null;
 
-  // Helper para escapar texto en HTML (evita inyección en captions)
+  // Helper para escapar texto en HTML
   function escapeHtml(str) {
     if (!str) return '';
     return String(str)
@@ -51,13 +51,9 @@
       return;
     }
 
-    // Título
     carruselTitulo.textContent = titulo || '';
-
-    // Limpiar diapositivas anteriores
     swiperWrapper.innerHTML = '';
 
-    // Insertar diapositivas conservando formato (aspect-ratio, object-fit...)
     imagenes.forEach(function (img) {
       var src = img.src || img.url || '';
       var caption = img.caption || img.texto || '';
@@ -73,16 +69,13 @@
       swiperWrapper.appendChild(slide);
     });
 
-    // Mostrar contenedor
     carruselContainer.style.display = 'flex';
 
-    // Destruir swiper previo si existe (evita duplicados y warnings)
     if (currentSwiper) {
-      try { currentSwiper.destroy(true, true); } catch (e) { /* ignorar */ }
+      try { currentSwiper.destroy(true, true); } catch (e) {}
       currentSwiper = null;
     }
 
-    // Inicializar Swiper (solo loop si hay >1 slide)
     currentSwiper = new Swiper('.carrusel-swiper', {
       loop: imagenes.length > 1,
       slidesPerView: 1,
@@ -91,7 +84,6 @@
       navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }
     });
 
-    // Botón cerrar: ocultar y destruir swiper
     var cerrarBtn = document.getElementById('cerrarCarrusel');
     if (cerrarBtn) {
       cerrarBtn.onclick = function () {
@@ -105,29 +97,7 @@
     }
   }
 
-  // Hacer accesible globalmente (por si algún HTML o script externo lo llama)
   window.mostrarCarrusel = mostrarCarrusel;
-
-// Cambia el video según la escena
-function setVideoForScene(sceneId) {
-  const videoElement = document.querySelector("#videoCard video");
-  if (!videoElement) return;
-
-  let videoSrc = "";
-  if (sceneId === "0-plaza-botero-botero") {
-    videoSrc = "videos/video1.mp4";
-  } else if (sceneId === "1-plaza-botero-y-palacio-rafael-uribe-uribe") {
-    videoSrc = "videos/video2.mp4";
-  }
-  // Agrega más escenas si es necesario
-
-  if (videoSrc) {
-    videoElement.querySelector("source").src = videoSrc;
-    videoElement.load();
-    videoElement.play();
-  }
-}
-
 
   // =========================
   // CREAR ESCENAS
@@ -176,8 +146,6 @@ function setVideoForScene(sceneId) {
     updateSceneName(scene);
     updateSceneList(scene);
     startAutorotate();
-// Cambiar video según escena
-  setVideoForScene(scene.data.id);
   }
 
   function updateSceneName(scene) {
@@ -193,6 +161,50 @@ function setVideoForScene(sceneId) {
 
   function sanitize(s) {
     return (s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+
+  // =========================
+  // VIDEO FIJO POR ESCENA — ÚNICO Y CORREGIDO
+  // =========================
+  const sceneVideos = {
+    "0-plaza-botero-botero": "videos/video1.mp4",
+    "1-plaza-botero-y-palacio-rafael-uribe-uribe": "videos/video2.mp4"
+  };
+
+  function updateVideoForScene(sceneId) {
+    const videoCard = document.getElementById("videoCard");
+    const sceneVideo = document.getElementById("sceneVideo");
+
+    if (!videoCard || !sceneVideo) return;
+
+    if (sceneVideos[sceneId]) {
+      if (sceneVideo.getAttribute('src') !== sceneVideos[sceneId]) {
+        sceneVideo.pause();
+        sceneVideo.removeAttribute('src');
+        sceneVideo.load();
+        sceneVideo.setAttribute('src', sceneVideos[sceneId]);
+        sceneVideo.load();
+        sceneVideo.muted = false; // cambiar a true si no quieres audio
+        sceneVideo.play().catch(()=>{});
+      }
+      videoCard.style.display = "block";
+    } else {
+      sceneVideo.pause();
+      sceneVideo.currentTime = 0;
+      sceneVideo.removeAttribute('src');
+      sceneVideo.load();
+      videoCard.style.display = "none";
+    }
+  }
+
+  const originalSwitchScene = switchScene;
+  switchScene = function(scene) {
+    originalSwitchScene(scene);
+    updateVideoForScene(scene.data.id);
+  };
+
+  if (scenes.length > 0) {
+    updateVideoForScene(scenes[0].data.id);
   }
 
   // Hotspot - link
@@ -277,7 +289,7 @@ function setVideoForScene(sceneId) {
     return wrapper;
   }
 
-  // Hotspot - camera (imagen / carrusel)
+  // Hotspot - camera
   function createCameraHotspot(hotspot) {
     var element = document.createElement('img');
     element.src = hotspot.image || 'img/Camara.png';
@@ -334,7 +346,6 @@ function setVideoForScene(sceneId) {
     });
   }
 
-
   function stopTouchAndScrollEventPropagation(element) {
     ['touchstart', 'touchmove', 'touchend', 'touchcancel', 'wheel', 'mousewheel'].forEach(function (eventName) {
       element.addEventListener(eventName, function (event) { event.stopPropagation(); });
@@ -349,7 +360,6 @@ function setVideoForScene(sceneId) {
     return (data.scenes || []).find(function (s) { return s.id === id; });
   }
 
-  // Events lista escenas (si existe el elemento)
   scenes.forEach(function (scene) {
     var el = document.querySelector('#sceneList .scene[data-id="' + scene.data.id + '"]');
     if (!el) return;
@@ -415,42 +425,4 @@ function setVideoForScene(sceneId) {
   el = document.getElementById('viewRight'); if (el) el.addEventListener('click', function () { view.setYaw(view.yaw() + velocity); });
   el = document.getElementById('viewUp'); if (el) el.addEventListener('click', function () { view.setPitch(view.pitch() + velocity); });
   el = document.getElementById('viewDown'); if (el) el.addEventListener('click', function () { view.setPitch(view.pitch() - velocity); });
-  el = document.getElementById('viewIn'); if (el) el.addEventListener('click', function () { view.setFov(view.fov() - zoomSpeed); });
-  el = document.getElementById('viewOut'); if (el) el.addEventListener('click', function () { view.setFov(view.fov() + zoomSpeed); });
-
-
-// =========================
-// VIDEO FIJO POR ESCENA
-// =========================
-
-// Mapea ID de escena -> ruta de video
-const sceneVideos = {
-  "0-plaza-botero-botero": "videos/video1.mp4",
-  // agrega más según necesites
-};
-
-function updateVideoForScene(sceneId) {
-  const videoCard = document.getElementById("videoCard");
-  const sceneVideo = document.getElementById("sceneVideo");
-
-  if (sceneVideos[sceneId]) {
-    sceneVideo.src = sceneVideos[sceneId];
-    videoCard.style.display = "block";
-  } else {
-    videoCard.style.display = "none";
-  }
-}
-
-// Interceptar cuando se cambia de escena
-const originalSwitchScene = switchScene;
-switchScene = function(scene) {
-  originalSwitchScene(scene);
-  updateVideoForScene(scene.data.id);
-};
-
-// Inicializar video en la primera escena
-if (scenes.length > 0) {
-  updateVideoForScene(scenes[0].data.id);
-}
-
-})();
+  el = document.getElementById('viewIn'); if (el) el.addEventListener('click', function () { view.setFov(view.fov() - zoom
