@@ -166,9 +166,6 @@
   // =========================
   // VIDEO FIJO POR ESCENA — ÚNICO Y CORREGIDO
   // =========================
-// =========================
-// VIDEO FIJO POR ESCENA — protegido sin descarga directa
-// =========================
 const sceneVideos = {
   "0-plaza-botero-botero": "videos/video1.mp4",
   "1-plaza-botero-y-palacio-rafael-uribe-uribe": "videos/video2.mp4"
@@ -191,12 +188,23 @@ async function loadVideoBlob(sceneVideo, src) {
 async function updateVideoForScene(sceneId) {
   const videoCard = document.getElementById("videoCard");
   const sceneVideo = document.getElementById("sceneVideo");
+  const volumeSlider = document.getElementById("volumeSlider");
 
   if (!videoCard || !sceneVideo) return;
 
-  // Configuración para impedir descarga
+  // Configuración inicial
   sceneVideo.controls = false; // sin controles nativos
   sceneVideo.addEventListener('contextmenu', e => e.preventDefault()); // bloquea clic derecho
+  sceneVideo.muted = false; 
+  sceneVideo.volume = 0.5; // volumen inicial
+
+  // Evento del slider de volumen
+  if (volumeSlider) {
+    volumeSlider.value = sceneVideo.volume;
+    volumeSlider.addEventListener('input', function() {
+      sceneVideo.volume = parseFloat(this.value);
+    });
+  }
 
   if (sceneVideos[sceneId]) {
     // Solo recargar si cambia la fuente
@@ -230,7 +238,6 @@ switchScene = function(scene) {
 if (scenes.length > 0) {
   updateVideoForScene(scenes[0].data.id);
 }
-
 
 
 
