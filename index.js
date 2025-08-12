@@ -453,4 +453,9 @@ if (scenes.length > 0) {
   el = document.getElementById('viewRight'); if (el) el.addEventListener('click', function () { view.setYaw(view.yaw() + velocity); });
   el = document.getElementById('viewUp'); if (el) el.addEventListener('click', function () { view.setPitch(view.pitch() + velocity); });
   el = document.getElementById('viewDown'); if (el) el.addEventListener('click', function () { view.setPitch(view.pitch() - velocity); });
-  el = document.getElementById('viewIn'); if (el) el.addEventListener('click', function () { view.setFov(view.fov() - zoom
+  el = document.getElementById('viewOut'); 
+if (el) el.addEventListener('click', function () { 
+  view.setFov(view.fov() + zoomSpeed); 
+});
+
+})();
