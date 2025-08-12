@@ -7,6 +7,11 @@
   var screenfull = window.screenfull;
   var data = window.APP_DATA || {};
 
+  // ----------------------------
+  // Cambia esto si quieres otra primera escena en el futuro
+  // ----------------------------
+  const FIRST_SCENE_ID = "0-plaza-botero-botero";
+
   var panoElement = document.querySelector('#pano');
   var sceneNameElement = document.querySelector('#titleBar .sceneName');
   var sceneListElement = document.querySelector('#sceneList');
@@ -26,7 +31,12 @@
   // Mantener referencia al Swiper actual para destruirlo cuando se cierre / reabra
   var currentSwiper = null;
 
+  // Vista activa (se actualiza cada vez que cambias de escena)
+  var activeView = null;
+
+  // =========================
   // Helper para escapar texto en HTML
+  // =========================
   function escapeHtml(str) {
     if (!str) return '';
     return String(str)
@@ -38,7 +48,7 @@
   }
 
   // =========================
-  // FUNCIÓN MOSTRAR CARRUSEL
+  // FUNCIÓN MOSTRAR CARRUSEL (mantengo tu implementación)
   // =========================
   function mostrarCarrusel(imagenes, titulo) {
     imagenes = Array.isArray(imagenes) ? imagenes : [];
@@ -51,7 +61,10 @@
       return;
     }
 
+    // Título
     carruselTitulo.textContent = titulo || '';
+
+    // Limpiar
     swiperWrapper.innerHTML = '';
 
     imagenes.forEach(function (img) {
@@ -135,19 +148,157 @@
 
   var scenes = (data.scenes || []).map(createScene);
 
-  if (scenes.length > 0) {
-    switchScene(scenes[0]);
+  // =========================
+  // VIDEO FIJO POR ESCENA — con Blob + slider (protegido)
+  // =========================
+  const sceneVideos = {
+    // deja vacío si quieres usar videoDefault en todas las escenas
+    // "0-plaza-botero-botero": "videos/video1.mp4",
+    // "1-plaza-botero-y-palacio-rafael-uribe-uribe": "videos/video2.mp4"
+  };
+  const videoDefault = "videos/video_unico.mp4";
+
+  var currentBlobUrl = null;
+  var videoControlsInitialized = false;
+
+  function initVideoControlsOnce() {
+    if (videoControlsInitialized) return;
+    videoControlsInitialized = true;
+
+    const sceneVideo = document.getElementById("sceneVideo");
+    const volumeSlider = document.getElementById("volumeSlider");
+    if (!sceneVideo) return;
+
+    // Evitar controles nativos y clic derecho
+    sceneVideo.controls = false;
+    sceneVideo.addEventListener('contextmenu', function (e) { e.preventDefault(); });
+
+    // volumen por defecto
+    sceneVideo.muted = false;
+    sceneVideo.volume = 0.5;
+
+    if (volumeSlider) {
+      // asegurarnos de asignar solo un listener
+      volumeSlider.value = sceneVideo.volume;
+      volumeSlider.addEventListener('input', function () {
+        sceneVideo.volume = parseFloat(this.value);
+      });
+    }
   }
 
+  async function loadVideoBlob(sceneVideo, src) {
+    try {
+      const response = await fetch(src, { cache: 'no-store' });
+      if (!response.ok) throw new Error('HTTP ' + response.status);
+      const blob = await response.blob();
+      const blobUrl = URL.createObjectURL(blob);
+      // revocar anterior
+      if (currentBlobUrl) {
+        try { URL.revokeObjectURL(currentBlobUrl); } catch (e) {}
+      }
+      currentBlobUrl = blobUrl;
+      sceneVideo.src = blobUrl;
+      sceneVideo.load();
+      await sceneVideo.play().catch(function(){});
+      return blobUrl;
+    } catch (err) {
+      console.error("Error cargando video:", err);
+      throw err;
+    }
+  }
+
+  async function clearVideo(sceneVideo) {
+    if (!sceneVideo) return;
+    sceneVideo.pause();
+    sceneVideo.currentTime = 0;
+    try {
+      sceneVideo.removeAttribute('src');
+      sceneVideo.load();
+    } catch (e) {}
+    if (currentBlobUrl) {
+      try { URL.revokeObjectURL(currentBlobUrl); } catch (e) {}
+      currentBlobUrl = null;
+    }
+    delete sceneVideo.dataset.currentSrc;
+  }
+
+  async function updateVideoForScene(sceneId) {
+    initVideoControlsOnce();
+    const videoCard = document.getElementById("videoCard");
+    const sceneVideo = document.getElementById("sceneVideo");
+    if (!videoCard || !sceneVideo) return;
+
+    // decidir fuente (por escena o default)
+    const videoSrc = (typeof sceneVideos[sceneId] !== 'undefined') ? sceneVideos[sceneId] : videoDefault;
+
+    // Si no hay archivo definido y no hay default -> ocultar
+    if (!videoSrc) {
+      await clearVideo(sceneVideo);
+      videoCard.style.display = "none";
+      return;
+    }
+
+    // Si la misma fuente ya está cargada, solo mostrar la tarjeta
+    if (sceneVideo.dataset.currentSrc && sceneVideo.dataset.currentSrc === videoSrc) {
+      videoCard.style.display = "block";
+      return;
+    }
+
+    // Si cambia la fuente, limpiar y cargar nueva
+    await clearVideo(sceneVideo);
+    sceneVideo.dataset.currentSrc = videoSrc;
+    try {
+      await loadVideoBlob(sceneVideo, videoSrc);
+    } catch (e) {
+      // si falla la carga, ocultamos la tarjeta
+      videoCard.style.display = "none";
+      return;
+    }
+
+    videoCard.style.display = "block";
+  }
+
+  // =========================
+  // SWITCH SCENE (único, robusto)
+  // =========================
   function switchScene(scene) {
+    if (!scene) return;
     stopAutorotate();
-    scene.view.setParameters(scene.data.initialViewParameters);
+
+    // Ajustar parámetros iniciales de vista
+    try {
+      scene.view.setParameters(scene.data.initialViewParameters);
+    } catch (e) { /* ignore */ }
+
     scene.scene.switchTo();
     updateSceneName(scene);
     updateSceneList(scene);
+
+    // actualizar la vista activa (para los botones)
+    activeView = scene.view;
+
+    // Video por escena (lo hace visible/oculto según lo que exista)
+    updateVideoForScene(scene.data.id).catch(()=>{});
+
+    // Menú visible solo en la escena FIRST_SCENE_ID
+    if (scene.data && scene.data.id === FIRST_SCENE_ID) {
+      showSceneList();
+    } else {
+      hideSceneList();
+    }
+
     startAutorotate();
   }
 
+  // Inicializar en la primera escena si existe
+  if (scenes.length > 0) {
+    // Si prefieres que la primera escena abierta sea otra, cambia FIRST_SCENE_ID arriba.
+    switchScene(scenes[0]);
+  }
+
+  // =========================
+  // UI helpers (nombre y lista)
+  // =========================
   function updateSceneName(scene) {
     if (sceneNameElement) sceneNameElement.innerHTML = sanitize(scene.data.name || '');
   }
@@ -155,7 +306,7 @@
   function updateSceneList(scene) {
     Array.prototype.forEach.call(sceneElements || [], function (el) {
       if (!el) return;
-      el.classList.toggle('current', el.getAttribute('data-id') === scene.data.id);
+      el.classList.toggle('current', el.getAttribute('data-id') === (scene && scene.data && scene.data.id));
     });
   }
 
@@ -164,85 +315,8 @@
   }
 
   // =========================
-  // VIDEO FIJO POR ESCENA — ÚNICO Y CORREGIDO
+  // HOTSPOTS (mantengo tus funciones, con mínimo cambio)
   // =========================
-const sceneVideos = {
-  "0-plaza-botero-botero": "videos/video1.mp4",
-  "1-plaza-botero-y-palacio-rafael-uribe-uribe": "videos/video2.mp4"
-};
-
-// Función para cargar video como Blob (oculta URL real)
-async function loadVideoBlob(sceneVideo, src) {
-  try {
-    const response = await fetch(src);
-    const blob = await response.blob();
-    const blobUrl = URL.createObjectURL(blob);
-    sceneVideo.src = blobUrl;
-    sceneVideo.load();
-    await sceneVideo.play().catch(()=>{});
-  } catch (err) {
-    console.error("Error cargando video:", err);
-  }
-}
-
-async function updateVideoForScene(sceneId) {
-  const videoCard = document.getElementById("videoCard");
-  const sceneVideo = document.getElementById("sceneVideo");
-  const volumeSlider = document.getElementById("volumeSlider");
-
-  if (!videoCard || !sceneVideo) return;
-
-  // Configuración inicial
-  sceneVideo.controls = false; // sin controles nativos
-  sceneVideo.addEventListener('contextmenu', e => e.preventDefault()); // bloquea clic derecho
-  sceneVideo.muted = false; 
-  sceneVideo.volume = 0.5; // volumen inicial
-
-  // Evento del slider de volumen
-  if (volumeSlider) {
-    volumeSlider.value = sceneVideo.volume;
-    volumeSlider.addEventListener('input', function() {
-      sceneVideo.volume = parseFloat(this.value);
-    });
-  }
-
-  if (sceneVideos[sceneId]) {
-    // Solo recargar si cambia la fuente
-    if (!sceneVideo.dataset.currentSrc || sceneVideo.dataset.currentSrc !== sceneVideos[sceneId]) {
-      sceneVideo.pause();
-      sceneVideo.removeAttribute('src');
-      sceneVideo.load();
-      sceneVideo.dataset.currentSrc = sceneVideos[sceneId]; // guardamos referencia
-      await loadVideoBlob(sceneVideo, sceneVideos[sceneId]);
-    }
-    videoCard.style.display = "block";
-  } else {
-    // Pausar y limpiar si no hay video para la escena
-    sceneVideo.pause();
-    sceneVideo.currentTime = 0;
-    sceneVideo.removeAttribute('src');
-    sceneVideo.load();
-    delete sceneVideo.dataset.currentSrc;
-    videoCard.style.display = "none";
-  }
-}
-
-// Interceptar cambio de escena
-const originalSwitchScene = switchScene;
-switchScene = function(scene) {
-  originalSwitchScene(scene);
-  updateVideoForScene(scene.data.id);
-};
-
-// Inicializar para la primera escena
-if (scenes.length > 0) {
-  updateVideoForScene(scenes[0].data.id);
-}
-
-
-
-
-  // Hotspot - link
   function createLinkHotspotElement(hotspot) {
     var wrapper = document.createElement('div');
     wrapper.classList.add('hotspot', 'link-hotspot');
@@ -267,7 +341,6 @@ if (scenes.length > 0) {
     return wrapper;
   }
 
-  // Hotspot - info
   function createInfoHotspotElement(hotspot) {
     var wrapper = document.createElement('div');
     wrapper.classList.add('hotspot', 'info-hotspot');
@@ -324,7 +397,6 @@ if (scenes.length > 0) {
     return wrapper;
   }
 
-  // Hotspot - camera
   function createCameraHotspot(hotspot) {
     var element = document.createElement('img');
     element.src = hotspot.image || 'img/Camara.png';
@@ -342,7 +414,6 @@ if (scenes.length > 0) {
     return element;
   }
 
-  // Modal imagen simple
   function showImageModal(photoSrc, title) {
     var oldModal = document.getElementById('custom-image-modal');
     if (oldModal) oldModal.remove();
@@ -395,6 +466,7 @@ if (scenes.length > 0) {
     return (data.scenes || []).find(function (s) { return s.id === id; });
   }
 
+  // Asociar eventos a los elementos de la lista de escenas (DOM)
   scenes.forEach(function (scene) {
     var el = document.querySelector('#sceneList .scene[data-id="' + scene.data.id + '"]');
     if (!el) return;
@@ -404,7 +476,7 @@ if (scenes.length > 0) {
     });
   });
 
-  // Fullscreen
+  // Fullscreen (mantengo tu lógica)
   if (screenfull && screenfull.enabled && data.settings && data.settings.fullscreenButton) {
     document.body.classList.add('fullscreen-enabled');
     if (fullscreenToggleElement) {
@@ -434,11 +506,11 @@ if (scenes.length > 0) {
   }
   function stopAutorotate() { viewer.stopMovement(); viewer.setIdleMovement(Infinity); }
 
+  // Mostrar/ocultar lista escenas
   function showSceneList() { if (sceneListElement) sceneListElement.classList.add('enabled'); if (sceneListToggleElement) sceneListToggleElement.classList.add('enabled'); }
   function hideSceneList() { if (sceneListElement) sceneListElement.classList.remove('enabled'); if (sceneListToggleElement) sceneListToggleElement.classList.remove('enabled'); }
-  if (!document.body.classList.contains('mobile')) showSceneList();
 
-  // Toggle lista escenas
+  // Toggle lista escenas (botón)
   var sceneListToggle = document.getElementById("sceneListToggle");
   var sceneList = document.getElementById("sceneList");
   if (sceneListToggle && sceneList) {
@@ -451,18 +523,27 @@ if (scenes.length > 0) {
     });
   }
 
-  // Controles de vista
-  var view = viewer.view();
+  // =========================
+  // BOTONES DE CONTROL — usan activeView para funcionar en cualquier escena
+  // =========================
   var velocity = 1;
   var zoomSpeed = 1;
+
   var el;
-  el = document.getElementById('viewLeft'); if (el) el.addEventListener('click', function () { view.setYaw(view.yaw() - velocity); });
-  el = document.getElementById('viewRight'); if (el) el.addEventListener('click', function () { view.setYaw(view.yaw() + velocity); });
-  el = document.getElementById('viewUp'); if (el) el.addEventListener('click', function () { view.setPitch(view.pitch() + velocity); });
-  el = document.getElementById('viewDown'); if (el) el.addEventListener('click', function () { view.setPitch(view.pitch() - velocity); });
-  el = document.getElementById('viewOut'); 
-if (el) el.addEventListener('click', function () { 
-  view.setFov(view.fov() + zoomSpeed); 
-});
+  el = document.getElementById('viewLeft');
+  if (el) el.addEventListener('click', function () { if (activeView) activeView.setYaw(activeView.yaw() - velocity); });
+  el = document.getElementById('viewRight');
+  if (el) el.addEventListener('click', function () { if (activeView) activeView.setYaw(activeView.yaw() + velocity); });
+  el = document.getElementById('viewUp');
+  if (el) el.addEventListener('click', function () { if (activeView) activeView.setPitch(activeView.pitch() + velocity); });
+  el = document.getElementById('viewDown');
+  if (el) el.addEventListener('click', function () { if (activeView) activeView.setPitch(activeView.pitch() - velocity); });
+  el = document.getElementById('viewIn');
+  if (el) el.addEventListener('click', function () { if (activeView) activeView.setFov(activeView.fov() - zoomSpeed); });
+  el = document.getElementById('viewOut');
+  if (el) el.addEventListener('click', function () { if (activeView) activeView.setFov(activeView.fov() + zoomSpeed); });
+
+  // Si no es mobile, mostramos la lista (pero switchScene la ocultará si no es la primera escena)
+  if (!document.body.classList.contains('mobile')) showSceneList();
 
 })();
