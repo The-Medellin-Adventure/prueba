@@ -166,46 +166,74 @@
   // =========================
   // VIDEO FIJO POR ESCENA — ÚNICO Y CORREGIDO
   // =========================
-  const sceneVideos = {
-    "0-plaza-botero-botero": "videos/video1.mp4",
-    "1-plaza-botero-y-palacio-rafael-uribe-uribe": "videos/video2.mp4"
-  };
+// =========================
+// VIDEO FIJO POR ESCENA — protegido sin descarga directa
+// =========================
+const sceneVideos = {
+  "0-plaza-botero-botero": "videos/video1.mp4",
+  "1-plaza-botero-y-palacio-rafael-uribe-uribe": "videos/video2.mp4"
+};
 
-  function updateVideoForScene(sceneId) {
-    const videoCard = document.getElementById("videoCard");
-    const sceneVideo = document.getElementById("sceneVideo");
+// Función para cargar video como Blob (oculta URL real)
+async function loadVideoBlob(sceneVideo, src) {
+  try {
+    const response = await fetch(src);
+    const blob = await response.blob();
+    const blobUrl = URL.createObjectURL(blob);
+    sceneVideo.src = blobUrl;
+    sceneVideo.load();
+    await sceneVideo.play().catch(()=>{});
+  } catch (err) {
+    console.error("Error cargando video:", err);
+  }
+}
 
-    if (!videoCard || !sceneVideo) return;
+async function updateVideoForScene(sceneId) {
+  const videoCard = document.getElementById("videoCard");
+  const sceneVideo = document.getElementById("sceneVideo");
 
-    if (sceneVideos[sceneId]) {
-      if (sceneVideo.getAttribute('src') !== sceneVideos[sceneId]) {
-        sceneVideo.pause();
-        sceneVideo.removeAttribute('src');
-        sceneVideo.load();
-        sceneVideo.setAttribute('src', sceneVideos[sceneId]);
-        sceneVideo.load();
-        sceneVideo.muted = false; // cambiar a true si no quieres audio
-        sceneVideo.play().catch(()=>{});
-      }
-      videoCard.style.display = "block";
-    } else {
+  if (!videoCard || !sceneVideo) return;
+
+  // Configuración para impedir descarga
+  sceneVideo.controls = false; // sin controles nativos
+  sceneVideo.addEventListener('contextmenu', e => e.preventDefault()); // bloquea clic derecho
+
+  if (sceneVideos[sceneId]) {
+    // Solo recargar si cambia la fuente
+    if (!sceneVideo.dataset.currentSrc || sceneVideo.dataset.currentSrc !== sceneVideos[sceneId]) {
       sceneVideo.pause();
-      sceneVideo.currentTime = 0;
       sceneVideo.removeAttribute('src');
       sceneVideo.load();
-      videoCard.style.display = "none";
+      sceneVideo.dataset.currentSrc = sceneVideos[sceneId]; // guardamos referencia
+      await loadVideoBlob(sceneVideo, sceneVideos[sceneId]);
     }
+    videoCard.style.display = "block";
+  } else {
+    // Pausar y limpiar si no hay video para la escena
+    sceneVideo.pause();
+    sceneVideo.currentTime = 0;
+    sceneVideo.removeAttribute('src');
+    sceneVideo.load();
+    delete sceneVideo.dataset.currentSrc;
+    videoCard.style.display = "none";
   }
+}
 
-  const originalSwitchScene = switchScene;
-  switchScene = function(scene) {
-    originalSwitchScene(scene);
-    updateVideoForScene(scene.data.id);
-  };
+// Interceptar cambio de escena
+const originalSwitchScene = switchScene;
+switchScene = function(scene) {
+  originalSwitchScene(scene);
+  updateVideoForScene(scene.data.id);
+};
 
-  if (scenes.length > 0) {
-    updateVideoForScene(scenes[0].data.id);
-  }
+// Inicializar para la primera escena
+if (scenes.length > 0) {
+  updateVideoForScene(scenes[0].data.id);
+}
+
+
+
+
 
   // Hotspot - link
   function createLinkHotspotElement(hotspot) {
