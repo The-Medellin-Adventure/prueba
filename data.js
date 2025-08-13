@@ -215,7 +215,7 @@ Aquí, el arte convive con el movimiento de la ciudad, creando un contraste entr
 
 Tip local: Tocar las esculturas, especialmente en ciertas partes, se ha convertido en una tradición popular... ¡dicen que trae buena suerte!
 
-Este es un lugar ideal para tomar fotos, disfrutar el arte al aire libre y conocer la esencia cultural de Medellín.o<o:p></o:p></span></p>"
+Este es un lugar ideal para tomar fotos, disfrutar el arte al aire libre y conocer la esencia cultural de Medellín.</span></p>"
         }
       ]
     },
