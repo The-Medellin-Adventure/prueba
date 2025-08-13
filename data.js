@@ -275,7 +275,18 @@ window.APP_DATA = {
     ]
   },     
   {
- 
+ "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.0972,
+    "yaw": -0.6070,
+    "tooltip": "Mujer con Fruta",
+    "images": [
+      {"src": "img/carrusel/Mujer_con_Fruta.jpg", "caption": ""}
+    ]
+  },     
+  {
+
 
 
 
