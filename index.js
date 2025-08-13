@@ -156,7 +156,7 @@
     // "0-plaza-botero-botero": "videos/video1.mp4",
     // "1-plaza-botero-y-palacio-rafael-uribe-uribe": "videos/video2.mp4"
   };
-  const videoDefault = "videos/video_unico.mp4";
+  
 
   var currentBlobUrl = null;
   var videoControlsInitialized = false;
