@@ -215,7 +215,7 @@ window.APP_DATA = {
     },
     {
       "id": "1-plaza-botero-y-palacio-rafael-uribe-uribe",
-      "name": "Plaza Botero y Palacio Rafael Uribe Uribe",
+      "name": "Museo de Antioquia y Plaza Botero",
       "levels": [
         {
           "tileSize": 256,
@@ -241,6 +241,56 @@ window.APP_DATA = {
         "pitch": -0.32309682106539483,
         "fov": 0.7680934518125859
       },
+
+
+
+"hotSpots": [
+  {
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.4299,
+    "yaw": 2.7905,
+    "tooltip": "Museo de Antioquia",
+     "images": [
+      {
+        "src": "img/00_Museo/Museo1.jpg",
+        "caption": ""
+      },
+      {
+        "src": "img/00_Museo/Museo2.jpg",
+        "caption": ""
+},
+      {
+        "src": "img/00_Museo/Museo3.jpg",
+        "caption": ""
+},
+      {
+        "src": "img/00_Museo/Museo4.jpg",
+        "caption": ""
+},
+      {
+        "src": "img/00_Museo/Museo5.jpg",
+        "caption": ""
+},
+      {
+        "src": "img/00_Museo/Museo6.jpg",
+        "caption": ""
+},
+      {
+        "src": "img/00_Museo/Museo7.jpg",
+        "caption": ""
+}
+    ]
+  },
+
+
+
+
+
+
+
+
       "linkHotspots": [
         {
           "yaw": 0.2812835640726874,
