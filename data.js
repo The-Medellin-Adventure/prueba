@@ -203,13 +203,20 @@ window.APP_DATA = {
           "yaw": -0.6310376814969114,
           "pitch": -0.6875232116974992,
           "title": "Palacio de la Cultura Rafael Uribe Uribe",
-          "text": "<p>Este imponente edificio es uno de los íconos arquitectónicos de Medellín. Inspirado en los palacios europeos, este<span style=\"font-family: inherit; font-size: inherit; font-style: inherit; font-variant-ligatures: inherit; font-variant-caps: inherit; font-weight: inherit;\">&nbsp;el palacio fue originalmente la sede del gobierno\ndepartamental. Hoy es un espacio cultural abierto a todos.</span></p>"
+          "text": "<p>Este imponente edificio es uno de los íconos arquitectónicos de Medellín. Su llamativa fachada en blanco y negro, inspirada en los palacios europeos, contrasta con la energía tropical de la ciudad.<br><br>Nombrado en honor a Rafael Uribe Uribe, líder liberal y defensor de los derechos civiles, el palacio fue originalmente la sede del gobierno departamental. Hoy es un espacio cultural abierto a todos.<br><br>
+🎨 ¿Qué puedes encontrar aquí?<br><br>
+•	Galerías de arte y exposiciones temporales
+•	Sala de música y archivo histórico
+•	Biblioteca departamental
+•	Mirador con vista panorámica del centro de Medellín<br><br>
+📸 Recomendación: No te pierdas la vista desde la cúpula ni los detalles góticos de sus pasillos interiores
+.</span></p>"
         },
         {
           "yaw": -0.2648259936791959,
           "pitch": -0.00779990571439626,
           "title": "Plaza Botero",
-          "text": "<p class=\"MsoNormal\" style=\"mso-margin-top-alt:auto;mso-margin-bottom-alt:auto; line-height:normal\"><span style=\"font-size:12.0pt;font-family:\\\"Arial\\\",serif; mso-fareast-font-family:\\\"Arial\\\";mso-fareast-language:ES-CO\">La Plaza Botero es uno de los lugares más emblemáticos y visitados de Medellín. Este espacio al aire libre es un museo urbano que exhibe la obra escultórica de Fernando Botero, el artista colombiano más reconocido a nivel internacional. Sus 23 esculturas en bronce, donadas por el propio artista, representan figuras humanas y animales con su característico estilo voluminoso. Aquí, el arte convive con el movimiento de la ciudad, creando un contraste entre lo clásico y lo cotidiano.<br><br>Tip local: Tocar las esculturas, especialmente en ciertas partes, se ha convertido en una tradición popular... ¡dicen que trae buena suerte!<br><br>Este es un lugar ideal para tomar fotos, disfrutar el arte al aire libre y conocer la esencia cultural de Medellín.</span></p>"
+          "text": "<p class=\"MsoNormal\" style=\"mso-margin-top-alt:auto;mso-margin-bottom-alt:auto; line-height:normal\"><span style=\"font-size:12.0pt;font-family:\\\"Arial\\\",serif; mso-fareast-font-family:\\\"Arial\\\";mso-fareast-language:ES-CO\">La Plaza Botero es uno de los lugares más emblemáticos y visitados de Medellín.<br> Este espacio al aire libre es un museo urbano que exhibe la obra escultórica de Fernando Botero, el artista colombiano más reconocido a nivel internacional. <br>Sus 23 esculturas en bronce, donadas por el propio artista, representan figuras humanas y animales con su característico estilo voluminoso. <br> Aquí, el arte convive con el movimiento de la ciudad, creando un contraste entre lo clásico y lo cotidiano.<br><br>Tip local: Tocar las esculturas, especialmente en ciertas partes, se ha convertido en una tradición popular... ¡dicen que trae buena suerte!<br><br>Este es un lugar ideal para tomar fotos, disfrutar el arte al aire libre y conocer la esencia cultural de Medellín.</span></p>"
         }
       ]
     },
