@@ -267,8 +267,8 @@ window.APP_DATA = {
 "type": "camera",
     "carrusel": true,
     "image": "img/Camara.png",
-    "pitch": -0.1374,
-    "yaw": -1.2651,
+    "pitch": 0.0114,
+    "yaw": -1.6270,
     "tooltip": "Esfinge",
     "images": [
       {"src": "img/carrusel/Esfinge.jpg", "caption": ""}
@@ -278,8 +278,8 @@ window.APP_DATA = {
  "type": "camera",
     "carrusel": true,
     "image": "img/Camara.png",
-    "pitch": -0.0972,
-    "yaw": -0.6070,
+    "pitch": 0.0859,
+    "yaw": -0.6733,
     "tooltip": "Mujer con Fruta",
     "images": [
       {"src": "img/carrusel/Mujer_con_Fruta.jpg", "caption": ""}
@@ -298,7 +298,7 @@ window.APP_DATA = {
     "yaw": -1.6850,
     "tooltip": "Rapto de Europa",
     "images": [
-      {"src": "img/carrusel/Rapto_de_Europa.jpg", "caption": ""}
+      {"src": "img/carrusel/Rapto_de_Europa.jpg", "caption": "1991. Bronce"}
       ]
     }
   ],
