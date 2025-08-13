@@ -297,7 +297,7 @@ window.APP_DATA = {
         "caption": ""
      }
     ]
-  }   
+  },   
 
 
 
