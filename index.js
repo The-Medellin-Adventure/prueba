@@ -190,22 +190,21 @@
       return;
     }
 
-    await clearVideo(sceneVideo);
+   clearVideo(sceneVideo).then(() => {
     sceneVideo.dataset.currentSrc = videoSrc;
 
-    setTimeout(async () => {
-      try {
-        await loadVideoBlob(sceneVideo, videoSrc);
+    setTimeout(() => {
+      loadVideoBlob(sceneVideo, videoSrc).then(()
         sceneVideo.onended = () => {
           sceneVideo.pause();
           sceneVideo.currentTime = sceneVideo.duration;
         };
         videoCard.style.display = "block";
-      } catch (e) {
+      }).catch(() => {
         videoCard.style.display = "none";
-      }
-    }, 3000);
-  }
+      });
+  }, 3000);
+});
 
   function switchScene(scene) {
     if (!scene) return;
