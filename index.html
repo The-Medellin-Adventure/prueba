@@ -27,7 +27,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  opacity: 0.05; /* Muy transparente */
+  opacity: 0.15; /* Muy transparente */
   pointer-events: none;
   z-index: 1;
 }
@@ -236,14 +236,14 @@
     </div>
   </div>
 </div>
-
-<!-- Tarjeta de video fija -->
-<div id="videoCard" style="position:fixed; bottom:20px; right:20px; background:rgba(0,0,0,0.7); padding:10px; border-radius:10px; display:none; z-index:1000;">
-  <video id="sceneVideo" autoplay playsinline style="max-width:300px; border-radius:8px;"></video>
-  <div style="margin-top:8px; text-align:center;">
-    <input id="volumeSlider" type="range" min="0" max="1" step="0.05" value="0.5" style="width:100%;">
-  </div>
+<!-- Tarjeta de Video Fija -->
+<div id="videoCard" style="display: none;">
+  <video id="sceneVideo" controls muted playsinline>
+    <source src="" type="video/mp4">
+    Tu navegador no soporta el video.
+  </video>
 </div>
+
 
 <!-- Marca de agua centrada -->
 <div id="watermark-bg">
