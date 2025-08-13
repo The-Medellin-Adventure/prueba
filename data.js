@@ -203,7 +203,7 @@ window.APP_DATA = {
           "yaw": -0.6310376814969114,
           "pitch": -0.6875232116974992,
           "title": "Palacio de la Cultura Rafael Uribe Uribe",
-          "text": "<p>Este imponente edificio es uno de los íconos arquitectónicos de Medellín. Su llamativa fachada en blanco y negro, inspirada en los palacios europeos, contrasta con la energía tropical de la ciudad.<br><br>Nombrado en honor a Rafael Uribe Uribe, líder liberal y defensor de los derechos civiles, el palacio fue originalmente la sede del gobierno departamental. Hoy es un espacio cultural abierto a todos.<br><br>
+          "text": "<p class=\"MsoNormal\" style=\"mso-margin-top-alt:auto;mso-margin-bottom-alt:auto; line-height:normal\"><span style=\"font-size:12.0pt;font-family:\\\"Arial\\\",serif; mso-fareast-font-family:\\\"Arial\\\";mso-fareast-language:ES-CO\">Este imponente edificio es uno de los íconos arquitectónicos de Medellín. Su llamativa fachada en blanco y negro, inspirada en los palacios europeos, contrasta con la energía tropical de la ciudad.<br><br>Nombrado en honor a Rafael Uribe Uribe, líder liberal y defensor de los derechos civiles, el palacio fue originalmente la sede del gobierno departamental. Hoy es un espacio cultural abierto a todos.<br><br>
 🎨 ¿Qué puedes encontrar aquí?<br><br>
 •	Galerías de arte y exposiciones temporales
 •	Sala de música y archivo histórico
