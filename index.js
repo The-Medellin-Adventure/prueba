@@ -149,114 +149,91 @@
   var scenes = (data.scenes || []).map(createScene);
 
   // =========================
-  // VIDEO FIJO POR ESCENA — con Blob + slider (protegido)
   // =========================
-  const sceneVideos = {
-  deja vacío si quieres usar videoDefault en todas las escenas
+// VIDEO POR ESCENA — control independiente
+// =========================
+const sceneVideos = {
   "0-plaza-botero-botero": "videos/video1.mp4",
-  "1-plaza-botero-y-palacio-rafael-uribe-uribe": "videos/video2.mp4"
-  };
-  const videoDefault = "videos/video_unico.mp4";
+  // Aquí puedes agregar más escenas y videos:
+  // "1-plaza-botero-y-palacio-rafael-uribe-uribe": "videos/video2.mp4",
+  // "2-otra-escena": "videos/video3.mp4"
+};
 
-  var currentBlobUrl = null;
-  var videoControlsInitialized = false;
+let currentVideoSceneId = null;
+let currentVideoTimeout = null;
 
-  function initVideoControlsOnce() {
-    if (videoControlsInitialized) return;
-    videoControlsInitialized = true;
+function updateVideoForScene(sceneId) {
+  const videoCard = document.getElementById("videoCard");
+  const sceneVideo = document.getElementById("sceneVideo");
+  if (!videoCard || !sceneVideo) return;
 
-    const sceneVideo = document.getElementById("sceneVideo");
-    const volumeSlider = document.getElementById("volumeSlider");
-    if (!sceneVideo) return;
-
-    // Evitar controles nativos y clic derecho
-    sceneVideo.controls = false;
-    sceneVideo.addEventListener('contextmenu', function (e) { e.preventDefault(); });
-
-    // volumen por defecto
-    sceneVideo.muted = false;
-    sceneVideo.volume = 0.5;
-
-    if (volumeSlider) {
-      // asegurarnos de asignar solo un listener
-      volumeSlider.value = sceneVideo.volume;
-      volumeSlider.addEventListener('input', function () {
-        sceneVideo.volume = parseFloat(this.value);
-      });
-    }
+  // Limpiar cualquier timer anterior
+  if (currentVideoTimeout) {
+    clearTimeout(currentVideoTimeout);
+    currentVideoTimeout = null;
   }
 
-  async function loadVideoBlob(sceneVideo, src) {
-    try {
-      const response = await fetch(src, { cache: 'no-store' });
-      if (!response.ok) throw new Error('HTTP ' + response.status);
-      const blob = await response.blob();
-      const blobUrl = URL.createObjectURL(blob);
-      // revocar anterior
-      if (currentBlobUrl) {
-        try { URL.revokeObjectURL(currentBlobUrl); } catch (e) {}
-      }
-      currentBlobUrl = blobUrl;
-      sceneVideo.src = blobUrl;
-      sceneVideo.load();
-      await sceneVideo.play().catch(function(){});
-      return blobUrl;
-    } catch (err) {
-      console.error("Error cargando video:", err);
-      throw err;
-    }
-  }
-
-  async function clearVideo(sceneVideo) {
-    if (!sceneVideo) return;
+  // Detener video si se cambia de escena
+  if (currentVideoSceneId && currentVideoSceneId !== sceneId) {
     sceneVideo.pause();
     sceneVideo.currentTime = 0;
-    try {
-      sceneVideo.removeAttribute('src');
-      sceneVideo.load();
-    } catch (e) {}
-    if (currentBlobUrl) {
-      try { URL.revokeObjectURL(currentBlobUrl); } catch (e) {}
-      currentBlobUrl = null;
-    }
-    delete sceneVideo.dataset.currentSrc;
   }
 
-  async function updateVideoForScene(sceneId) {
-    initVideoControlsOnce();
-    const videoCard = document.getElementById("videoCard");
-    const sceneVideo = document.getElementById("sceneVideo");
-    if (!videoCard || !sceneVideo) return;
-
-    // decidir fuente (por escena o default)
-    const videoSrc = (typeof sceneVideos[sceneId] !== 'undefined') ? sceneVideos[sceneId] : videoDefault;
-
-    // Si no hay archivo definido y no hay default -> ocultar
-    if (!videoSrc) {
-      await clearVideo(sceneVideo);
-      videoCard.style.display = "none";
-      return;
-    }
-
-    // Si la misma fuente ya está cargada, solo mostrar la tarjeta
-    if (sceneVideo.dataset.currentSrc && sceneVideo.dataset.currentSrc === videoSrc) {
-      videoCard.style.display = "block";
-      return;
-    }
-
-    // Si cambia la fuente, limpiar y cargar nueva
-    await clearVideo(sceneVideo);
-    sceneVideo.dataset.currentSrc = videoSrc;
-    try {
-      await loadVideoBlob(sceneVideo, videoSrc);
-    } catch (e) {
-      // si falla la carga, ocultamos la tarjeta
-      videoCard.style.display = "none";
-      return;
-    }
-
-    videoCard.style.display = "block";
+  // Verificar si hay video para la escena
+  if (!sceneVideos[sceneId]) {
+    videoCard.style.display = "none";
+    currentVideoSceneId = null;
+    return;
   }
+
+  // Configurar nuevo video
+  currentVideoSceneId = sceneId;
+  sceneVideo.src = sceneVideos[sceneId];
+  sceneVideo.load();
+
+  // Mostrar tarjeta del video
+  videoCard.style.display = "block";
+
+  // Esperar 3 segundos antes de reproducir
+  currentVideoTimeout = setTimeout(() => {
+    sceneVideo.play().catch(err => console.warn("No se pudo reproducir el video:", err));
+  }, 3000);
+
+  // Si el video termina y seguimos en la misma escena → Pausar y dejar último frame
+  sceneVideo.onended = function () {
+    if (currentVideoSceneId === sceneId) {
+      sceneVideo.pause();
+      sceneVideo.currentTime = sceneVideo.duration; // Último frame
+    }
+  };
+}
+
+// =========================
+// En tu función switchScene(scene) → después de cambiar de escena
+// =========================
+function switchScene(scene) {
+  if (!scene) return;
+  stopAutorotate();
+  try {
+    scene.view.setParameters(scene.data.initialViewParameters);
+  } catch (e) { }
+  scene.scene.switchTo();
+  updateSceneName(scene);
+  updateSceneList(scene);
+
+  activeView = scene.view;
+
+  // ⬅ Aquí llamamos al video por escena
+  updateVideoForScene(scene.data.id);
+
+  if (scene.data && scene.data.id === FIRST_SCENE_ID) {
+    showSceneList();
+  } else {
+    hideSceneList();
+  }
+  startAutorotate();
+}
+
 
   // =========================
   // SWITCH SCENE (único, robusto)
@@ -278,7 +255,7 @@
     activeView = scene.view;
 
     // Video por escena (lo hace visible/oculto según lo que exista)
-    updateVideoForScene(scene.data.id).catch(()=>{});
+    updateVideoForScene(scene.data.id);
 
     // Menú visible solo en la escena FIRST_SCENE_ID
     if (scene.data && scene.data.id === FIRST_SCENE_ID) {
