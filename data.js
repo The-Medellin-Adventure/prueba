@@ -280,9 +280,11 @@ window.APP_DATA = {
       {
         "src": "img/00_Museo/Museo7.jpg",
         "caption": ""
- ]
-    }
-  ],
+     }
+    ]
+  }        
+ ],
+
    "linkHotspots": [
         {
           "yaw": 0.2812835640726874,
