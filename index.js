@@ -148,7 +148,7 @@
 
   var scenes = (data.scenes || []).map(createScene);
 
-  // =========================
+
   // =========================
 // VIDEO POR ESCENA — control independiente
 // =========================
