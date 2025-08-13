@@ -282,7 +282,8 @@ window.APP_DATA = {
         "caption": ""
      }
     ]
-  }
+  }        
+ ],
 
    "linkHotspots": [
         {
