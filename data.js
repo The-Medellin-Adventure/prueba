@@ -249,8 +249,8 @@ window.APP_DATA = {
     "type": "camera",
     "carrusel": true,
     "image": "img/Camara.png",
-    "pitch": -0.4299,
-    "yaw": 2.7905,
+    "pitch": -0.3243,
+    "yaw": 2.9470,
     "tooltip": "Museo de Antioquia",
      "images": [
       {
@@ -284,14 +284,7 @@ window.APP_DATA = {
     ]
   },
 
-
-
-
-
-
-
-
-      "linkHotspots": [
+"linkHotspots": [
         {
           "yaw": 0.2812835640726874,
           "pitch": -0.130667924147728,
