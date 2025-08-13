@@ -209,7 +209,13 @@ window.APP_DATA = {
           "yaw": -0.2648259936791959,
           "pitch": -0.00779990571439626,
           "title": "Plaza Botero",
-          "text": "<p class=\"MsoNormal\" style=\"mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;\nline-height:normal\"><span style=\"font-size:12.0pt;font-family:&quot;Times New Roman&quot;,serif;\nmso-fareast-font-family:&quot;Times New Roman&quot;;mso-fareast-language:ES-CO\">Ubicada\nen el Corazón del centro de Medellín, donde se encuentran 23 esculturas\nmonumentales del maestro Fernando Botero<o:p></o:p></span></p>"
+          "text": "<p class=\"MsoNormal\" style=\"mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;\nline-height:normal\"><span style=\"font-size:12.0pt;font-family:&quot;Times New Roman&quot;,serif;\nmso-fareast-font-family:&quot;Times New Roman&quot;;mso-fareast-language:ES-CO\">La Plaza Botero es uno de los lugares más emblemáticos y visitados de Medellín. Este espacio al aire libre es un museo urbano que exhibe la obra escultórica de Fernando Botero, el artista colombiano más reconocido a nivel internacional.
+Sus 23 esculturas en bronce, donadas por el propio artista, representan figuras humanas y animales con su característico estilo voluminoso. 
+Aquí, el arte convive con el movimiento de la ciudad, creando un contraste entre lo clásico y lo cotidiano.
+
+Tip local: Tocar las esculturas, especialmente en ciertas partes, se ha convertido en una tradición popular... ¡dicen que trae buena suerte!
+
+Este es un lugar ideal para tomar fotos, disfrutar el arte al aire libre y conocer la esencia cultural de Medellín.o<o:p></o:p></span></p>"
         }
       ]
     },
