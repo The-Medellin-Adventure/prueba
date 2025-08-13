@@ -283,7 +283,7 @@ window.APP_DATA = {
      }
     ]
   }        
- ],
+
 
    "linkHotspots": [
         {
