@@ -254,37 +254,16 @@ window.APP_DATA = {
     "tooltip": "Museo de Antioquia",
      "images": [
       {
-        "src": "img/00_Museo/Museo1.jpg",
-        "caption": ""
-      },
-      {
-        "src": "img/00_Museo/Museo2.jpg",
-        "caption": ""
-},
-      {
-        "src": "img/00_Museo/Museo3.jpg",
-        "caption": ""
-},
-      {
-        "src": "img/00_Museo/Museo4.jpg",
-        "caption": ""
-},
-      {
-        "src": "img/00_Museo/Museo5.jpg",
-        "caption": ""
-},
-      {
-        "src": "img/00_Museo/Museo6.jpg",
-        "caption": ""
-},
-      {
-        "src": "img/00_Museo/Museo7.jpg",
-        "caption": ""
-     }
+        "src": "img/00_Museo/Museo1.jpg", "caption": ""},
+      { "src": "img/00_Museo/Museo2.jpg", "caption": ""},
+      { "src": "img/00_Museo/Museo3.jpg", "caption": ""},
+      { "src": "img/00_Museo/Museo4.jpg", "caption": ""},
+      { "src": "img/00_Museo/Museo5.jpg", "caption": ""},
+      { "src": "img/00_Museo/Museo6.jpg", "caption": ""},
+      { "src": "img/00_Museo/Museo7.jpg", "caption": ""}
     ]
-  }        
- ],      
-
+  },     
+  {
 "type": "camera",
     "carrusel": true,
     "image": "img/Camara.png",
@@ -292,12 +271,10 @@ window.APP_DATA = {
     "yaw": -1.6850,
     "tooltip": "Rapto de Europa",
     "images": [
-{
-        "src": "img/carrusel/Rapto_de_Europa.jpg",
-        "caption": ""
-     }
-    ]
-  },   
+      {"src": "img/carrusel/Rapto_de_Europa.jpg", "caption": ""}
+      ]
+    }
+  ],
 
 
 
