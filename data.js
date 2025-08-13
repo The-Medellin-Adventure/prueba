@@ -283,6 +283,22 @@ window.APP_DATA = {
      }
     ]
   }        
+ ],      
+
+"type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.0955,
+    "yaw": -1.6850,
+    "tooltip": "Rapto de Europa",
+    "images": [
+{
+        "src": "img/carrusel/Rapto_de_Europa.jpg",
+        "caption": ""
+     }
+    ]
+  }   
+
 
 
    "linkHotspots": [
