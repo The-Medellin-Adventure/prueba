@@ -267,6 +267,22 @@ window.APP_DATA = {
 "type": "camera",
     "carrusel": true,
     "image": "img/Camara.png",
+    "pitch": -0.1374,
+    "yaw": -1.2651,
+    "tooltip": "Esfinge",
+    "images": [
+      {"src": "img/carrusel/Esfinge.jpg", "caption": ""}
+    ]
+  },     
+  {
+ 
+
+
+
+
+"type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
     "pitch": -0.0955,
     "yaw": -1.6850,
     "tooltip": "Rapto de Europa",
