@@ -205,7 +205,7 @@
       });
   }, 3000);
 });
-
+}
   function switchScene(scene) {
     if (!scene) return;
     stopAutorotate();
