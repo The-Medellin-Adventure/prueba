@@ -152,9 +152,9 @@
   // VIDEO FIJO POR ESCENA — con Blob + slider (protegido)
   // =========================
   const sceneVideos = {
-    // deja vacío si quieres usar videoDefault en todas las escenas
-    // "0-plaza-botero-botero": "videos/video1.mp4",
-    // "1-plaza-botero-y-palacio-rafael-uribe-uribe": "videos/video2.mp4"
+  deja vacío si quieres usar videoDefault en todas las escenas
+  "0-plaza-botero-botero": "videos/video1.mp4",
+  "1-plaza-botero-y-palacio-rafael-uribe-uribe": "videos/video2.mp4"
   };
   const videoDefault = "videos/video_unico.mp4";
 
