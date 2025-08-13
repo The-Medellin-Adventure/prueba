@@ -301,7 +301,7 @@ window.APP_DATA = {
 
 
 
-   "linkHotspots": [
+      "linkHotspots": [
         {
           "yaw": 0.2812835640726874,
           "pitch": -0.130667924147728,
