@@ -152,9 +152,8 @@
   // VIDEO FIJO POR ESCENA — con Blob + slider (protegido)
   // =========================
   const sceneVideos = {
-    // deja vacío si quieres usar videoDefault en todas las escenas
-    // "0-plaza-botero-botero": "videos/video1.mp4",
-    // "1-plaza-botero-y-palacio-rafael-uribe-uribe": "videos/video2.mp4"
+    "0-plaza-botero-botero": "videos/video1.mp4",
+    "1-plaza-botero-y-palacio-rafael-uribe-uribe": "videos/video2.mp4"
   };
   const videoDefault = "videos/video_unico.mp4";
 
@@ -222,40 +221,26 @@
     delete sceneVideo.dataset.currentSrc;
   }
 
-  async function updateVideoForScene(sceneId) {
-    initVideoControlsOnce();
-    const videoCard = document.getElementById("videoCard");
-    const sceneVideo = document.getElementById("sceneVideo");
-    if (!videoCard || !sceneVideo) return;
+await clearVideo(sceneVideo);
+sceneVideo.dataset.currentSrc = videoSrc;
 
-    // decidir fuente (por escena o default)
-    const videoSrc = (typeof sceneVideos[sceneId] !== 'undefined') ? sceneVideos[sceneId] : videoDefault;
+// Retraso de 3 segundos antes de reproducir
+setTimeout(async () => {
+  try {
+    await loadVideoBlob(sceneVideo, videoSrc);
 
-    // Si no hay archivo definido y no hay default -> ocultar
-    if (!videoSrc) {
-      await clearVideo(sceneVideo);
-      videoCard.style.display = "none";
-      return;
-    }
-
-    // Si la misma fuente ya está cargada, solo mostrar la tarjeta
-    if (sceneVideo.dataset.currentSrc && sceneVideo.dataset.currentSrc === videoSrc) {
-      videoCard.style.display = "block";
-      return;
-    }
-
-    // Si cambia la fuente, limpiar y cargar nueva
-    await clearVideo(sceneVideo);
-    sceneVideo.dataset.currentSrc = videoSrc;
-    try {
-      await loadVideoBlob(sceneVideo, videoSrc);
-    } catch (e) {
-      // si falla la carga, ocultamos la tarjeta
-      videoCard.style.display = "none";
-      return;
-    }
+    // Pausar en el último frame si no se cambia de escena
+    sceneVideo.onended = () => {
+      sceneVideo.pause();
+      sceneVideo.currentTime = sceneVideo.duration;
+    };
 
     videoCard.style.display = "block";
+  } catch (e) {
+    // si falla la carga, ocultamos la tarjeta
+    videoCard.style.display = "none";
+  }
+}, 3000);
   }
 
   // =========================
