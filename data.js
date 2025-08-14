@@ -267,7 +267,7 @@ window.APP_DATA = {
 "type": "camera",
     "carrusel": true,
     "image": "img/Camara.png",
-    "pitch": -0.1274,
+    "pitch": 0.0494,
     "yaw": -1.4495,
     "tooltip": "Esfinge",
     "images": [
@@ -278,7 +278,7 @@ window.APP_DATA = {
  "type": "camera",
     "carrusel": true,
     "image": "img/Camara.png",
-    "pitch": -0.1076,
+    "pitch": -0.0602,
     "yaw": -0.5753,
     "tooltip": "Mujer con Fruta",
     "images": [
@@ -289,7 +289,7 @@ window.APP_DATA = {
 "type": "camera",
     "carrusel": true,
     "image": "img/Camara.png",
-    "pitch": -0.1270,
+    "pitch": -0.0663,
     "yaw": -0.9806,
     "tooltip": "Mano",
     "images": [
@@ -300,7 +300,7 @@ window.APP_DATA = {
 "type": "camera",
     "carrusel": true,
     "image": "img/Camara.png",
-    "pitch": -0.1258,
+    "pitch": -0.0917,
     "yaw": -0.0550,
     "tooltip": "Gato",
     "images": [
