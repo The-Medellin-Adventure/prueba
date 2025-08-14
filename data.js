@@ -267,22 +267,33 @@ window.APP_DATA = {
 "type": "camera",
     "carrusel": true,
     "image": "img/Camara.png",
-    "pitch": 0.0114,
-    "yaw": -1.6270,
+    "pitch": -0.0521,
+    "yaw": -1.2617,
     "tooltip": "Esfinge",
     "images": [
-      {"src": "img/carrusel/Esfinge.jpg", "caption": ""}
+      {"src": "img/carrusel/Esfinge.jpg", "caption": "1995. Bronce"}
     ]
   },     
   {
  "type": "camera",
     "carrusel": true,
     "image": "img/Camara.png",
-    "pitch": 0.0859,
-    "yaw": -0.6733,
+    "pitch": -0.0036,
+    "yaw": -0.9283,
     "tooltip": "Mujer con Fruta",
     "images": [
-      {"src": "img/carrusel/Mujer_con_Fruta.jpg", "caption": ""}
+      {"src": "img/carrusel/Mujer_con_Fruta.jpg", "caption": "1996. Bronce"}
+    ]
+  },     
+  {
+"type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": 0.0862,
+    "yaw": -1.2959,
+    "tooltip": "Mano",
+    "images": [
+      {"src": "img/carrusel/Mano.jpg", "caption": "1992. Bronce"}
     ]
   },     
   {
