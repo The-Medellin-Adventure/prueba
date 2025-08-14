@@ -267,7 +267,7 @@ window.APP_DATA = {
 "type": "camera",
     "carrusel": true,
     "image": "img/Camara.png",
-    "pitch": 0.0494,
+    "pitch": -0.0731,
     "yaw": -1.4495,
     "tooltip": "Esfinge",
     "images": [
@@ -330,12 +330,28 @@ window.APP_DATA = {
     ]
   },     
   {
-
-
-
-
-
-
+"type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.0365,
+    "yaw": 1.7038,
+    "tooltip": "Venus Dormida",
+    "images": [
+      {"src": "img/carrusel/Venus_Dormida.jpg", "caption": "1994. Bronce"}
+    ]
+  },     
+  {
+"type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.0887,
+    "yaw": 1.5813,
+    "tooltip": "Hombre Caminante",
+    "images": [
+      {"src": "img/carrusel/Hombre_Caminante.jpg", "caption": "1999. Bronce"}
+    ]
+  },     
+  {
 "type": "camera",
     "carrusel": true,
     "image": "img/Camara.png",
