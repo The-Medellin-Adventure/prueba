@@ -311,11 +311,22 @@ window.APP_DATA = {
 "type": "camera",
     "carrusel": true,
     "image": "img/Camara.png",
-    "pitch": -0.1307,
+    "pitch": -0.0694,
     "yaw": 0.3503,
     "tooltip": "Cabeza",
     "images": [
       {"src": "img/carrusel/Cabeza.jpg", "caption": "1999. Bronce"}
+    ]
+  },     
+  {
+"type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.0476,
+    "yaw": 0.8948,
+    "tooltip": "Soldado Romano",
+    "images": [
+      {"src": "img/carrusel/Soldado_Romano.jpg", "caption": "1986. Bronce"}
     ]
   },     
   {
