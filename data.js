@@ -267,8 +267,8 @@ window.APP_DATA = {
 "type": "camera",
     "carrusel": true,
     "image": "img/Camara.png",
-    "pitch": -0.0521,
-    "yaw": -1.2617,
+    "pitch": -0.1274,
+    "yaw": -1.4495,
     "tooltip": "Esfinge",
     "images": [
       {"src": "img/carrusel/Esfinge.jpg", "caption": "1995. Bronce"}
@@ -278,8 +278,8 @@ window.APP_DATA = {
  "type": "camera",
     "carrusel": true,
     "image": "img/Camara.png",
-    "pitch": -0.0036,
-    "yaw": -0.9283,
+    "pitch": -0.1076,
+    "yaw": -0.5753,
     "tooltip": "Mujer con Fruta",
     "images": [
       {"src": "img/carrusel/Mujer_con_Fruta.jpg", "caption": "1996. Bronce"}
@@ -289,8 +289,8 @@ window.APP_DATA = {
 "type": "camera",
     "carrusel": true,
     "image": "img/Camara.png",
-    "pitch": 0.0862,
-    "yaw": -1.2959,
+    "pitch": -0.1270,
+    "yaw": -0.9806,
     "tooltip": "Mano",
     "images": [
       {"src": "img/carrusel/Mano.jpg", "caption": "1992. Bronce"}
@@ -300,8 +300,8 @@ window.APP_DATA = {
 "type": "camera",
     "carrusel": true,
     "image": "img/Camara.png",
-    "pitch": -0.0057,
-    "yaw": 0.0814,
+    "pitch": -0.1258,
+    "yaw": -0.0550,
     "tooltip": "Gato",
     "images": [
       {"src": "img/carrusel/Gato.jpg", "caption": "1993. Bronce"}
@@ -311,8 +311,8 @@ window.APP_DATA = {
 "type": "camera",
     "carrusel": true,
     "image": "img/Camara.png",
-    "pitch": -0.0163,
-    "yaw": 0.4240,
+    "pitch": -0.1307,
+    "yaw": 0.3503,
     "tooltip": "Cabeza",
     "images": [
       {"src": "img/carrusel/Cabeza.jpg", "caption": "1999. Bronce"}
