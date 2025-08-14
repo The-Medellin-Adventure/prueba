@@ -297,6 +297,29 @@ window.APP_DATA = {
     ]
   },     
   {
+"type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.0057,
+    "yaw": 0.0814,
+    "tooltip": "Gato",
+    "images": [
+      {"src": "img/carrusel/Gato.jpg", "caption": "1993. Bronce"}
+    ]
+  },     
+  {
+"type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.0163,
+    "yaw": 0.4240,
+    "tooltip": "Cabeza",
+    "images": [
+      {"src": "img/carrusel/Cabeza.jpg", "caption": "1999. Bronce"}
+    ]
+  },     
+  {
+
 
 
 
