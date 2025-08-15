@@ -94,27 +94,25 @@
     padding: 4px;
   }
 /* ⬇️ Agregar aquí el estilo del logo en las tarjetas */
-.hotspot-tooltip, 
-.hotspot-image, 
-.hotspot-video {
-  position: relative;
-}
+ .hotspot {
+    position: relative; /* necesario para posicionar el logo dentro */
+  }
 
-.hotspot-tooltip::after, 
-.hotspot-image::after, 
-.hotspot-video::after {
-  content: "";
-  position: absolute;
-  bottom: 8px;
-  left: 8px;
-  width: 40px;
-  height: 40px;
-  background-image: url('img/logo.png'); /* Cambia si el logo está en otra ruta */
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-</style>
+  .hotspot::after {
+    content: "";
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    width: 40px;
+    height: 40px;
+    background-image: url('img/logo.png'); /* Sustituye con la ruta correcta */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    pointer-events: none; /* asegura que el logo no interrumpa clics */
+  }
+
+
   </style>
 
 <style> @-ms-viewport { width: device-width; } </style>
