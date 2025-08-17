@@ -587,7 +587,6 @@ window.APP_DATA = {
 ]
   },     
   {
-
 "type": "camera",
     "carrusel": true,
     "image": "img/Camara.png",
@@ -599,7 +598,6 @@ window.APP_DATA = {
       ]
     }
   ],
-
 
       "linkHotspots": [
         {
@@ -658,8 +656,8 @@ window.APP_DATA = {
     "type": "camera",
     "carrusel": true,
     "image": "img/Camara.png",
-    "pitch": -0.4170,
-    "yaw": -1.2292,
+    "pitch": -0.3506,
+    "yaw": -0.9533,
     "tooltip": "Antigua Plaza Cisneros",
      "images": [
       {
@@ -674,28 +672,66 @@ window.APP_DATA = {
     "type": "camera",
     "carrusel": true,
     "image": "img/Camara.png",
-    "pitch": -0.4170,
-    "yaw": -1.2292,
+    "pitch": -0.2332,
+    "yaw": -0.2896,
     "tooltip": "Historia",
      "images": [
       {
         "src": "img/plaza/Plaza_de_Mercado_1920_(Fachada)-Medellin.jpg", "caption": "Plaza de Mercado 1920"},
       { "src": "img/plaza/Plazacisneros 1905 .jpg", "caption": "Plaza Cisneros, año 1905"},
       { "src": "img/plaza/Panormámica .jpg", "caption": ""},
-      { "src": "img/plaza/noticiaincendio.jpg", "caption": ""},      
+      { "src": "img/plaza/noticiaincendio.jpg", "caption": ""}, 
+      { "src": "img/plaza/antesyhoy.jpg", "caption": ""},
+     
 ]
   },   
   {
     "type": "camera",
     "carrusel": true,
     "image": "img/Camara.png",
-    "pitch": -0.4170,
-    "yaw": -1.2292,
+    "pitch": -0.1604,
+    "yaw": 0.1128,
     "tooltip": "Edificios Vásquez y Carré",
      "images": [
-      { "src": "img/plaza/edificio-v__squez.jpg", "caption": ""},
+      { "src": "img/plaza/edificio-v__squez.jpg", "caption": "Los edificios mellizos Vásquez y Carré, fueron, a finales del siglo XIX y principios del siglo XX, las edificaciones más altas de la ciudad. Diseñados por el arquitecto francés Charles Émile Carré, "},
       { "src": "img/plaza/5111713-me.jpg", "caption": ""},
-      { "src": "img/plaza/PANO_20250710_130603.jpg", "caption": ""},
+      { "src": "img/plaza/PANO_20250710_130603.jpg", "caption": "La fachada de estos edificios mellizos se asemeja a los secadores de café de las haciendas antioqueñas, atributo que sedujo a comerciantes  locales y extranjeros que se instalaron en sus pisos inferiores durantes los primeros años de las dos edificaciones. "
+},
+{
+"type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.3126,
+    "yaw": 0.9520,
+    "tooltip": "Parque de las Luces actualmente",
+    "images": [
+      {"src": "img/cisneros/5111749-me.jpg", "caption": ""},
+      {"src": "img/cisneros/5111729-me.jpg", "caption": ""},
+      {"src": "img/cisneros/5111733-me.jpg", "caption": ""},
+{
+"type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.3875,
+    "yaw": 1.5500,
+    "tooltip": "Parque de las Luces",
+    "images": [
+      {"src": "img/cisneros/5088825-me.jpg", "caption": ""},
+      {"src": "img/cisneros/5088837-me.jpg", "caption": ""},
+      {"src": "img/cisneros/5088840-me.jpg", "caption": ""},
+{
+"type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.1561,
+    "yaw": 3.0588,
+    "tooltip": "Biblioteca EPM",
+    "images": [
+      {"src": "img/cisneros/biblioteca-espacios.jpg", "caption": "Es un espacio que logra una atmósfera confortable y acogedora, un lugar que dinamiza la imagen urbana del sector y que, es un elemento integrador como espacio público en donde se posibilita el diálogo entre el pasado, el presente y el futuro, en medio de un entorno de gran firmeza arquitectónica y cultural, donde niños, jóvenes y adultos se acercan al universo del conocimiento y la cultura."},
+
+      ]
+    }
+  ],
 
 
 
