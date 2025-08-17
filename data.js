@@ -486,7 +486,7 @@ window.APP_DATA = {
     },
     {
       "id": "3-palacio-rafael-uribe-uribe",
-      "name": "Palacio Rafael Uribe Uribe",
+      "name": "Palacio de la Cultura Rafael Uribe Uribe",
       "levels": [
         {
           "tileSize": 256,
@@ -512,6 +512,91 @@ window.APP_DATA = {
         "pitch": -0.44384624272654705,
         "fov": 1.2812361540040014
       },
+
+"hotSpots": [
+  {
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.1612,
+    "yaw": 0.4393,
+    "tooltip": "Exterior",
+     "images": [
+      {
+        "src": "img/rafael/exterior.jpg", "caption": ""},
+]
+  },   
+  {
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.3243,
+    "yaw": 2.9470,
+    "tooltip": "Interior",
+     "images": [
+      {
+        "src": "img/rafael/Escalas.jpg", "caption": ""},
+      { "src": "img/rafael/escalas interiores.jpg", "caption": ""},
+      { "src": "img/rafael/corredores.jpg", "caption": ""},
+      { "src": "img/rafael/Interior.jpg", "caption": ""},
+    ]
+  },     
+  {
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.3243,
+    "yaw": 2.9470,
+    "tooltip": "Interior",
+     "images": [
+      {
+        "src": "img/rafael/salones.jpg", "caption": ""},
+      { "src": "img/rafael/salon.jpg", "caption": ""},
+      { "src": "img/rafael/corredores.jpg", "caption": ""},      
+    ]
+  },     
+  {
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.3243,
+    "yaw": 2.9470,
+    "tooltip": "Terraza",
+     "images": [
+      {
+        "src": "img/rafael/Terraza.jpg", "caption": ""},
+      { "src": "img/rafael/vista.jpg", "caption": ""},
+      { "src": "img/rafael/Vistaterraza.jpg", "caption": ""},      
+    ]
+  },     
+
+{
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.1612,
+    "yaw": 0.4393,
+    "tooltip": "Zona de descanso",
+     "images": [
+      {
+        "src": "img/rafael/Fuente _cafeteria.jpg", "caption": "Aquí te espera una de las cafeterías más tradicionales de Medellín, ideal para relajarte en un ambiente tranquilo."},
+]
+  },     
+  {
+
+"type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.1140,
+    "yaw": -3.0319,
+    "tooltip": "Información",
+    "images": [
+      {"src": "img/rafael/Información.jpg", "caption": "El Palacio de la Cultura no es solo un edificio, es un viaje por la historia, el arte y la arquitectura que marcan la esencia de Medellín. Un lugar donde el pasado y el presente se encuentran para regalarnos una experiencia única en la ciudad de la eterna primavera. ¡Anímate a descubrirlo!"}
+      ]
+    }
+  ],
+
+
       "linkHotspots": [
         {
           "yaw": -1.4901274791616146,
