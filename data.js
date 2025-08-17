@@ -405,7 +405,7 @@ window.APP_DATA = {
     },
     {
       "id": "2-esculturas-y-tradicin",
-      "name": "Esculturas y tradición",
+      "name": "Esculturas y Tradición",
       "levels": [
         {
           "tileSize": 256,
@@ -431,6 +431,36 @@ window.APP_DATA = {
         "pitch": -0.1250168795517812,
         "fov": 0.6087391224900204
       },
+
+"hotSpots": [
+  {
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.1612,
+    "yaw": 0.4393,
+    "tooltip": "Vive el arte a cielo abierto",
+     "images": [
+      {
+        "src": "img/plaza/Fototuristas.jpg", "caption": ""},
+]
+  },     
+  {
+
+"type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.1140,
+    "yaw": -3.0319,
+    "tooltip": "Vive el arte",
+    "images": [
+      {"src": "img/plaza/arte.jpg", "caption": ""}
+      ]
+    }
+  ],
+
+
+
       "linkHotspots": [
         {
           "yaw": 0.9658128506179562,
