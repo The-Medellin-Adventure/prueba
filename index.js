@@ -48,7 +48,7 @@
   }
 
   // =========================
-  // FUNCIÓN MOSTRAR CARRUSEL (mantengo tu implementación)
+  // FUNCIÓN MOSTRAR CARRUSEL 
   // =========================
   function mostrarCarrusel(imagenes, titulo) {
     imagenes = Array.isArray(imagenes) ? imagenes : [];
