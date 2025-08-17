@@ -190,7 +190,7 @@ window.APP_DATA = {
       {
         "src": "img/escena1/Cupula.jpg",
         "caption": "Sube hasta la cúpula, disfruta y toma fotos increíbles"
-     }
+     },
       {
         "src": "img/escena1/Vistadesdecupula.jpg",
         "caption": "Tendrás una panorámica del centro, la Plaza Botero y de una gran parte de la ciudad"
