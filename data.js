@@ -38,11 +38,11 @@ window.APP_DATA = {
     "tooltip": "Hotel Nutibara",
      "images": [
       {
-        "src": "img/HotelNutibara_1965.jpg",
+        "src": "img/escena1/HotelNutibara_1965.jpg",
         "caption": "Hotel Nutibara en año 1965"
       },
       {
-        "src": "img/HotelNutibara.jpg",
+        "src": "img/escena1/HotelNutibara.jpg",
         "caption": "Hotel Nutibara en la actualidad"
       }
     ]
@@ -56,11 +56,11 @@ window.APP_DATA = {
     "tooltip": "Estación Berrío",
     "images": [
       {
-        "src": "img/EstacionBerrio.jpg",
+        "src": "img/escena1/EstacionBerrio.jpg",
         "caption": "Interior estación Parque Berrio del metro"
      },
       {
-        "src": "img/Rutas_Metro.jpg",
+        "src": "img/escena1/Rutas_Metro.jpg",
         "caption": "Mapa rutas del Metro de Medellín."
       }
     ]
@@ -172,20 +172,28 @@ window.APP_DATA = {
     "tooltip": "Rafael Uribe Uribe",
     "images": [
       {
-        "src": "img/RafaelUribeUribe.jpg",
+        "src": "img/escena1/Entrada.jpg",
+        "caption": "Entrada Palacio de la Cultura Rafael Uribe Uribe"
+      },
+      {
+        "src": "img/escena1/RafaelUribeUribe.jpg",
         "caption": "Fachada Palacio Rafael Uribe Uribe"
       },
       {
-        "src": "img/RafaelUribeUribe_2.jpg",
+        "src": "img/escena1/RafaelUribeUribe_2.jpg",
         "caption": "Fachada Palacio Rafael Uribe Uribe"
       },
       {
-        "src": "img/Vistadesdecupula1.jpg",
+        "src": "img/escena1/Vistadesdecupula1.jpg",
         "caption": "Vista Edificio Coltejer desde la cúpula del Palacio Uribe Uribe"
       },
       {
-        "src": "img/Vistadesdecupula.jpg",
+        "src": "img/escena1/Cupula.jpg",
         "caption": "Sube hasta la cúpula, disfruta y toma fotos increíbles"
+     }
+      {
+        "src": "img/escena1/Vistadesdecupula.jpg",
+        "caption": "Tendrás una panorámica del centro, la Plaza Botero y de una gran parte de la ciudad"
      }
     ]
   }        
@@ -273,7 +281,19 @@ window.APP_DATA = {
     "images": [
       {"src": "img/carrusel/Esfinge.jpg", "caption": "1995. Bronce"}
     ]
-  },     
+  },  
+{
+ "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.1141,
+    "yaw": 0.1576,
+    "tooltip": "La alegría de nuestros visitantes",
+    "images": [
+      {"src": "img/00_Museo/Turistas.jpg", "caption": "Puedes hacer el recorrido y tomar todas las fotos que quieras"}
+    ]
+  },
+ 
   {
  "type": "camera",
     "carrusel": true,
