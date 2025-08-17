@@ -1216,6 +1216,9 @@ window.APP_DATA = {
       ]
     }
   ],
+
+
+window.APP_DATA = {
   "name": "Project Title",
   "settings": {
     "mouseViewMode": "drag",
