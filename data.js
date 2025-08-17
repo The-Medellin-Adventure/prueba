@@ -56,6 +56,10 @@ window.APP_DATA = {
     "tooltip": "Estación Berrío",
     "images": [
       {
+        "src": "img/escena1/antes.jpg",
+        "caption": "Un viaje en el tiempo: La primera imagen nos transporta al Medellín de mediados del siglo XX, con elegantes edificios que marcaban el ritmo de la ciudad. Abajo, vemos el presente con la Estación Parque Berrío del Metro de Medellín, símbolo de modernidad, movilidad y transformación urbana."
+     },
+      {
         "src": "img/escena1/EstacionBerrio.jpg",
         "caption": "Interior estación Parque Berrio del metro"
      },
@@ -536,7 +540,7 @@ window.APP_DATA = {
      "images": [
       {
         "src": "img/rafael/Escalas.jpg", "caption": ""},
-      { "src": "img/rafael/escalas interiores.jpg", "caption": ""},
+      { "src": "img/rafael/escalasinteriores.jpg", "caption": ""},
       { "src": "img/rafael/corredores.jpg", "caption": ""},
       { "src": "img/rafael/Interior.jpg", "caption": ""},
     ]
