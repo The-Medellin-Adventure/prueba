@@ -1217,7 +1217,6 @@ window.APP_DATA = {
     }
   ],
 
-
  "name": "Project Title",
   "settings": {
     "mouseViewMode": "drag",
@@ -1226,4 +1225,3 @@ window.APP_DATA = {
     "viewControlButtons": true
   }
 }
-
