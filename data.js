@@ -1226,5 +1226,5 @@ window.APP_DATA = {
     "fullscreenButton": true,
     "viewControlButtons": true
   }
-};
+}
 
