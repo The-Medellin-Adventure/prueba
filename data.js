@@ -665,7 +665,7 @@ window.APP_DATA = {
       { "src": "img/plaza/antiguaplaza.jpg", "caption": ""},
       { "src": "img/plaza/plaza.jpg", "caption": "La Plaza de Cisneros, con el tranvía municipal y la Plaza de Mercado de Guayaquil, construida por Charles Carré. Años 20"},
       { "src": "img/plaza/images.jpg", "caption": ""},
-      { "src": "img/plaza/comentario.jpg", "caption": "El espacio que antes ocupó la Plaza de Mercado de Cisneros. Aquí está hoy el así llamado Parque de las Luces. ¿ Cómo tiene parece el cambio de este lugar a lo que es hoy?"},
+      { "src": "img/plaza/comentario.jpg", "caption": "El espacio que antes ocupó la Plaza de Mercado de Cisneros. Aquí está hoy el así llamado Parque de las Luces. ¿Cómo tiene parece el cambio de este lugar a lo que es hoy?"}
 ]
   },   
   {
