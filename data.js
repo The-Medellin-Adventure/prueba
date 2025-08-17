@@ -518,8 +518,8 @@ window.APP_DATA = {
     "type": "camera",
     "carrusel": true,
     "image": "img/Camara.png",
-    "pitch": -0.1612,
-    "yaw": 0.4393,
+    "pitch": -0.4170,
+    "yaw": -1.2292,
     "tooltip": "Exterior",
      "images": [
       {
@@ -530,8 +530,8 @@ window.APP_DATA = {
     "type": "camera",
     "carrusel": true,
     "image": "img/Camara.png",
-    "pitch": -0.3243,
-    "yaw": 2.9470,
+    "pitch": -0.1486,
+    "yaw": 2.6137,
     "tooltip": "Interior",
      "images": [
       {
@@ -545,8 +545,8 @@ window.APP_DATA = {
     "type": "camera",
     "carrusel": true,
     "image": "img/Camara.png",
-    "pitch": -0.3243,
-    "yaw": 2.9470,
+    "pitch": -0.3979,
+    "yaw": 0.1519,
     "tooltip": "Interior",
      "images": [
       {
@@ -559,8 +559,8 @@ window.APP_DATA = {
     "type": "camera",
     "carrusel": true,
     "image": "img/Camara.png",
-    "pitch": -0.3243,
-    "yaw": 2.9470,
+    "pitch": -1.0826,
+    "yaw": -0.3242,
     "tooltip": "Terraza",
      "images": [
       {
@@ -574,8 +574,8 @@ window.APP_DATA = {
     "type": "camera",
     "carrusel": true,
     "image": "img/Camara.png",
-    "pitch": -0.1612,
-    "yaw": 0.4393,
+    "pitch": 0.0106,
+    "yaw": 1.6506,
     "tooltip": "Zona de descanso",
      "images": [
       {
@@ -587,8 +587,8 @@ window.APP_DATA = {
 "type": "camera",
     "carrusel": true,
     "image": "img/Camara.png",
-    "pitch": -0.1140,
-    "yaw": -3.0319,
+    "pitch": -0.4915,
+    "yaw": 1.2040,
     "tooltip": "Información",
     "images": [
       {"src": "img/rafael/Información.jpg", "caption": "El Palacio de la Cultura no es solo un edificio, es un viaje por la historia, el arte y la arquitectura que marcan la esencia de Medellín. Un lugar donde el pasado y el presente se encuentran para regalarnos una experiencia única en la ciudad de la eterna primavera. ¡Anímate a descubrirlo!"}
