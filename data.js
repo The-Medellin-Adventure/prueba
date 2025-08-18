@@ -805,7 +805,7 @@ window.APP_DATA = {
       { "src": "img/Ferrocarril/1(2).jpg", "caption": "Ferrocarril de Antioquia en la Estación Medellín" },
       { "src": "img/Ferrocarril/12).jpg", "caption": "" },
       { "src": "img/Ferrocarril/1(4).jpg", "caption": "" },     
-      { "src": "img/Ferrocarril/1(1).jpg", "caption": "" }
+      { "src": "img/Ferrocarril/1(1).jpg", "caption": "" },
       { "src": "img/Ferrocarril/12(1).jpg", "caption": "" }
     ]
   },
