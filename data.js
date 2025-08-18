@@ -809,9 +809,6 @@ window.APP_DATA = {
       { "src": "img/Ferrocarril/12(1).jpg", "caption": "" }
     ]
   },
-  {
-
-
 
 
 
