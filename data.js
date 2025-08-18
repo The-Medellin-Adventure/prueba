@@ -662,8 +662,7 @@ window.APP_DATA = {
     "images": [
       { "src": "img/cisneros/1Gal1Img2450.jpg", "caption": "" },
       { "src": "img/cisneros/antiguaplaza.jpg", "caption": "" },
-      { "src": "img/cisneros/plaza.jpg", "caption": "La Plaza de Cisneros, con el tranvía municipal y la Plaza de Mercado de Guayaquil, construida por Charles Carré. Años 20" },
-      { "src": "img/cisneros/images.jpg", "caption": "" },
+      { "src": "img/cisneros/plaza.jpg", "caption": "La Plaza de Cisneros, con el tranvía municipal y la Plaza de Mercado de Guayaquil, construida por Charles Carré. Años 20" },     
       { "src": "img/cisneros/comentario.jpg", "caption": "El espacio que antes ocupó la Plaza de Mercado de Cisneros. Aquí está hoy el así llamado Parque de las Luces. ¿Cómo tiene parece el cambio de este lugar a lo que es hoy?" }
     ]
   },
@@ -676,9 +675,9 @@ window.APP_DATA = {
     "tooltip": "Historia",
     "images": [
       { "src": "img/cisneros/Plaza_de_Mercado.jpg", "caption": "Plaza de Mercado 1920" },
-      { "src": "img/cisneros/Plazacisneros 1905 .jpg", "caption": "Plaza Cisneros, año 1905" },
-      { "src": "img/cisneros/Panormámica .jpg", "caption": "" },
-      { "src": "img/cisneros/noticiaincendio.jpg", "caption": "" },
+      { "src": "img/cisneros/Plazacisneros_1905 .jpg", "caption": "Plaza Cisneros, año 1905" },
+      { "src": "img/cisneros/Panormámica.jpg", "caption": "" },
+      { "src": "img/cisneros/noticiaincendio.png", "caption": "" },
       { "src": "img/cisneros/antesyhoy.jpg", "caption": "" }
     ]
   },
