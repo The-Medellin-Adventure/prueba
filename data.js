@@ -441,6 +441,18 @@ window.APP_DATA = {
     "type": "camera",
     "carrusel": true,
     "image": "img/Camara.png",
+    "pitch": -0.0971,
+    "yaw": -0.7363,
+    "tooltip": "Siente el arte a cielo abierto",
+     "images": [
+      {
+        "src": "img/plaza/botero.jpg", "caption": ""},
+]
+  },     
+  {
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
     "pitch": -0.1612,
     "yaw": 0.4393,
     "tooltip": "Vive el arte a cielo abierto",
