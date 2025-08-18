@@ -809,6 +809,47 @@ window.APP_DATA = {
       { "src": "img/Ferrocarril/12(1).jpg", "caption": "" }
     ]
   },
+   {
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.3875,
+    "yaw": 1.5500,
+    "tooltip": "Fotos Antiguas",
+    "images": [
+      { "src": "img/Ferrocarril/Interior.jpg", "caption": "Foto antigua coloreada del interior de un vagón Ferrocarril de Antioquia con sillas tapizadas, con las luces interiores encendidas. Año 1944. Foto de Francisco Mejía" },
+      { "src": "img/Ferrocarril/31429.jpg", "caption": "" },
+      { "src": "img/Ferrocarril/fotoantigua.jpg", "caption": "Foto antigua coloreada de Ferrocarril de Antioquia años cincuenta." }
+    ]
+  },
+  {
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.3875,
+    "yaw": 1.5500,
+    "tooltip": "Transformación",
+    "images": [
+      { "src": "img/Ferrocarril/31705.jpg", "caption": "" }
+    ]
+  },
+  {
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.1561,
+    "yaw": 3.0588,
+    "tooltip": "Estaciones del antiguo Ferrocarril",
+    "images": [
+      { "src": "img/Ferrocarril/2131E.jpg", "caption": "" },
+      { "src": "img/Ferrocarril/2021.png", "caption": "" },     
+      { "src": "img/Ferrocarril/2012.png", "caption": "" },
+      { "src": "img/Ferrocarril/55.png", "caption": "" },
+      { "src": "img/Ferrocarril/1920.jpg", "caption": "" }
+    ]
+  }
+],
+
 
 
 
