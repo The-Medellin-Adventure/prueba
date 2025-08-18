@@ -202,7 +202,8 @@ window.APP_DATA = {
     ]
   }        
  ],
-      "linkHotspots": [
+
+"linkHotspots": [
         {
           "yaw": 0.4106533973529771,
           "pitch": -0.29636833189372425,
@@ -210,7 +211,8 @@ window.APP_DATA = {
           "target": "1-plaza-botero-y-palacio-rafael-uribe-uribe"
         }
       ],
-      "infoHotspots": [
+
+"infoHotspots": [
         {
           "yaw": -0.6310376814969114,
           "pitch": -0.6875232116974992,
@@ -226,7 +228,9 @@ window.APP_DATA = {
       ]
     },
     {
-      "id": "1-plaza-botero-y-palacio-rafael-uribe-uribe",
+      
+
+"id": "1-plaza-botero-y-palacio-rafael-uribe-uribe",
       "name": "Museo de Antioquia y Plaza Botero",
       "levels": [
         {
@@ -253,9 +257,6 @@ window.APP_DATA = {
         "pitch": -0.32309682106539483,
         "fov": 0.7680934518125859
       },
-
-
-
 "hotSpots": [
   {
     "type": "camera",
@@ -297,7 +298,6 @@ window.APP_DATA = {
       {"src": "img/00_Museo/Turistas.jpg", "caption": "Puedes hacer el recorrido y tomar todas las fotos que quieras"}
     ]
   },
- 
   {
  "type": "camera",
     "carrusel": true,
@@ -388,9 +388,7 @@ window.APP_DATA = {
     }
   ],
 
-
-
-      "linkHotspots": [
+"linkHotspots": [
         {
           "yaw": 0.2812835640726874,
           "pitch": -0.130667924147728,
@@ -398,7 +396,7 @@ window.APP_DATA = {
           "target": "2-esculturas-y-tradicin"
         }
       ],
-      "infoHotspots": [
+"infoHotspots": [
         {
           "yaw": 2.8281957788055063,
           "pitch": -0.2278310627368345,
@@ -408,7 +406,9 @@ window.APP_DATA = {
       ]
     },
     {
-      "id": "2-esculturas-y-tradicin",
+     
+
+"id": "2-esculturas-y-tradicin",
       "name": "Esculturas y Tradición",
       "levels": [
         {
@@ -450,7 +450,6 @@ window.APP_DATA = {
 ]
   },     
   {
-
 "type": "camera",
     "carrusel": true,
     "image": "img/Camara.png",
@@ -463,9 +462,7 @@ window.APP_DATA = {
     }
   ],
 
-
-
-      "linkHotspots": [
+"linkHotspots": [
         {
           "yaw": 0.9658128506179562,
           "pitch": -0.1893595887654591,
@@ -479,7 +476,7 @@ window.APP_DATA = {
           "target": "4-parque-de-las-luces"
         }
       ],
-      "infoHotspots": [
+"infoHotspots": [
         {
           "yaw": -0.5444300357094143,
           "pitch": -0.3131824056238166,
@@ -489,7 +486,9 @@ window.APP_DATA = {
       ]
     },
     {
-      "id": "3-palacio-rafael-uribe-uribe",
+      
+
+"id": "3-palacio-rafael-uribe-uribe",
       "name": "Palacio de la Cultura Rafael Uribe Uribe",
       "levels": [
         {
@@ -573,7 +572,6 @@ window.APP_DATA = {
       { "src": "img/rafael/Vistaterraza.jpg", "caption": ""},      
     ]
   },     
-
 {
     "type": "camera",
     "carrusel": true,
@@ -599,7 +597,7 @@ window.APP_DATA = {
     }
   ],
 
-      "linkHotspots": [
+"linkHotspots": [
         {
           "yaw": -1.4901274791616146,
           "pitch": -0.07462039719154134,
@@ -613,7 +611,7 @@ window.APP_DATA = {
           "target": "2-esculturas-y-tradicin"
         }
       ],
-      "infoHotspots": [
+"infoHotspots": [
         {
           "yaw": -2.070070925613887,
           "pitch": -0.3868519485230113,
@@ -623,7 +621,9 @@ window.APP_DATA = {
       ]
     },
     {
-      "id": "4-parque-de-las-luces",
+ 
+
+"id": "4-parque-de-las-luces",
       "name": "Parque de las Luces",
       "levels": [
         {
@@ -660,11 +660,11 @@ window.APP_DATA = {
     "yaw": -0.9533,
     "tooltip": "Antigua Plaza Cisneros",
     "images": [
-      { "src": "img/plaza/1Gal1Img2450.jpg", "caption": "" },
-      { "src": "img/plaza/antiguaplaza.jpg", "caption": "" },
-      { "src": "img/plaza/plaza.jpg", "caption": "La Plaza de Cisneros, con el tranvía municipal y la Plaza de Mercado de Guayaquil, construida por Charles Carré. Años 20" },
-      { "src": "img/plaza/images.jpg", "caption": "" },
-      { "src": "img/plaza/comentario.jpg", "caption": "El espacio que antes ocupó la Plaza de Mercado de Cisneros. Aquí está hoy el así llamado Parque de las Luces. ¿Cómo tiene parece el cambio de este lugar a lo que es hoy?" }
+      { "src": "img/cisneros/1Gal1Img2450.jpg", "caption": "" },
+      { "src": "img/cisneros/antiguaplaza.jpg", "caption": "" },
+      { "src": "img/cisneros/plaza.jpg", "caption": "La Plaza de Cisneros, con el tranvía municipal y la Plaza de Mercado de Guayaquil, construida por Charles Carré. Años 20" },
+      { "src": "img/cisneros/images.jpg", "caption": "" },
+      { "src": "img/cisneros/comentario.jpg", "caption": "El espacio que antes ocupó la Plaza de Mercado de Cisneros. Aquí está hoy el así llamado Parque de las Luces. ¿Cómo tiene parece el cambio de este lugar a lo que es hoy?" }
     ]
   },
   {
@@ -675,11 +675,11 @@ window.APP_DATA = {
     "yaw": -0.2896,
     "tooltip": "Historia",
     "images": [
-      { "src": "img/plaza/Plaza_de_Mercado_1920_(Fachada)-Medellin.jpg", "caption": "Plaza de Mercado 1920" },
-      { "src": "img/plaza/Plazacisneros 1905 .jpg", "caption": "Plaza Cisneros, año 1905" },
-      { "src": "img/plaza/Panormámica .jpg", "caption": "" },
-      { "src": "img/plaza/noticiaincendio.jpg", "caption": "" },
-      { "src": "img/plaza/antesyhoy.jpg", "caption": "" }
+      { "src": "img/cisneros/Plaza_de_Mercado.jpg", "caption": "Plaza de Mercado 1920" },
+      { "src": "img/cisneros/Plazacisneros 1905 .jpg", "caption": "Plaza Cisneros, año 1905" },
+      { "src": "img/cisneros/Panormámica .jpg", "caption": "" },
+      { "src": "img/cisneros/noticiaincendio.jpg", "caption": "" },
+      { "src": "img/cisneros/antesyhoy.jpg", "caption": "" }
     ]
   },
   {
@@ -690,9 +690,9 @@ window.APP_DATA = {
     "yaw": 0.1128,
     "tooltip": "Edificios Vásquez y Carré",
     "images": [
-      { "src": "img/plaza/edificio-v__squez.jpg", "caption": "Los edificios mellizos Vásquez y Carré, fueron, a finales del siglo XIX y principios del siglo XX, las edificaciones más altas de la ciudad. Diseñados por el arquitecto francés Charles Émile Carré, " },
-      { "src": "img/plaza/5111713-me.jpg", "caption": "" },
-      { "src": "img/plaza/PANO_20250710_130603.jpg", "caption": "La fachada de estos edificios mellizos se asemeja a los secadores de café de las haciendas antioqueñas, atributo que sedujo a comerciantes  locales y extranjeros que se instalaron en sus pisos inferiores durantes los primeros años de las dos edificaciones. " }
+      { "src": "img/cisneros/edificio-v__squez.jpg", "caption": "Los edificios mellizos Vásquez y Carré, fueron, a finales del siglo XIX y principios del siglo XX, las edificaciones más altas de la ciudad. Diseñados por el arquitecto francés Charles Émile Carré, " },
+      { "src": "img/cisneros/5111713-me.jpg", "caption": "" },
+      { "src": "img/cisneros/PANO_20250710_130603.jpg", "caption": "La fachada de estos edificios mellizos se asemeja a los secadores de café de las haciendas antioqueñas, atributo que sedujo a comerciantes  locales y extranjeros que se instalaron en sus pisos inferiores durantes los primeros años de las dos edificaciones. " }
     ]
   },
   {
