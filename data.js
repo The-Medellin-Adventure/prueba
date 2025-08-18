@@ -867,18 +867,14 @@ window.APP_DATA = {
           "yaw": -0.36409705178894036,
           "pitch": 0.11974668427449231,
           "title": "Ferrocarril de Antioquia",
-          "text": "El <strong data-start=\"391\" data-end=\"419\">Ferrocarril de Antioquia</strong> fue mucho más que un medio de transporte. Fue el símbolo de una época de progreso, conexión y orgullo regional."},
-        {
-          "yaw": 1.6048,
-          "pitch": -0.8429,
-          "title": "Palacio de la Justicia José Félix de Restrepo ⚖️",
-          "text": "En el corazón de Medellín se levanta el Palacio de la Justicia, un edificio imponente que concentra gran parte de la vida jurídica de la ciudad. Su diseño moderno, con líneas sobrias y firmes, transmite la idea de orden, respeto y equilibrio, valores esenciales en la administración de justicia.<br>👩‍⚖️ Dentro de sus muros funcionan los principales tribunales de la ciudad, donde cada día se toman decisiones que impactan la vida de los ciudadanos y la historia misma de Colombia. <br>🌆 Su ubicación lo convierte en un punto estratégico dentro del recorrido urbano: frente al Parque de las Luces, a pocos pasos de la Plaza de La Alpujarra y rodeado de edificios gubernamentales y culturales, es un sitio ideal para entender cómo la justicia se articula con la vida social y política de Medellín.<br>📸 Para los visitantes, es un lugar perfecto para capturar imágenes que reflejen el contraste entre la seriedad de la justicia y la energía vibrante del centro de la ciudad.<br>💡 Dato curioso: El Palacio lleva el nombre de José Félix de Restrepo, jurista antioqueño del siglo XIX que impulsó la abolición de la esclavitud en Colombia, convirtiéndose en un símbolo de lucha por la libertad y los derechos humanos."
-        }
+          "text": "El <strong data-start=\"391\" data-end=\"419\">Ferrocarril de Antioquia</strong> fue mucho más que un medio de transporte. Fue el símbolo de una época de progreso, conexión y orgullo regional."
+       }
       ]
     },
     {
-      "id": "6-antigua-estacin-medelln",
-      "name": "Antigua Estación Medellín",
+     
+ "id": "6-antigua-estacin-medelln",
+      "name": "🚂 Antigua Estación del Ferrocarril de Antioquia",
       "levels": [
         {
           "tileSize": 256,
@@ -904,7 +900,26 @@ window.APP_DATA = {
         "pitch": -0.4758720363394744,
         "fov": 1.2812361540040014
       },
-      "linkHotspots": [
+"hotSpots": [
+  {
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.1589,
+    "yaw": -0.4738,
+    "tooltip": "Estación Medellín",
+    "images": [
+      { "src": "img/est/estacioant.png", "caption": "Ferrocarril de Antioquia en la Estación Medellín" },
+      { "src": "img/Ferrocarril/bautizo1.jpg", "caption": "🚂 Durante décadas, la estación fue el punto de partida y llegada de viajeros, comerciantes y soñadores que transformaron la historia económica y social de Medellín." },
+      { "src": "img/Ferrocarril/estacionmed.jpg", "caption": "" },     
+      { "src": "img/Ferrocarril/47148.jpg", "caption": "" },
+      { "src": "img/Ferrocarril/estacion.jpg", "caption": "" },
+      { "src": "img/Ferrocarril/50.jpg", "caption": "Aunque hoy los trenes ya no circulan, el edificio permanece como testigo vivo de ese pasado de hierro y rieles" }
+    ]
+  }
+],
+
+"linkHotspots": [
         {
           "yaw": 2.009365567655193,
           "pitch": -0.4966668186781753,
@@ -912,23 +927,25 @@ window.APP_DATA = {
           "target": "7-alpujarra"
         }
       ],
-      "infoHotspots": [
+ "infoHotspots": [
         {
           "yaw": 2.654780737992004,
           "pitch": -0.24380502008776261,
-          "title": "Antigua Estación Medellín",
-          "text": "El punto de partida de una de las historias más poderosas del desarrollo en Antioquia.&nbsp;Esta estación es más que un edificio. Es un símbolo del espíritu trabajador de Antioquia y un recuerdo de cuando los rieles impulsaron el futuro."
+          "title": "Antigua Estación Medellín del Ferrocarril de Antioquia 🚂",
+          "text": "En pleno centro de la ciudad se conserva uno de los íconos históricos más importantes de Medellín: la Antigua Estación del Ferrocarril de Antioquia. Este majestuoso edificio, inaugurado a comienzos del siglo XX, fue la puerta de entrada al progreso y el desarrollo de la región.<br>🏗️ Su arquitectura combina elegancia y solidez, con detalles clásicos que reflejan la grandeza de una época en la que el ferrocarril unió a Antioquia con el resto del país, facilitando el comercio, la cultura y el intercambio de ideas.<br>🌆 Actualmente, la estación hace parte del Complejo Administrativo de La Alpujarra, rodeada de edificios gubernamentales y espacios culturales, convirtiéndose en un lugar ideal para comprender la evolución urbana de Medellín.<br>📸 Para los visitantes, es un escenario perfecto para tomar fotos únicas: un contraste entre la memoria de los antiguos ferrocarriles y la modernidad de la ciudad que creció a su alrededor.<br>💡 Dato curioso: El Ferrocarril de Antioquia fue fundamental para la exportación del café, principal motor económico de la región, y su estación en Medellín es considerada un patrimonio arquitectónico y cultural de la ciudad.."
         },
         {
           "yaw": 1.9686240729634203,
           "pitch": -0.9771819737375758,
-          "title": "Palacio de Justicia José Félix de Restrepo",
-          "text": "Su diseño moderno y sobrio contrasta con las construcciones históricas cercanas, pero representa la <strong data-start=\"575\" data-end=\"597\">firmeza y seriedad</strong> del sistema judicial colombiano.&nbsp;En su interior funcionan las principales salas del Tribunal Superior de Medellín, juzgados civiles, penales, laborales y de familia."
+          "title": "Palacio de la Justicia José Félix de Restrepo ⚖️",
+          "text": " "En el corazón de Medellín se levanta el Palacio de la Justicia, un edificio imponente que concentra gran parte de la vida jurídica de la ciudad. Su diseño moderno, con líneas sobrias y firmes, transmite la idea de orden, respeto y equilibrio, valores esenciales en la administración de justicia.<br>👩‍⚖️ Dentro de sus muros funcionan los principales tribunales de la ciudad, donde cada día se toman decisiones que impactan la vida de los ciudadanos y la historia misma de Colombia. <br>🌆 Su ubicación lo convierte en un punto estratégico dentro del recorrido urbano: frente al Parque de las Luces, a pocos pasos de la Plaza de La Alpujarra y rodeado de edificios gubernamentales y culturales, es un sitio ideal para entender cómo la justicia se articula con la vida social y política de Medellín.<br>📸 Para los visitantes, es un lugar perfecto para capturar imágenes que reflejen el contraste entre la seriedad de la justicia y la energía vibrante del centro de la ciudad.<br>💡 Dato curioso: El Palacio lleva el nombre de José Félix de Restrepo, jurista antioqueño del siglo XIX que impulsó la abolición de la esclavitud en Colombia, convirtiéndose en un símbolo de lucha por la libertad y los derechos humanos."
         }
       ]
     },
     {
-      "id": "7-alpujarra",
+      
+
+"id": "7-alpujarra",
       "name": "Alpujarra",
       "levels": [
         {
