@@ -905,8 +905,8 @@ window.APP_DATA = {
     "type": "camera",
     "carrusel": true,
     "image": "img/Camara.png",
-    "pitch": -0.1589,
-    "yaw": -0.4738,
+    "pitch": -0.3941,
+    "yaw": -2.5448,
     "tooltip": "Estación Medellín",
     "images": [
       { "src": "img/est/estacioant.png", "caption": "Ferrocarril de Antioquia en la Estación Medellín" },
