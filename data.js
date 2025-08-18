@@ -745,15 +745,7 @@ window.APP_DATA = {
   }
 ],
 
-
-
-
-
-
-
-
-
-      "linkHotspots": [
+"linkHotspots": [
         {
           "yaw": 1.8468150583230543,
           "pitch": -0.17417896287664014,
@@ -771,8 +763,11 @@ window.APP_DATA = {
       ]
     },
     {
-      "id": "5-antiguo-ferrocarril",
-      "name": "Antiguo Ferrocarril",
+      
+
+
+"id": "5-antiguo-ferrocarril",
+      "name": "Antiguo Ferrocarril de Antioquia",
       "levels": [
         {
           "tileSize": 256,
@@ -798,7 +793,34 @@ window.APP_DATA = {
         "pitch": -0.07693334873926361,
         "fov": 1.2812361540040014
       },
-      "linkHotspots": [
+"hotSpots": [
+  {
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.1589,
+    "yaw": -0.4738,
+    "tooltip": "Ferrocarril de Antioquia",
+    "images": [
+      { "src": "img/Ferrocarril/1(2).jpg", "caption": "Ferrocarril de Antioquia en la Estación Medellín" },
+      { "src": "img/Ferrocarril/12).jpg", "caption": "" },
+      { "src": "img/Ferrocarril/1(4).jpg", "caption": "" },     
+      { "src": "img/Ferrocarril/1(1).jpg", "caption": "" }
+      { "src": "img/Ferrocarril/12(1).jpg", "caption": "" }
+    ]
+  },
+  {
+
+
+
+
+
+
+
+
+
+
+"linkHotspots": [
         {
           "yaw": -2.4846729326953874,
           "pitch": -0.4630845139263542,
@@ -806,7 +828,7 @@ window.APP_DATA = {
           "target": "6-antigua-estacin-medelln"
         }
       ],
-      "infoHotspots": [
+"infoHotspots": [
         {
           "yaw": -0.36409705178894036,
           "pitch": 0.11974668427449231,
