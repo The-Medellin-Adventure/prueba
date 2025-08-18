@@ -728,7 +728,7 @@ window.APP_DATA = {
     "yaw": 3.0588,
     "tooltip": "Biblioteca EPM",
     "images": [
-      { "src": "img/cisneros/biblioteca-espacios.jpg", "caption": "Es un espacio que logra una atmósfera confortable y acogedora, un lugar que dinamiza la imagen urbana del sector y que, es un elemento integrador como espacio público en donde se posibilita el diálogo entre el pasado, el presente y el futuro, en medio de un entorno de gran firmeza arquitectónica y cultural, donde niños, jóvenes y adultos se acercan al universo del conocimiento y la cultura." }
+      { "src": "img/cisneros/biblioteca-espacios.jpeg", "caption": "Es un espacio que logra una atmósfera confortable y acogedora, un lugar que dinamiza la imagen urbana del sector y que, es un elemento integrador como espacio público en donde se posibilita el diálogo entre el pasado, el presente y el futuro, en medio de un entorno de gran firmeza arquitectónica y cultural, donde niños, jóvenes y adultos se acercan al universo del conocimiento y la cultura." }
     ]
   }
 ],
