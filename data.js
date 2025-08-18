@@ -910,11 +910,11 @@ window.APP_DATA = {
     "tooltip": "Estación Medellín",
     "images": [
       { "src": "img/est/estacioant.png", "caption": "Ferrocarril de Antioquia en la Estación Medellín" },
-      { "src": "img/Ferrocarril/bautizo1.jpg", "caption": "🚂 Durante décadas, la estación fue el punto de partida y llegada de viajeros, comerciantes y soñadores que transformaron la historia económica y social de Medellín." },
-      { "src": "img/Ferrocarril/estacionmed.jpg", "caption": "" },     
-      { "src": "img/Ferrocarril/47148.jpg", "caption": "" },
-      { "src": "img/Ferrocarril/estacion.jpg", "caption": "" },
-      { "src": "img/Ferrocarril/50.jpg", "caption": "Aunque hoy los trenes ya no circulan, el edificio permanece como testigo vivo de ese pasado de hierro y rieles" }
+      { "src": "img/est/bautizo1.jpg", "caption": "🚂 Durante décadas, la estación fue el punto de partida y llegada de viajeros, comerciantes y soñadores que transformaron la historia económica y social de Medellín." },
+      { "src": "img/est/estacionmed.jpg", "caption": "" },     
+      { "src": "img/est/47148.jpg", "caption": "" },
+      { "src": "img/est/estacion.jpg", "caption": "" },
+      { "src": "img/est/50.jpg", "caption": "Aunque hoy los trenes ya no circulan, el edificio permanece como testigo vivo de ese pasado de hierro y rieles" }
     ]
   }
 ],
