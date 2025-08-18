@@ -675,7 +675,7 @@ window.APP_DATA = {
     "tooltip": "Historia",
     "images": [
       { "src": "img/cisneros/Plaza_de_Mercado.jpg", "caption": "Plaza de Mercado 1920" },
-      { "src": "img/cisneros/Plazacisneros_1905 .jpg", "caption": "Plaza Cisneros, año 1905" },
+      { "src": "img/cisneros/Plazacisneros_1905.jpg", "caption": "Plaza Cisneros, año 1905" },
       { "src": "img/cisneros/Panormámica.jpg", "caption": "" },
       { "src": "img/cisneros/noticiaincendio.png", "caption": "" },
       { "src": "img/cisneros/antesyhoy.jpg", "caption": "" }
