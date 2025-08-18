@@ -813,13 +813,13 @@ window.APP_DATA = {
     "type": "camera",
     "carrusel": true,
     "image": "img/Camara.png",
-    "pitch": -0.3875,
-    "yaw": 1.5500,
+    "pitch": 0.0828,
+    "yaw": 0.8088,
     "tooltip": "Fotos Antiguas",
     "images": [
       { "src": "img/Ferrocarril/Interior.jpg", "caption": "Foto antigua coloreada del interior de un vagón Ferrocarril de Antioquia con sillas tapizadas, con las luces interiores encendidas. Año 1944. Foto de Francisco Mejía" },
-      { "src": "img/Ferrocarril/31429.jpg", "caption": "" },
-      { "src": "img/Ferrocarril/414.jpg", "caption": "" },
+      { "src": "img/Ferrocarril/31429.png", "caption": "" },
+      { "src": "img/Ferrocarril/414.png", "caption": "" },
       { "src": "img/Ferrocarril/fotoantigua.jpg", "caption": "Foto antigua coloreada de Ferrocarril de Antioquia años cincuenta." }
     ]
   },
@@ -854,14 +854,6 @@ window.APP_DATA = {
   }
 ],
 
-
-
-
-
-
-
-
-
 "linkHotspots": [
         {
           "yaw": -2.4846729326953874,
@@ -875,7 +867,12 @@ window.APP_DATA = {
           "yaw": -0.36409705178894036,
           "pitch": 0.11974668427449231,
           "title": "Ferrocarril de Antioquia",
-          "text": "El <strong data-start=\"391\" data-end=\"419\">Ferrocarril de Antioquia</strong> fue mucho más que un medio de transporte. Fue el símbolo de una época de progreso, conexión y orgullo regional."
+          "text": "El <strong data-start=\"391\" data-end=\"419\">Ferrocarril de Antioquia</strong> fue mucho más que un medio de transporte. Fue el símbolo de una época de progreso, conexión y orgullo regional."},
+        {
+          "yaw": 1.6048,
+          "pitch": -0.8429,
+          "title": "Palacio de la Justicia José Félix de Restrepo ⚖️",
+          "text": "Es un símbolo de la historia y la vida jurídica de la ciudad. Su arquitectura imponente combina líneas modernas con un aire institucional que transmite respeto y solemnidad.<br>👩‍⚖️ Aquí funcionan los principales tribunales de la ciudad y es testigo de decisiones que han marcado el rumbo de Medellín y Colombia.<br>💡 Dato curioso: Su nombre rinde homenaje a José Félix de Restrepo, ilustre jurista antioqueño que en el siglo XIX impulsó la abolición de la esclavitud en Colombia."
         }
       ]
     },
