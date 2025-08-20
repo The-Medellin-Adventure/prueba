@@ -972,7 +972,35 @@ window.APP_DATA = {
         "pitch": -0.36987186893880164,
         "fov": 1.2812361540040014
       },
-      "linkHotspots": [
+
+"hotSpots": [
+  {
+   "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.4760,
+    "yaw": -2.2505,
+    "tooltip": "Muro Verde",
+    "images": [
+      { "src": "img/alp/muro.jpg", "caption": "" },
+      { "src": "img/alp/muroverde.jpg", "caption": "" },
+    ]
+  },
+  {
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.2168,
+    "yaw": -1.5501,
+    "tooltip": "Monumento a la raza",
+    "images": [
+      { "src": "img/alp/monumento.jpg", "caption": "" },
+      { "src": "img/alp/DSCN1654.jpg", "caption": "" }
+    ]
+  }
+],
+
+"linkHotspots": [
         {
           "yaw": 1.1760679495123547,
           "pitch": -0.10474936233410759,
@@ -980,41 +1008,46 @@ window.APP_DATA = {
           "target": "8-transicin-ciudad-a-naturaleza"
         }
       ],
-      "infoHotspots": [
+
+"infoHotspots": [
         {
           "yaw": 0.40646343409632735,
           "pitch": -0.32045917529061896,
-          "title": "<strong data-start=\"296\" data-end=\"334\" style=\"font-size: 13px; background-color: rgba(58, 68, 84, 0.8);\">Centro Administrativo La Alpujarra</strong>",
-          "text": "<p data-start=\"246\" data-end=\"442\">Estás en el corazón institucional de Medellín: el <strong data-start=\"296\" data-end=\"334\">Centro Administrativo La Alpujarra</strong>, un complejo emblemático donde se toman muchas de las decisiones que impactan la vida de los antioqueños.</p>\n<p data-start=\"449\" data-end=\"700\">Este espacio concentra las sedes del <strong data-start=\"486\" data-end=\"514\">Gobernación de Antioquia</strong>, la <strong data-start=\"519\" data-end=\"543\">Alcaldía de Medellín</strong> y varias entidades públicas.&nbsp;</p>"
+          "title": "🏛️ La Alpujarra",
+          "text": "La Alpujarra es uno de los lugares más emblemáticos de Medellín. Conocido como el Centro Administrativo La Alpujarra, este espacio concentra los principales edificios gubernamentales de la ciudad y el departamento: la Gobernación de Antioquia, la Alcaldía de Medellín, el Edificio de la Asamblea Departamental y otras instituciones públicas.<br>
+Además de su importancia política y administrativa, La Alpujarra se ha convertido en un epicentro cultural, social y cívico, donde la ciudadanía se encuentra para manifestarse, celebrar y rendir homenaje a su historia. El espacio es amplio, rodeado de plazas y esculturas monumentales que representan la fuerza y el espíritu del pueblo antioqueño.&nbsp;<br>. 🌍Datos curioso: El Monumento a la Raza mide 38 metros de alto y 40 de largo, convirtiéndolo en una de las esculturas en bronce y concreto más grandes de América Latina. "
         },
         {
           "yaw": -1.143712786078808,
           "pitch": -0.016293853927820123,
-          "title": "Gobernación de Antioquia",
-          "text": "<br>"
+          "title": "🏢 Gobernación de Antioquia",
+          "text": "El Edificio José María Córdova, sede de la Gobernación de Antioquia, es uno de los rascacielos más representativos de Medellín. Su arquitectura moderna refleja la visión de progreso del departamento y alberga las oficinas desde donde se gestionan políticas que impactan a millones de antioqueños. <br>Desde aquí se impulsan proyectos de innovación, cultura y desarrollo social que mantienen a Antioquia como un motor económico y cultural en Colombia."
         },
         {
           "yaw": 2.7126840568226713,
           "pitch": -0.2721696124618944,
-          "title": "Alcadía de Medellín",
-          "text": "<br>"
+          "title": "🏛️ Alcaldía de Medellín",
+          "text": "En el complejo también se encuentra la sede principal de la Alcaldía de Medellín, donde se lidera la transformación urbana y social de la ciudad. Medellín es reconocida internacionalmente como un ejemplo de resiliencia e innovación, y gran parte de esa visión se gestiona desde este espacio."
         },
         {
-          "yaw": 1.9048314293507813,
-          "pitch": -0.007138341342550092,
-          "title": "Consejo de Medellin",
-          "text": "<br>"
+          "yaw": -2.0345,
+          "pitch": 0.3749,
+          "title": "🏙️ Plaza de La Alpujarra",
+          "text": "La plaza que rodea el complejo no solo es un espacio de tránsito, sino también un lugar de encuentro ciudadano. Aquí se realizan actos culturales, manifestaciones sociales, conciertos y eventos públicos, lo que convierte a La Alpujarra en un escenario vivo, cargado de historia y significado colectivo."
         },
         {
-          "yaw": -1.8074550075553333,
-          "pitch": -0.6470704369232383,
+          "yaw": -1.8961,
+          "pitch": -0.2958,
           "title": "Monumento a la Raza Antioqueña",
-          "text": "<p data-start=\"893\" data-end=\"1042\">Creada por el maestro <strong data-start=\"1010\" data-end=\"1039\">Rodrigo Arenas Betancourt</strong>.</p>\n<p data-start=\"1049\" data-end=\"1306\">Esta obra simboliza la historia antioqueña: desde sus orígenes indígenas hasta su espíritu de trabajo, religión y progreso.</p>"
+          "text": "“Este imponente monumento, diseñado por el maestro Rodrigo Arenas Betancourt e inaugurado en 1988, es una de las obras más grandes de Colombia. Con sus 38 metros de altura y figuras dinámicas en bronce y concreto, narra la historia de Antioquia: la conquista, la colonización, la independencia y el desarrollo de su pueblo.<br> Más que una escultura, es un símbolo de la identidad antioqueña, del esfuerzo colectivo y del espíritu de superación que caracteriza a Medellín y a su gente.”</p>"
         }
       ]
     },
     {
-      "id": "8-transicin-ciudad-a-naturaleza",
+      
+
+
+"id": "8-transicin-ciudad-a-naturaleza",
       "name": "Transición ciudad a naturaleza",
       "levels": [
         {
