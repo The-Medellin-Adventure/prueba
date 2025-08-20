@@ -1041,7 +1041,7 @@ window.APP_DATA = {
         }
       ]
     },     
-
+  { 
 
 "id": "8-transicin-ciudad-a-naturaleza",
       "name": "Transición ciudad a naturaleza",
