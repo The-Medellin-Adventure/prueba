@@ -1083,8 +1083,8 @@ window.APP_DATA = {
         {
           "yaw": -0.6680991859099557,
           "pitch": 0.024074036364826412,
-          "title": "<br>",
-          "text": "<p class=\"MsoNormal\" style=\"mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;\nline-height:normal\"><span style=\"font-size:12.0pt;font-family:&quot;Times New Roman&quot;,serif;\nmso-fareast-font-family:&quot;Times New Roman&quot;;mso-fareast-language:ES-CO\">Poco a\npoco, el concreto da paso al verde. El asfalto se suaviza, el ruido se apaga… y\nel cuerpo lo siente.<o:p></o:p></span></p>\n\n<p class=\"MsoNormal\" style=\"mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;\nline-height:normal\"><span style=\"font-size:12.0pt;font-family:&quot;Times New Roman&quot;,serif;\nmso-fareast-font-family:&quot;Times New Roman&quot;;mso-fareast-language:ES-CO\">Llegas a\nun espacio que parece hecho para respirar diferente: el <b>Parque de los Pies\nDescalzos</b>. Aquí, la ciudad hace una pausa.<o:p></o:p></span></p>"
+          "title": "👣 Donde Medellín hace una pausa",
+          "text": "En este punto del recorrido comenzamos a sentir la magia de Medellín: la transición entre el bullicio urbano y la calma de la naturaleza. Poco a poco, el concreto se mezcla con el verde, el ruido del tráfico se atenúa y el aire se siente más fresco.<br> Desde este punto, llegamos al Parque de los Pies Descalzos.<br>Este espacio nos demuestra que Medellín no solo es ciudad, también es naturaleza integrada, y este lugar es la mejor muestra de ese equilibrio."
         }
       ]
     },
