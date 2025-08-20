@@ -1014,7 +1014,9 @@ window.APP_DATA = {
           "yaw": 0.40646343409632735,
           "pitch": -0.32045917529061896,
           "title": "🏛️ La Alpujarra",
-          "text": "La Alpujarra es uno de los lugares más emblemáticos de Medellín. Conocido como el Centro Administrativo La Alpujarra, este espacio concentra los principales edificios gubernamentales de la ciudad y el departamento: la Gobernación de Antioquia, la Alcaldía de Medellín, el Edificio de la Asamblea Departamental y otras instituciones públicas.<br>Además de su importancia política y administrativa, La Alpujarra se ha convertido en un epicentro cultural, social y cívico, donde la ciudadanía se encuentra para manifestarse, celebrar y rendir homenaje a su historia. El espacio es amplio, rodeado de plazas y esculturas monumentales que representan la fuerza y el espíritu del pueblo antioqueño.<br>🌍Datos curioso: El Monumento a la Raza mide 38 metros de alto y 40 de largo, convirtiéndolo en una de las esculturas en bronce y concreto más grandes de América Latina."
+          "La Alpujarra es uno de los lugares más emblemáticos de Medellín. Conocido como el <b>Centro Administrativo La Alpujarra</b>, este espacio concentra los principales edificios gubernamentales de la ciudad y el departamento: la Gobernación de Antioquia, la Alcaldía de Medellín, el Edificio de la Asamblea Departamental y otras instituciones públicas.<br><br>Además de su importancia política y administrativa, La Alpujarra se ha convertido en un epicentro cultural, social y cívico, donde la ciudadanía se encuentra para manifestarse, celebrar y rendir homenaje a su historia. El espacio es amplio, rodeado de plazas y esculturas monumentales que representan la fuerza y el espíritu del pueblo antioqueño.<br><br>🌍 <b>Dato curioso:</b> El Monumento a la Raza mide 38 metros de alto y 40 de largo, convirtiéndolo en una de las esculturas en bronce y concreto más grandes de América Latina."
+         }
+       ]
         },
         {
           "yaw": -1.143712786078808,
