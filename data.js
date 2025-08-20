@@ -1028,7 +1028,7 @@ window.APP_DATA = {
           "yaw": 2.7126840568226713,
           "pitch": -0.2721696124618944,
           "title": "🏛️ Alcaldía de Medellín",
-          "text": "En el complejo también se encuentra la sede principal de la Alcaldía de Medellín, donde se lidera la transformación urbana y social de la ciudad. Medellín es reconocida internacionalmente como un ejemplo de resiliencia e innovación, y gran parte de esa visión se gestiona desde este espacio."
+          "text": "En el complejo también se encuentra la sede principal de la Alcaldía de Medellín, donde se lidera la transformación urbana y social de la ciudad.<br> Medellín es reconocida internacionalmente como un ejemplo de resiliencia e innovación, y gran parte de esa visión se gestiona desde este espacio."
         },
         {
           "yaw": -2.0345,
@@ -1093,7 +1093,8 @@ window.APP_DATA = {
       ]
     },
     {
-      "id": "9-pies_descalzos",
+     
+ "id": "9-pies_descalzos",
       "name": "Pies_descalzos",
       "levels": [
         {
@@ -1120,7 +1121,10 @@ window.APP_DATA = {
         "pitch": -0.12226933698328679,
         "fov": 0.41671472387466335
       },
-      "linkHotspots": [
+     
+
+
+ "linkHotspots": [
         {
           "yaw": -0.7857751453998638,
           "pitch": 0.06716930147777411,
@@ -1134,7 +1138,10 @@ window.APP_DATA = {
           "target": "10-conexin-naturaleza"
         }
       ],
-      "infoHotspots": [
+      
+
+
+"infoHotspots": [
         {
           "yaw": -0.5511943870259728,
           "pitch": -0.10166670748687245,
