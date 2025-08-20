@@ -942,10 +942,9 @@ window.APP_DATA = {
         }
       ]
     },
-    {
-      
-
-"id": "7-alpujarra",
+   
+{
+   "id": "7-alpujarra",
       "name": "Alpujarra",
       "levels": [
         {
@@ -1040,8 +1039,8 @@ window.APP_DATA = {
           "title": "Monumento a la Raza Antioqueña",
           "text": "Este imponente monumento, diseñado por el maestro Rodrigo Arenas Betancourt e inaugurado en 1988, es una de las obras más grandes de Colombia. Con sus 38 metros de altura y figuras dinámicas en bronce y concreto, narra la historia de Antioquia: la conquista, la colonización, la independencia y el desarrollo de su pueblo.<br> Más que una escultura, es un símbolo de la identidad antioqueña, del esfuerzo colectivo y del espíritu de superación que caracteriza a Medellín y a su gente."
         }
-      ],
-    
+      ]
+    },     
 
 
 "id": "8-transicin-ciudad-a-naturaleza",
