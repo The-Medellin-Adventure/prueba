@@ -1302,7 +1302,9 @@ window.APP_DATA = {
       ]
     },
     {
-      "id": "13-centro-de-convenciones-y-teatro",
+      
+
+"id": "13-centro-de-convenciones-y-teatro",
       "name": "Centro de convenciones y Teatro",
       "levels": [
         {
@@ -1346,7 +1348,7 @@ window.APP_DATA = {
       ]
     },
 
- "name": "Medellín 360, Vive la Ciudad"
+ "name": "Medellín 360, Vive la Ciudad",
   "settings": {
     "mouseViewMode": "drag",
     "autorotateEnabled": false,
