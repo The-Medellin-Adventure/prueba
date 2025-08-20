@@ -983,7 +983,7 @@ window.APP_DATA = {
     "tooltip": "Muro Verde",
     "images": [
       { "src": "img/alp/muro.jpg", "caption": "" },
-      { "src": "img/alp/muroverde.jpg", "caption": "" },
+      { "src": "img/alp/muroverde.jpg", "caption": "" }
     ]
   },
   {
