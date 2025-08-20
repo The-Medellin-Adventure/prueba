@@ -1346,6 +1346,8 @@ window.APP_DATA = {
       ]
     }
   ],
+
+
  "name": "Medellín 360, Vive la Ciudad",
   "settings": {
     "mouseViewMode": "drag",
