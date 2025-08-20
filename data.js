@@ -1346,7 +1346,7 @@ window.APP_DATA = {
       ]
     },
 
- "name": "Project Title"
+ "name": "Medellín 360: Vive la Ciudad"
   "settings": {
     "mouseViewMode": "drag",
     "autorotateEnabled": false,
