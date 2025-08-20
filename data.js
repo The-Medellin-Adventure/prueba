@@ -1346,7 +1346,7 @@ window.APP_DATA = {
       ]
     },
 
- "name": "Project Title",
+ "name": "Project Title"
   "settings": {
     "mouseViewMode": "drag",
     "autorotateEnabled": false,
