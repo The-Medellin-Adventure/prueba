@@ -980,10 +980,10 @@ window.APP_DATA = {
     "image": "img/Camara.png",
     "pitch": -0.4760,
     "yaw": -2.2505,
-    "tooltip": "Muro Verde",
+    "tooltip": "🌿 Muro Verde de Medellín",
     "images": [
-      { "src": "img/alp/muro.jpg", "caption": "" },
-      { "src": "img/alp/muroverde.jpg", "caption": "" }
+      { "src": "img/alp/muro.jpg", "caption": "Una de las joyas urbanas de Medellín, considerado uno de los jardines verticales más grandes de Latinoamérica. Con más de 8.000 plantas vivas de diferentes especies, este muro no solo embellece la ciudad, sino que también ayuda a purificar el aire, reducir el calor y brindar un respiro natural en medio del paisaje urbano." },
+      { "src": "img/alp/muroverde.jpg", "caption": "📸 Tip viajero: es un lugar perfecto para tomar fotos. Te recomiendo visitarlo en la mañana o al final de la tarde, cuando la luz natural resalta los colores intensos de las plantas."}
     ]
   },
   {
