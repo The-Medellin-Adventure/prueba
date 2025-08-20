@@ -1346,8 +1346,7 @@ window.APP_DATA = {
           "text": "<p data-start=\"1073\" data-end=\"1232\">Uno de los principales templos de las artes escénicas del país.</p>\n<p data-start=\"1239\" data-end=\"1464\">Su acústica perfecta y su capacidad para más de 1.600 espectadores lo han convertido en sede de la <strong data-start=\"1338\" data-end=\"1374\">Orquesta Filarmónica de Medellín</strong>, así como de importantes conciertos, óperas, festivales y espectáculos internacionales.</p>"
         }
       ]
-    }
-  ],
+    },
 
  "name": "Project Title",
   "settings": {
