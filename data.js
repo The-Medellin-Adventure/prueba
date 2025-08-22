@@ -1445,14 +1445,14 @@ window.APP_DATA = {
         {
           "yaw": -1.3463471587051483,
           "pitch": 0.0027403894617243907,
-          "title": "<strong data-start=\"527\" data-end=\"580\">Plaza Mayor Centro de Convenciones y Exposiciones</strong>.",
-          "text": "Escenario de ferias internacionales, congresos, conciertos, exposiciones y eventos empresariales de todo tipo. Es el corazón de los negocios y el turismo de eventos en la ciudad."
+          "title": "Plaza Mayor Centro de Convenciones y Exposiciones.",
+          "text": "Plaza Mayor es el epicentro de los grandes eventos de Medellín. Allí se realizan ferias internacionales, congresos, conciertos y exposiciones de todo tipo. Su arquitectura moderna y funcional lo convierte en un referente del turismo de negocios y de eventos en Colombia.<br< Conectado estratégicamente al corazón de la ciudad, Plaza Mayor impulsa el desarrollo económico y cultural, acogiendo a miles de visitantes nacionales e internacionales cada año. <br> ✨ Tip viajero: Si visitas Medellín durante ferias como la Feria de las Flores 🌸 o Colombiamoda, este lugar se llena de vida, colores y actividades. ¡Un sitio ideal para vivir la ciudad desde otra perspectiva!."
         },
         {
           "yaw": -2.3877587140456047,
           "pitch": -0.4510192621363007,
-          "title": "<strong data-start=\"1120\" data-end=\"1165\">Teatro Metropolitano José Gutiérrez Gómez</strong>,&nbsp;",
-          "text": "<p data-start=\"1073\" data-end=\"1232\">Uno de los principales templos de las artes escénicas del país.</p>\n<p data-start=\"1239\" data-end=\"1464\">Su acústica perfecta y su capacidad para más de 1.600 espectadores lo han convertido en sede de la <strong data-start=\"1338\" data-end=\"1374\">Orquesta Filarmónica de Medellín</strong>, así como de importantes conciertos, óperas, festivales y espectáculos internacionales.</p>"
+          "title": "🎭 Teatro Metropolitano José Gutiérrez Gómez",
+          "text": "El Teatro Metropolitano es uno de los templos culturales más importantes de Medellín. Inaugurado en 1987, su diseño moderno y su acústica impecable lo han convertido en sede de la Orquesta Filarmónica de Medellín y en escenario de conciertos, óperas, obras de teatro y festivales internacionales.<br> Con capacidad para más de 1.600 personas, es un espacio donde el arte cobra vida y donde Medellín se abre al mundo con espectáculos de gran calidad.<br>✨ Tip viajero: Si tienes la oportunidad, disfruta de un concierto en este teatro 🎶. La acústica es tan perfecta que cada nota se siente única y envolvente."
         }
       ]
     }
