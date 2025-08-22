@@ -997,7 +997,7 @@ window.APP_DATA = {
     "tooltip": "Monumento a la raza",
     "images": [
       { "src": "img/alp/monumento.jpg", "caption": "" },
-      { "src": "img/alp/DSCN1654.jpg", "caption": "" }
+      { "src": "img/alp/monumento2.jpg", "caption": "" }
     ]
   }
 ],
