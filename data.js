@@ -868,7 +868,7 @@ window.APP_DATA = {
           "yaw": -0.36409705178894036,
           "pitch": 0.11974668427449231,
           "title": "Ferrocarril de Antioquia",
-          "text": "El <strong data-start=\"391\" data-end=\"419\">Ferrocarril de Antioquia</strong> fue mucho más que un medio de transporte. Fue el símbolo de una época de progreso, conexión y orgullo regional."
+          "text": "El Ferrocarril de Antioquia fue mucho más que un medio de transporte. Fue el símbolo de una época de progreso, conexión y orgullo regional."
        }
       ]
     },
@@ -945,7 +945,9 @@ window.APP_DATA = {
     },
    
 {
-   "id": "7-alpujarra",
+   
+
+"id": "7-alpujarra",
       "name": "Alpujarra",
       "levels": [
         {
