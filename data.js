@@ -1298,7 +1298,7 @@ window.APP_DATA = {
           "yaw": -0.027987288919751663,
           "pitch": -0.13591470880965772,
           "title": "🎋 Laberinto de Bambú – Un rincón para perderse y encontrarse",
-          "text": "Dentro del Parque de los Pies Descalzos, uno de los espacios más emblemáticos de Medellín, se encuentra un rincón que sorprende a todos los visitantes: el Laberinto de Bambú. Este espacio, rodeado por altos y frondosos tallos de bambú, ofrece una experiencia diferente a cualquier otra en la ciudad.<br>Caminar por sus pasillos es dejarse envolver por la naturaleza. La altura del bambú crea un ambiente fresco y misterioso, donde la luz del sol se filtra suavemente entre las hojas y el viento genera un susurro relajante. Es un lugar perfecto para hacer una pausa, desconectarse del bullicio urbano y sentir que, por un instante, uno se traslada a un bosque encantado en medio de Medellín."}
+          "text": "Dentro del Parque de los Pies Descalzos, uno de los espacios más emblemáticos de Medellín, se encuentra un rincón que sorprende a todos los visitantes: el Laberinto de Bambú. Este espacio, rodeado por altos y frondosos tallos de bambú, ofrece una experiencia diferente a cualquier otra en la ciudad.<br>Caminar por sus pasillos es dejarse envolver por la naturaleza. La altura del bambú crea un ambiente fresco y misterioso, donde la luz del sol se filtra suavemente entre las hojas y el viento genera un susurro relajante. Es un lugar perfecto para hacer una pausa, desconectarse del bullicio urbano y sentir que, por un instante, uno se traslada a un bosque encantado en medio de Medellín."},
          {
           "yaw": -2.4049,
           "pitch": 0.0384,
