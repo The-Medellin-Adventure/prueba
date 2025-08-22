@@ -1159,8 +1159,6 @@ window.APP_DATA = {
         }
       ],
       
-
-
 "infoHotspots": [
         {
           "yaw": -0.5511943870259728,
@@ -1200,7 +1198,23 @@ window.APP_DATA = {
         "pitch": 0.05092995713399162,
         "fov": 1.2812361540040014
       },
-      "linkHotspots": [
+      
+"hotSpots": [
+  {
+   "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": 0.0293,
+    "yaw": -1.3196 ,
+    "tooltip": "Despierta tus sentidos",
+    "images": [
+      { "src": "img/pies/el-parque.jpeg", "caption": "Tip viajero: Los árboles de corcho son únicos en Medellín 🌳🤎. ¡Anímate a abrazarlos 🤗💚! Su corteza suave y esponjosa te conecta con la naturaleza y transmite una sensación de calma y bienestar."}
+   ]
+  }
+],
+
+
+"linkHotspots": [
         {
           "yaw": 0.22883203254804485,
           "pitch": 0.0012346401954985708,
@@ -1213,7 +1227,7 @@ window.APP_DATA = {
           "yaw": -0.744500712372604,
           "pitch": 0.31299920259097114,
           "title": "Despierta tus sentidos",
-          "text": "Al entrar, tus pies tocan la <strong data-start=\"414\" data-end=\"430\">arena blanca</strong>, cálida y suave, que invita a desconectarte de la rutina. Es un espacio creado para andar sin zapatos, dejar huellas y reconectar con la tierra de forma natural."
+          "text": "Al entrar, tus pies tocan la arena blanca, cálida y suave, que invita a desconectarte de la rutina. Es un espacio creado para andar sin zapatos, dejar huellas y reconectar con la tierra de forma natural."
         },
         {
           "yaw": 2.5903191843063818,
