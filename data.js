@@ -1222,7 +1222,8 @@ window.APP_DATA = {
           "target": "11-laberinto-de-bamb"
         }
       ],
-      "infoHotspots": [
+      
+"infoHotspots": [
         {
           "yaw": -0.744500712372604,
           "pitch": 0.31299920259097114,
@@ -1309,7 +1310,7 @@ window.APP_DATA = {
       
 
 "id": "12-edificio-inteligente-epm",
-      "name": "Edificio Inteligente EPM",
+      "name": "🏢 Edificio Inteligente de las Empresas Públicas de Medellín",
       "levels": [
         {
           "tileSize": 256,
@@ -1335,7 +1336,41 @@ window.APP_DATA = {
         "pitch": -0.3328550986643233,
         "fov": 0.9712718897065276
       },
-      "linkHotspots": [
+ 
+"hotSpots": [
+  {
+   "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.0378,
+    "yaw": -1.5084,
+    "tooltip": "🏢 Innovación y sostenibilidad en Medellín ",
+    "images": [
+      { "src": "img/epm/image.jpeg", "caption": "El Edificio EPM, inaugurado en 1997, marcó un antes y un después en la arquitectura de Medellín. En su momento fue considerado uno de los edificios más modernos de Colombia y un referente en Latinoamérica, gracias a su diseño innovador y a la tecnología utilizada en su construcción.<br>Su fachada de vidrio y acero no solo ofrece una estética imponente, sino que también aprovecha la luz natural y contribuye a la eficiencia energética, algo adelantado para su tiempo. El edificio fue concebido como un espacio sostenible, incorporando sistemas de ventilación e iluminación que reducen el consumo de energía y creando un entorno amigable con el medio ambiente."},
+      { "src": "img/epm/interior.jpg", "caption": "" },
+      { "src": "img/epm/EDIFICIO.jpg", "caption": "El Edificio Inteligente de EPM marcó un hito en la historia de Medellín y del país. En su momento fue la construcción más moderna de Colombia y una de las más avanzadas de Latinoamérica, gracias a su diseño arquitectónico vanguardista y a los sistemas tecnológicos integrados que lo convirtieron en un referente internacional." },
+    ]
+  },
+  {
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.0378,
+    "yaw":-1.5084,
+    "tooltip": "",
+    "images": [
+      { "src": "img/epm/EDIFICIO.jpg", "caption": "El edificio y su entorno con jardines, fuentes y plazas abiertas se han consolidado como un espacio emblemático de la ciudad, donde la modernidad se encuentra con la cultura y el compromiso ambiental." },
+      { "src": "img/epm/agua_urbanismo.jpg", "caption": "" },
+      { "src": "img/epm/25312.jpg", "caption": "" },
+      { "src": "img/epm/EPM.jpg", "caption": "✨ Tip viajero: no olvides recorrer sus alrededores 🌿. La plaza y sus jardines son un lugar ideal para descansar y tomar fotografías" }
+    ]
+  }
+],
+     
+
+
+
+"linkHotspots": [
         {
           "yaw": 2.6541000480451293,
           "pitch": -0.17727500579812094,
@@ -1343,13 +1378,10 @@ window.APP_DATA = {
           "target": "13-centro-de-convenciones-y-teatro"
         }
       ],
-      "infoHotspots": [
-        {
-          "yaw": -1.0883540674685168,
-          "pitch": -0.6728124486860132,
-          "title": "<p class=\"MsoNormal\" style=\"mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;\nline-height:normal\"><b><span style=\"font-size:12.0pt;font-family:&quot;Times New Roman&quot;,serif;\nmso-fareast-font-family:&quot;Times New Roman&quot;;mso-fareast-language:ES-CO\">Edificio\nEPM y las fuentes de agua</span></b><span style=\"font-size:12.0pt;font-family:\n&quot;Times New Roman&quot;,serif;mso-fareast-font-family:&quot;Times New Roman&quot;;mso-fareast-language:\nES-CO\"><o:p></o:p></span></p>",
-          "text": "<strong data-start=\"285\" data-end=\"316\">Edificio Inteligente de EPM</strong>, una de las construcciones más modernas y sostenibles de Medellín. Es la sede principal de <strong data-start=\"408\" data-end=\"441\">Empresas Públicas de Medellín</strong>, una compañía símbolo del desarrollo tecnológico, ambiental y social de la ciudad."
-        },
+      
+
+"infoHotspots": [
+        
         {
           "yaw": -1.0881964642481812,
           "pitch": -0.08079930952018621,
