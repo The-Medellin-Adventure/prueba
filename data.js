@@ -1351,6 +1351,20 @@ window.APP_DATA = {
       { "src": "img/epm/EDIFICIO.jpg", "caption": "El Edificio Inteligente de EPM marcó un hito en la historia de Medellín y del país. En su momento fue la construcción más moderna de Colombia y una de las más avanzadas de Latinoamérica, gracias a su diseño arquitectónico vanguardista y a los sistemas tecnológicos integrados que lo convirtieron en un referente internacional." },
     ]
   },
+{
+   "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.0378,
+    "yaw": -1.5084,
+    "tooltip": "Una pausa para los sentidos",
+    "images": [
+      { "src": "img/pies/ParquePies.jpeg", "caption": "los espejos y canales de agua que refrescan el ambiente y ofrecen un lugar perfecto para descansar, jugar y sumergirse en la calma. Aquí, tanto turistas como locales se animan a quitarse los zapatos, caminar descalzos, mojar los pies y disfrutar de un momento de tranquilidad."},
+      { "src": "img/epm/interior.jpg", "caption": "" },
+      { "src": "img/epm/EDIFICIO.jpg", "caption": "El Edificio Inteligente de EPM marcó un hito en la historia de Medellín y del país. En su momento fue la construcción más moderna de Colombia y una de las más avanzadas de Latinoamérica, gracias a su diseño arquitectónico vanguardista y a los sistemas tecnológicos integrados que lo convirtieron en un referente internacional." },
+    ]
+  },
+
   {
     "type": "camera",
     "carrusel": true,
@@ -1385,14 +1399,14 @@ window.APP_DATA = {
         {
           "yaw": -1.0881964642481812,
           "pitch": -0.08079930952018621,
-          "title": "<br>",
-          "text": "Lo más encantador está justo afuera: un entorno lleno de <strong data-start=\"924\" data-end=\"981\">fuentes interactivas, espejos de agua y zonas húmedas</strong> que invitan a jugar, refrescarse o simplemente disfrutar."
+          "title": "Una breve pausa",
+          "text": "Lo más encantador está justo afuera: un entorno lleno de fuentes interactivas, espejos de agua y zonas húmedas que invitan a jugar, refrescarse o simplemente disfrutar."
         },
         {
           "yaw": -2.9044878547184716,
           "pitch": 0.10748410970518307,
           "title": "<br>",
-          "text": "Este espacio fue diseñado como un <strong data-start=\"1363\" data-end=\"1402\">puente entre lo urbano y lo natural</strong>, un respiro fresco dentro de la ciudad, donde el agua, la arquitectura y el paisaje dialogan en perfecta armonía."
+          "text": "Este espacio fue diseñado como un puente entre lo urbano y lo natural, un respiro fresco dentro de la ciudad, donde el agua, la arquitectura y el paisaje dialogan en perfecta armonía."
         }
       ]
     },
