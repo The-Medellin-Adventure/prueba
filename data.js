@@ -1149,7 +1149,7 @@ window.APP_DATA = {
     "tooltip": "Descalza tus pies, siente la energía y disfruta",
     "images": [
       { "src": "img/pies/parque.jpg", "caption": "Nuestros visitantes se dejan llevar por esta pausa mágica, recargan energías y contagian el lugar con alegría" },
-      { "src": "img/pies/pies.JPG", "caption": "En esta breve desconexión, renovarás el espíritu y estarás lleno de buena energía" },
+      { "src": "img/pies/ima.png", "caption": "En esta breve desconexión, renovarás el espíritu y estarás lleno de buena energía" },
       { "src": "img/alp/ParquePies.JPG", "caption": "No es solo caminar sobre la arena, también podrás sentir la frescura del agua y rodearse de naturaleza." }
     ]
   }
@@ -1359,7 +1359,7 @@ window.APP_DATA = {
     "tooltip": "🏢 Innovación y sostenibilidad en Medellín ",
     "images": [
       { "src": "img/epm/image.jpeg", "caption": "El Edificio EPM, inaugurado en 1997, marcó un antes y un después en la arquitectura de Medellín. En su momento fue considerado uno de los edificios más modernos de Colombia y un referente en Latinoamérica, gracias a su diseño innovador y a la tecnología utilizada en su construcción.<br>Su fachada de vidrio y acero no solo ofrece una estética imponente, sino que también aprovecha la luz natural y contribuye a la eficiencia energética, algo adelantado para su tiempo. El edificio fue concebido como un espacio sostenible, incorporando sistemas de ventilación e iluminación que reducen el consumo de energía y creando un entorno amigable con el medio ambiente."},
-      { "src": "img/epm/interior.jpg", "caption": "" },
+      { "src": "img/epm/interior.jpeg", "caption": "" },
       { "src": "img/epm/EDIFICIO.jpg", "caption": "El Edificio Inteligente de EPM marcó un hito en la historia de Medellín y del país. En su momento fue la construcción más moderna de Colombia y una de las más avanzadas de Latinoamérica, gracias a su diseño arquitectónico vanguardista y a los sistemas tecnológicos integrados que lo convirtieron en un referente internacional." },
     ]
   },
@@ -1371,8 +1371,8 @@ window.APP_DATA = {
     "yaw": 2.6156,
     "tooltip": "Una pausa para los sentidos",
     "images": [
-      { "src": "img/pies/ParquePies.jpeg", "caption": "los espejos y canales de agua que refrescan el ambiente y ofrecen un lugar perfecto para descansar, jugar y sumergirse en la calma. Aquí, tanto turistas como locales se animan a quitarse los zapatos, caminar descalzos, mojar los pies y disfrutar de un momento de tranquilidad."},
-      { "src": "img/epm/interior.jpg", "caption": "" },
+      { "src": "img/pies/ParquePies.JPG", "caption": "los espejos y canales de agua que refrescan el ambiente y ofrecen un lugar perfecto para descansar, jugar y sumergirse en la calma. Aquí, tanto turistas como locales se animan a quitarse los zapatos, caminar descalzos, mojar los pies y disfrutar de un momento de tranquilidad."},
+      { "src": "img/epm/interior.jpeg", "caption": "" },
       { "src": "img/epm/EDIFICIO.jpg", "caption": "El Edificio Inteligente de EPM marcó un hito en la historia de Medellín y del país. En su momento fue la construcción más moderna de Colombia y una de las más avanzadas de Latinoamérica, gracias a su diseño arquitectónico vanguardista y a los sistemas tecnológicos integrados que lo convirtieron en un referente internacional." },
     ]
   },
