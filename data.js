@@ -1208,7 +1208,7 @@ window.APP_DATA = {
     "yaw": -1.3196 ,
     "tooltip": "Despierta tus sentidos",
     "images": [
-      { "src": "img/pies/el-parque.jpeg", "caption": "Tip viajero: Los árboles de corcho son únicos en Medellín 🌳🤎. ¡Anímate a abrazarlos 🤗💚! Su corteza suave y esponjosa te conecta con la naturaleza y transmite una sensación de calma y bienestar."}
+      { "src": "img/pies/turis.png", "caption": "Tip viajero: Los árboles de corcho son únicos en Medellín 🌳🤎. ¡Anímate a abrazarlos 🤗💚! Su corteza suave y esponjosa te conecta con la naturaleza y transmite una sensación de calma y bienestar."}
    ]
   }
 ],
@@ -1238,7 +1238,9 @@ window.APP_DATA = {
       ]
     },
     {
-      "id": "11-laberinto-de-bamb",
+      
+
+"id": "11-laberinto-de-bamb",
       "name": "Laberinto de Bambú",
       "levels": [
         {
