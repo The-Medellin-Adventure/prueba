@@ -1150,7 +1150,7 @@ window.APP_DATA = {
     "images": [
       { "src": "img/pies/parque.jpg", "caption": "Nuestros visitantes se dejan llevar por esta pausa mágica, recargan energías y contagian el lugar con alegría" },
       { "src": "img/pies/ima.png", "caption": "En esta breve desconexión, renovarás el espíritu y estarás lleno de buena energía" },
-      { "src": "img/alp/ParquePies.JPG", "caption": "No es solo caminar sobre la arena, también podrás sentir la frescura del agua y rodearse de naturaleza." }
+      { "src": "img/pies/ParquePies.JPG", "caption": "No es solo caminar sobre la arena, también podrás sentir la frescura del agua y rodearse de naturaleza." }
     ]
   }
 ],
@@ -1387,7 +1387,7 @@ window.APP_DATA = {
     "images": [
       { "src": "img/epm/EDIFICIO.jpg", "caption": "El edificio y su entorno con jardines, fuentes y plazas abiertas se han consolidado como un espacio emblemático de la ciudad, donde la modernidad se encuentra con la cultura y el compromiso ambiental." },
       { "src": "img/epm/agua_urbanismo.jpg", "caption": "" },
-      { "src": "img/epm/25312.jpg", "caption": "" },
+      { "src": "img/epm/25312.png", "caption": "" },
       { "src": "img/epm/EPM.jpg", "caption": "✨ Tip viajero: no olvides recorrer sus alrededores 🌿. La plaza y sus jardines son un lugar ideal para descansar y tomar fotografías" }
     ]
   }
