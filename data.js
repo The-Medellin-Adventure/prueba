@@ -1149,8 +1149,8 @@ window.APP_DATA = {
     "tooltip": "Descalza tus pies, siente la energía y disfruta",
     "images": [
       { "src": "img/pies/parque.jpg", "caption": "Nuestros visitantes se dejan llevar por esta pausa mágica, recargan energías y contagian el lugar con alegría" },
-      { "src": "img/pies/pies.jpg", "caption": "En esta breve desconexión, renovarás el espíritu y estarás lleno de buena energía" },
-      { "src": "img/alp/ParquePies.jpg", "caption": "No es solo caminar sobre la arena, también podrás sentir la frescura del agua y rodearse de naturaleza." }
+      { "src": "img/pies/pies.JPG", "caption": "En esta breve desconexión, renovarás el espíritu y estarás lleno de buena energía" },
+      { "src": "img/alp/ParquePies.JPG", "caption": "No es solo caminar sobre la arena, también podrás sentir la frescura del agua y rodearse de naturaleza." }
     ]
   }
 ],
