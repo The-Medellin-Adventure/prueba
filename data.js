@@ -1122,8 +1122,8 @@ window.APP_DATA = {
    "type": "camera",
     "carrusel": true,
     "image": "img/Camara.png",
-    "pitch": -0.4760,
-    "yaw": -2.2505,
+    "pitch": -0.0901,
+    "yaw": 0.1216,
     "tooltip": "Descalza tus pies y siente la energía del planeta",
     "images": [
       { "src": "img/pies/el-parque.jpeg", "caption": "Un oasis en el centro de Medellín, donde el agua, la arena y los árboles de corcho invitan a relajarse y reconectar con la naturaleza. Aquí podrás caminar descalzo, sentir la frescura del agua y disfrutar un espacio único en medio de la ciudad. <br>✨ Tip viajero: lleva una toalla pequeña y disfruta la experiencia de caminar sin zapatos; la arena y el agua hacen que tu visita sea inolvidable."}
@@ -1133,8 +1133,8 @@ window.APP_DATA = {
     "type": "camera",
     "carrusel": true,
     "image": "img/Camara.png",
-    "pitch": -0.2168,
-    "yaw": -1.5501,
+    "pitch": -0.0217,
+    "yaw": 0.7445,
     "tooltip": "Descalza tus pies, siente la energía y disfruta",
     "images": [
       { "src": "img/pies/parque.jpg", "caption": "Nuestros visitantes se dejan llevar por esta pausa mágica, recargan energías y contagian el lugar con alegría" },
