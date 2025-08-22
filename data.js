@@ -1,41 +1,6 @@
 window.APP_DATA = {
   "scenes": [
     {
- "id": "0-Metro de Medellín",
-      "name": "Estación Metro de Medellín",
-      "levels": [
-        {
-          "tileSize": 256,
-          "size": 256,
-          "fallbackOnly": true
-        },
-        {
-          "tileSize": 512,
-          "size": 512
-        },
-        {
-          "tileSize": 512,
-          "size": 1024
-        },
-        {
-          "tileSize": 512,
-          "size": 2048
-        }
-      ],
-      "faceSize": 2048,
-      "initialViewParameters": {
-        "yaw": 0.11451431718835359,
-        "pitch": -0.28108895507963005,
-        "fov": 1.2812361540040014
-     
-  },
-  "linkHotspots": [],
-  "infoHotspots": []
-}
-
-
-
-
 "id": "0-plaza-botero-botero",
       "name": "Plaza Botero",
       "levels": [
