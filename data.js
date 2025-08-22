@@ -1079,7 +1079,8 @@ window.APP_DATA = {
         "pitch": -0.020712824660577667,
         "fov": 1.2812361540040014
       },
-      "linkHotspots": [
+      
+"linkHotspots": [
         {
           "yaw": -0.6622238495674573,
           "pitch": 0.1297113999908408,
@@ -1087,7 +1088,8 @@ window.APP_DATA = {
           "target": "9-pies_descalzos"
         }
       ],
-      "infoHotspots": [
+      
+"infoHotspots": [
         {
           "yaw": -0.6680991859099557,
           "pitch": 0.024074036364826412,
