@@ -753,12 +753,13 @@ window.APP_DATA = {
           "target": "5-antiguo-ferrocarril"
         }
       ],
-      "infoHotspots": [
+      
+"infoHotspots": [
         {
           "yaw": 0.13940764139272765,
           "pitch": -0.3122330097451762,
-          "title": "Parque de las Luces",
-          "text": "<p data-start=\"348\" data-end=\"519\">Es uno de los lugares más sorprendentes del centro de Medellín. Aquí, donde antes solo había oscuridad y abandono, hoy con sus más de 300 torres de luz,&nbsp; brilla un símbolo de renovación y esperanza,&nbsp;</p>\n<p data-start=\"526\" data-end=\"770\">Por la noche, iluminan todo el parque y crean un espectáculo visual que no te puedes perder.</p>"
+          "title": "Plaza Cisneros – De las bodegas al Parque de las Luces",
+          "text": "La Plaza Cisneros, conocida también como el Parque de las Luces, es uno de los espacios que mejor reflejan la capacidad de transformación urbana de Medellín. Su nombre rinde homenaje a Francisco Javier Cisneros, ingeniero cubano que lideró la construcción del Ferrocarril de Antioquia a finales del siglo XIX, una obra que conectó la región con el resto del país y marcó un hito en su desarrollo económico.<br>En sus inicios, la plaza fue un centro de carga y bodegas del ferrocarril, rodeada de almacenes y con un marcado carácter industrial. Sin embargo, con el paso del tiempo, el lugar entró en deterioro y se convirtió en una zona poco atractiva para la ciudadanía.<br>La gran transformación llegó en el año 2005, cuando el espacio fue renovado como parte del plan de recuperación del centro de Medellín. El cambio más llamativo fue la instalación de 300 columnas luminosas, de hasta 24 metros de altura, que de día parecen un bosque metálico y de noche iluminan el espacio con un espectáculo de luces. Esta intervención no solo rescató un espacio urbano, sino que lo convirtió en un símbolo de la renovación cultural y social de Medellín."
         }
       ]
     },
