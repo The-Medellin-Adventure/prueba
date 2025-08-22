@@ -1,7 +1,42 @@
 window.APP_DATA = {
   "scenes": [
     {
-      "id": "0-plaza-botero-botero",
+ "id": "0-Metro de Medellín",
+      "name": "Estación Metro de Medellín",
+      "levels": [
+        {
+          "tileSize": 256,
+          "size": 256,
+          "fallbackOnly": true
+        },
+        {
+          "tileSize": 512,
+          "size": 512
+        },
+        {
+          "tileSize": 512,
+          "size": 1024
+        },
+        {
+          "tileSize": 512,
+          "size": 2048
+        }
+      ],
+      "faceSize": 2048,
+      "initialViewParameters": {
+        "yaw": 0.11451431718835359,
+        "pitch": -0.28108895507963005,
+        "fov": 1.2812361540040014
+     
+  },
+  "linkHotspots": [],
+  "infoHotspots": []
+}
+
+
+
+
+"id": "0-plaza-botero-botero",
       "name": "Plaza Botero",
       "levels": [
         {
@@ -1090,7 +1125,7 @@ window.APP_DATA = {
     {
      
  "id": "9-pies_descalzos",
-      "name": "Pies_descalzos",
+      "name": "Parque de los Piesdescalzos",
       "levels": [
         {
           "tileSize": 256,
@@ -1116,10 +1151,35 @@ window.APP_DATA = {
         "pitch": -0.12226933698328679,
         "fov": 0.41671472387466335
       },
-     
 
+"hotSpots": [
+  {
+   "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.4760,
+    "yaw": -2.2505,
+    "tooltip": "Descalza tus pies y siente la energía del planeta",
+    "images": [
+      { "src": "img/pies/el-parque.jpeg", "caption": "Un oasis en el centro de Medellín, donde el agua, la arena y los árboles de corcho invitan a relajarse y reconectar con la naturaleza. Aquí podrás caminar descalzo, sentir la frescura del agua y disfrutar un espacio único en medio de la ciudad. <br>✨ Tip viajero: lleva una toalla pequeña y disfruta la experiencia de caminar sin zapatos; la arena y el agua hacen que tu visita sea inolvidable."}
+    ]
+  },
+  {
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.2168,
+    "yaw": -1.5501,
+    "tooltip": "Descalza tus pies, siente la energía y disfruta",
+    "images": [
+      { "src": "img/pies/parque.jpg", "caption": "Nuestros visitantes se dejan llevar por esta pausa mágica, recargan energías y contagian el lugar con alegría" },
+      { "src": "img/pies/pies.jpg", "caption": "En esta breve desconexión, renovarás el espíritu y estarás lleno de buena energía" },
+      { "src": "img/alp/ParquePies.jpg", "caption": "No es solo caminar sobre la arena, también podrás sentir la frescura del agua y rodearse de naturaleza." }
+    ]
+  }
+],
 
- "linkHotspots": [
+"linkHotspots": [
         {
           "yaw": -0.7857751453998638,
           "pitch": 0.06716930147777411,
@@ -1140,13 +1200,15 @@ window.APP_DATA = {
         {
           "yaw": -0.5511943870259728,
           "pitch": -0.10166670748687245,
-          "title": "Parque de los Pies Descalzos",
-          "text": "<p class=\"MsoNormal\" style=\"mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;\nline-height:normal\"><span style=\"font-size:12.0pt;font-family:&quot;Times New Roman&quot;,serif;\nmso-fareast-font-family:&quot;Times New Roman&quot;;mso-fareast-language:ES-CO\">Uno de\nlos rincones más relajantes, simbólicos y sensoriales del centro de Medellín.<o:p></o:p></span></p>\n\n<p class=\"MsoNormal\" style=\"mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;\nline-height:normal\"><span style=\"font-size:12.0pt;font-family:&quot;Times New Roman&quot;,serif;\nmso-fareast-font-family:&quot;Times New Roman&quot;;mso-fareast-language:ES-CO\">Este\nparque invita a algo muy simple… pero profundamente transformador: <b>quitarse\nlos zapatos</b> y reconectar con la tierra, el agua y la naturaleza.<o:p></o:p></span></p>"
+          "title": "🌳 Parque de los Pies Descalzos – Un oasis en Medellín",
+          "text": "En pleno corazón de Medellín, entre altos edificios y avenidas concurridas, se esconde un lugar único: el Parque de los Pies Descalzos. Más que un simple parque, es una invitación a volver a lo esencial, a reconectar con la naturaleza y a disfrutar la ciudad de una manera diferente.<br>Aquí, el agua se convierte en protagonista: fuentes y espejos de agua refrescan el ambiente y ofrecen un espacio para jugar, relajarse o simplemente contemplar. El sonido del agua corriendo genera una atmósfera tranquila, un respiro en medio del ritmo acelerado de la urbe. <br> Otro de sus encantos son los imponentes árboles de corcho que rodean el parque, con sus troncos suaves y texturas curiosas que invitan a tocar, abrazar y experimentar la naturaleza de cerca. Caminar bajo su sombra es como entrar en un bosque urbano donde la frescura y el verde lo envuelven todo. <br> El espacio también está diseñado para interactuar: caminar descalzo sobre la arena fina, sentir la textura del suelo, refrescar los pies en el agua… cada rincón del parque estimula los sentidos y nos recuerda la importancia de desconectarnos para volver a conectarnos con nosotros mismos y con la naturaleza.<br>El Parque de los Pies Descalzos no es solo un atractivo turístico: es una experiencia, un recordatorio de que Medellín sabe equilibrar modernidad y naturaleza, cemento y vida verde, ciudad y calma."
         }
       ]
     },
     {
-      "id": "10-conexin-naturaleza",
+
+
+"id": "10-conexin-naturaleza",
       "name": "Conexión Naturaleza",
       "levels": [
         {
