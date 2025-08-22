@@ -997,7 +997,12 @@ window.APP_DATA = {
     "tooltip": "Monumento a la raza",
     "images": [
       { "src": "img/alp/monumento.jpg", "caption": "" },
-      { "src": "img/alp/monumento2.jpg", "caption": "" }
+      { "src": "img/alp/ima1.jpg", "caption": "Esta monumental obra, diseñada por el maestro Rodrigo Arenas Betancur en 1988, se levanta en el corazón de La Alpujarra. Con sus 38 metros de altura y 40 metros de longitud, es una de las esculturas en bronce y concreto más grandes de América Latina. Representa la fuerza, el carácter y el espíritu de superación del pueblo antioqueño." },
+      { "src": "img/alp/ima2.jpg", "caption": "" },
+      { "src": "img/alp/ima3.jpg", "caption": "El monumento narra, en un solo conjunto escultórico, los principales hitos de la historia antioqueña: la conquista, la colonización, la independencia y el desarrollo del pueblo. Cada figura parece moverse, transmitiendo dinamismo y el esfuerzo colectivo que caracteriza la identidad paisa" },
+      { "src": "img/alp/ima4.jpg", "caption": "" },
+      { "src": "img/alp/ima5.jpg", "caption": "El Monumento a la Raza no solo es arte: es un símbolo vivo de Medellín. Alrededor de él, en la Plaza de La Alpujarra, se realizan manifestaciones sociales, encuentros culturales y actos cívicos. Es un espacio donde se mezcla la memoria histórica con la vida contemporánea de la ciudad." },
+      { "src": "img/alp/ima6.jpg", "caption": "" }
     ]
   }
 ],
