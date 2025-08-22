@@ -1356,8 +1356,8 @@ window.APP_DATA = {
    "type": "camera",
     "carrusel": true,
     "image": "img/Camara.png",
-    "pitch": -0.0378,
-    "yaw": -1.5084,
+    "pitch":  0.0795,
+    "yaw": 2.6156,
     "tooltip": "Una pausa para los sentidos",
     "images": [
       { "src": "img/pies/ParquePies.jpeg", "caption": "los espejos y canales de agua que refrescan el ambiente y ofrecen un lugar perfecto para descansar, jugar y sumergirse en la calma. Aquí, tanto turistas como locales se animan a quitarse los zapatos, caminar descalzos, mojar los pies y disfrutar de un momento de tranquilidad."},
@@ -1372,7 +1372,7 @@ window.APP_DATA = {
     "image": "img/Camara.png",
     "pitch": -0.0378,
     "yaw":-1.5084,
-    "tooltip": "",
+    "tooltip": "Edificio EPM",
     "images": [
       { "src": "img/epm/EDIFICIO.jpg", "caption": "El edificio y su entorno con jardines, fuentes y plazas abiertas se han consolidado como un espacio emblemático de la ciudad, donde la modernidad se encuentra con la cultura y el compromiso ambiental." },
       { "src": "img/epm/agua_urbanismo.jpg", "caption": "" },
