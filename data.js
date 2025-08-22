@@ -82,7 +82,7 @@ window.APP_DATA = {
         "caption": "Maternidad. Una de las obras más tiernas de Botero, Maternidad captura el vínculo entre madre e hijo, una representación de la protección y el amor maternal."
       },
       {
-        "src": "img/carrusel/Caballo.jpg",
+        "src": "img/carrusel/Caballo.JPG",
         "caption": "Caballo. El Caballo es otra pieza monumental que resalta el amor de Botero por los animales, representados en su estilo característico, con líneas suaves y voluminosas."
       },
       {
