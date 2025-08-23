@@ -207,7 +207,34 @@ function updateVideoForScene(sceneId) {
       sceneVideo.currentTime = sceneVideo.duration; // Último frame
     }
   };
+
+// ---- Controles personalizados de video ----
+const video = document.getElementById("sceneVideo");
+const playPauseBtn = document.getElementById("playPauseBtn");
+const muteBtn = document.getElementById("muteBtn");
+const closeVideoBtn = document.getElementById("closeVideoCard");
+const videoCard = document.getElementById("videoCard");
+
+if (video && playPauseBtn && muteBtn && closeVideoBtn) {
+  playPauseBtn.addEventListener("click", () => {
+    if (video.paused) {
+      video.play();
+    } else {
+      video.pause();
+    }
+  });
+
+  muteBtn.addEventListener("click", () => {
+    video.muted = !video.muted;
+    muteBtn.textContent = video.muted ? "🔇" : "🔊";
+  });
+
+  closeVideoBtn.addEventListener("click", () => {
+    video.pause();
+    videoCard.style.display = "none";
+  });
 }
+
 
 // =========================
 // En tu función switchScene(scene) → después de cambiar de escena
