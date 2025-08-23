@@ -157,20 +157,33 @@
   margin-bottom: 6px; /* separa un poco del texto */
 }
 
+#videoControls {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.25); /* Blanco translúcido */
+  padding: 6px 12px;
+  border-radius: 20px;
+  backdrop-filter: blur(6px); /* efecto glass */
+}
+
 #videoControls button {
-  background: rgba(0,0,0,0.6);
-  color: white;
+  background: transparent;
   border: none;
-  padding: 6px 10px;
-  border-radius: 6px;
+  color: white;
+  font-size: 20px;
   cursor: pointer;
-  font-size: 18px;
+  padding: 4px 8px;
+  transition: transform 0.2s, color 0.2s;
 }
 
 #videoControls button:hover {
-  background: rgba(255,255,255,0.2);
+  transform: scale(1.2);
+  color: #ffd700; /* dorado al pasar */
 }
-
 </style>
 
 <style> @-ms-viewport { width: device-width; } </style>
@@ -265,7 +278,7 @@
   <img src="img/tecno.png" alt="TecnoParque SENA" style="height:40px;">
 </div>
 
-    ✅ Proyecto avalado por <strong>TECNOPARQUE - SENA</strong>
+✅ Proyecto avalado por <strong>TECNOPARQUE - SENA</strong>
   </div>
 
 </div>
@@ -338,19 +351,21 @@
     </div>
   </div>
 </div>
-<!-- Tarjeta de Video Fija -->
-<div id="videoCard" style="display: none;">
-  <video id="sceneVideo" muted playsinline>
-  <source src="" type="video/mp4">
-  Tu navegador no soporta el video.
-</video>
 
-<!-- Controles personalizados -->
-<div id="videoControls" style="display:flex; justify-content:center; gap:10px; margin-top:8px;">
-  <button id="playPauseBtn">⏯️</button>
-  <button id="muteBtn">🔊</button>
-  <button id="closeVideoCard">❌</button>
-</div>
+
+<!-- Tarjeta de Video Fija -->
+<div id="videoCard" style="display: none; position: relative; max-width: 800px; margin: auto;">
+  <video id="sceneVideo" muted playsinline style="width:100%; border-radius:10px;">
+    <source src="" type="video/mp4">
+    Tu navegador no soporta el video.
+  </video>
+
+  <!-- Controles personalizados -->
+  <div id="videoControls">
+    <button id="playPauseBtn">⏯</button>
+    <button id="muteBtn">🔊</button>
+    <button id="closeVideoCard">✕</button>
+  </div>
 
 
 <!-- Marca de agua centrada -->

@@ -214,14 +214,16 @@ const video = document.getElementById("sceneVideo");
 const playPauseBtn = document.getElementById("playPauseBtn");
 const muteBtn = document.getElementById("muteBtn");
 const closeVideoBtn = document.getElementById("closeVideoCard");
-const videoCard = document.getElementById("videoCard"); // ✅ solo aquí
+const videoCard = document.getElementById("videoCard");
 
-if (video && playPauseBtn && muteBtn && closeVideoBtn) {
+if (video && playPauseBtn && muteBtn && closeVideoBtn && videoCard) {
   playPauseBtn.addEventListener("click", () => {
     if (video.paused) {
       video.play();
+      playPauseBtn.textContent = "⏸"; // cambia icono
     } else {
       video.pause();
+      playPauseBtn.textContent = "▶"; // vuelve a play
     }
   });
 
