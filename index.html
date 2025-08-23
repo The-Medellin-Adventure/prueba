@@ -110,6 +110,33 @@
       white-space: nowrap;
       pointer-events: none;
     }
+
+/* 🔵 Animación de pulso para iconos de cámara y linkspots */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 8px rgba(0, 0, 0, .25);
+  }
+  50% {
+    transform: scale(1.1);
+    box-shadow: 0 0 16px rgba(0, 0, 0, .35);
+  }
+}
+
+/* Hotspots de cámara */
+.camera-hotspot-icon {
+  animation: pulse 1.8s ease-in-out infinite;
+  border-radius: 50%;
+  transition: transform .3s;
+}
+
+/* Linkspots (los que llevan a otras escenas) */
+.link-hotspot-icon {
+  animation: pulse 2s ease-in-out infinite;
+  border-radius: 50%;
+  transition: transform .3s;
+}
+
 </style>
 
 <style> @-ms-viewport { width: device-width; } </style>
