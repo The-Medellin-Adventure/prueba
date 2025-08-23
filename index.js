@@ -215,15 +215,16 @@ const playPauseBtn = document.getElementById("playPauseBtn");
 const muteBtn = document.getElementById("muteBtn");
 const closeVideoBtn = document.getElementById("closeVideoCard");
 const videoCard = document.getElementById("videoCard");
+const videoIcon = document.getElementById("videoIcon");
 
-if (video && playPauseBtn && muteBtn && closeVideoBtn && videoCard) {
+if (video && playPauseBtn && muteBtn && closeVideoBtn && videoCard && videoIcon) {
   playPauseBtn.addEventListener("click", () => {
     if (video.paused) {
       video.play();
-      playPauseBtn.textContent = "⏸"; // cambia icono
+      playPauseBtn.textContent = "⏸";
     } else {
       video.pause();
-      playPauseBtn.textContent = "▶"; // vuelve a play
+      playPauseBtn.textContent = "▶";
     }
   });
 
@@ -232,9 +233,17 @@ if (video && playPauseBtn && muteBtn && closeVideoBtn && videoCard) {
     muteBtn.textContent = video.muted ? "🔇" : "🔊";
   });
 
+  // Cerrar tarjeta → mostrar icono flotante
   closeVideoBtn.addEventListener("click", () => {
     video.pause();
     videoCard.style.display = "none";
+    videoIcon.style.display = "block";
+  });
+
+  // Reabrir tarjeta desde icono
+  videoIcon.addEventListener("click", () => {
+    videoCard.style.display = "block";
+    videoIcon.style.display = "none";
   });
 }
 
