@@ -93,24 +93,28 @@
     right: 15px;
     padding: 4px;
   }
-  </style>
+    }
+
+    /* 🔹 Mostrar siempre el nombre de los linkHotspots debajo del ícono */
+    .link-hotspot-tooltip {
+      position: absolute;
+      top: 55px; /* coloca el texto debajo del ícono */
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 1 !important;
+      background: rgba(0,0,0,0.6);
+      color: white;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      white-space: nowrap;
+      pointer-events: none;
+    }
+</style>
 
 <style> @-ms-viewport { width: device-width; } </style>
 
-.link-hotspot-tooltip {
-  position: absolute;
-  top: 55px; /* coloca el texto debajo del ícono */
-  left: 50%;
-  transform: translateX(-50%);
-  opacity: 1 !important;       /* siempre visible */
-  background: rgba(0,0,0,0.6); /* fondo oscuro */
-  color: white;
-  padding: 4px 8px;
-  border-radius: 4px;
-  font-size: 12px;
-  white-space: nowrap;
-  pointer-events: none; /* evita que bloquee el click en el ícono */
-}
+
 
 <link rel="stylesheet" href="vendor/reset.min.css">
 <link rel="stylesheet" href="style.css">
