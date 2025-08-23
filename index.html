@@ -326,10 +326,16 @@
 </div>
 <!-- Tarjeta de Video Fija -->
 <div id="videoCard" style="display: none;">
-  <video id="sceneVideo" controls muted playsinline>
-    <source src="" type="video/mp4">
-    Tu navegador no soporta el video.
-  </video>
+  <video id="sceneVideo" muted playsinline>
+  <source src="" type="video/mp4">
+  Tu navegador no soporta el video.
+</video>
+
+<!-- Controles personalizados -->
+<div id="videoControls" style="display:flex; justify-content:center; gap:10px; margin-top:8px;">
+  <button id="playPauseBtn">⏯️</button>
+  <button id="muteBtn">🔊</button>
+  <button id="closeVideoCard">❌</button>
 </div>
 
 
