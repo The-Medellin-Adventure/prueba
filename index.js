@@ -464,7 +464,7 @@ function switchScene(scene) {
 
   // Autorotate
   if (autorotateToggleElement) autorotateToggleElement.addEventListener('click', toggleAutorotate);
-  var autorotate = Marzipano.autorotate({ yawSpeed: 0.5, targetPitch: 0, targetFov: Math.PI / 2 });
+  var autorotate = Marzipano.autorotate({ yawSpeed: 0.5, targetPitch: -0.3529, targetFov: Math.PI / 2 });
   if (data.settings && data.settings.autorotateEnabled) {
     if (autorotateToggleElement) autorotateToggleElement.classList.add('enabled');
   }
