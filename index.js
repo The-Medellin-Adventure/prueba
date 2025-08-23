@@ -207,12 +207,14 @@ function updateVideoForScene(sceneId) {
       sceneVideo.currentTime = sceneVideo.duration; // Último frame
     }
   };
+ }
 
 // ---- Controles personalizados de video ----
 const video = document.getElementById("sceneVideo");
 const playPauseBtn = document.getElementById("playPauseBtn");
 const muteBtn = document.getElementById("muteBtn");
 const closeVideoBtn = document.getElementById("closeVideoCard");
+const videoCard = document.getElementById("videoCard"); // ✅ solo aquí
 
 if (video && playPauseBtn && muteBtn && closeVideoBtn) {
   playPauseBtn.addEventListener("click", () => {
