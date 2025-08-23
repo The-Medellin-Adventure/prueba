@@ -93,6 +93,7 @@
       loop: imagenes.length > 1,
       slidesPerView: 1,
       spaceBetween: 10,
+      autoplay: { delay: 3500, disableOnInteraction: false },
       pagination: { el: '.swiper-pagination', clickable: true },
       navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }
     });
@@ -453,7 +454,7 @@ function switchScene(scene) {
     });
   });
 
-  // Fullscreen (mantengo tu lógica)
+  // Fullscreen 
   if (screenfull && screenfull.enabled && data.settings && data.settings.fullscreenButton) {
     document.body.classList.add('fullscreen-enabled');
     if (fullscreenToggleElement) {
