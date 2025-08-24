@@ -89,7 +89,9 @@ html, body {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  width: 320px;
+  width: 22vw;   /* ancho proporcional a la pantalla */
+  max-width: 320px;
+  min-width: 200px;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0,0,0,0.4);
@@ -221,6 +223,15 @@ html, body {
   margin-bottom: 6px; /* separa un poco del texto */
 }
 
+/* Forzar que los hotspots estén visibles encima del video */
+.hotspot, 
+.hotspot img, 
+.hotspot .icon, 
+.link-hotspot, 
+.link-hotspot-icon {
+  z-index: 9500 !important;
+  position: relative;
+}
 
 </style>
 
