@@ -6,23 +6,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <style>
 
-/* Forzar consistencia visual en todas las pantallas */
-html, body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  font-family: Arial, Helvetica, sans-serif;
-  box-sizing: border-box;
-  overflow: hidden;
-}
-
-/* Asegurar que todos los elementos respeten escalado uniforme */
-* {
-  box-sizing: inherit;
-  max-width: 100%;
-}
-
     .scene-toggle-button {
       position: absolute;
       top: 20px;
@@ -89,14 +72,9 @@ html, body {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  width: 320px;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-  background: rgba(0,0,0,0.7);
-  z-index: 9999;
+    width: calc(25% + 100px); /* Ajustar el tamaño de la tarjeta de video visualmente */
+    max-height: 70vh; /* Altura máxima para mantener la proporción */
 }
-
 #videoCard video {
   width: 100%;
   height: auto;
@@ -107,13 +85,10 @@ html, body {
 /* En móviles, que ocupe un poco más pero siga siendo vertical */
 @media (max-width: 768px) {
   #videoCard {
-    max-width: 140px;
-    max-height: 260px;
-    bottom: 15px;
-    right: 15px;
-    padding: 4px;
-  }
+    width: calc(90% + 20px); /* Ajuste para dispositivos móviles */
+        max-height: 260px;
     }
+}
 
     /* 🔹 Mostrar siempre el nombre de los linkHotspots debajo del ícono */
     .link-hotspot-tooltip {
