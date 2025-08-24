@@ -6,6 +6,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <style>
 
+/* Forzar que los hotspots estén visibles encima del video */
+.hotspot, 
+.hotspot img, 
+.hotspot .icon, 
+.link-hotspot, 
+.link-hotspot-icon {
+  z-index: 9500 !important;
+  position: relative;
+}
+
 /* Forzar consistencia visual en todas las pantallas */
 html, body {
   margin: 0;
@@ -223,15 +233,6 @@ html, body {
   margin-bottom: 6px; /* separa un poco del texto */
 }
 
-/* Forzar que los hotspots estén visibles encima del video */
-.hotspot, 
-.hotspot img, 
-.hotspot .icon, 
-.link-hotspot, 
-.link-hotspot-icon {
-  z-index: 9500 !important;
-  position: relative;
-}
 
 </style>
 
