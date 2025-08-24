@@ -5,34 +5,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <style>
-
-/* Forzar que los hotspots estén visibles encima del video */
-.hotspot, 
-.hotspot img, 
-.hotspot .icon, 
-.link-hotspot, 
-.link-hotspot-icon {
-  z-index: 5000 !important;
-  position: absolute !important;
-  pointer-events: auto !important;
-}
-
-/* Forzar consistencia visual en todas las pantallas */
-html, body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  font-family: Arial, Helvetica, sans-serif;
-  box-sizing: border-box;
-  overflow: hidden;
-}
-
-/* Asegurar que todos los elementos respeten escalado uniforme */
-* {
-  box-sizing: inherit;
-  max-width: 100%;
-}
     .scene-toggle-button {
       position: absolute;
       top: 20px;
@@ -49,7 +21,6 @@ html, body {
       border-radius: 50%;
       padding: 10px;
     }
-
 /* Marca de agua grande al centro */
 #watermark-bg {
   position: fixed;
@@ -100,64 +71,18 @@ html, body {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  width: 22vw;   /* ancho proporcional a la pantalla */
-  max-width: 320px;
-  min-width: 200px;
+  width: 320px;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0,0,0,0.4);
   background: rgba(0,0,0,0.7);
-  z-index: 9000;
+  z-index: 9999;
 }
 
 #videoCard video {
   width: 100%;
   height: auto;
   display: block;
-}
-
-/* Controles dentro del video */
-#videoControls {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;              /* Toda la anchura del video */
-  display: flex;
-  justify-content: space-around; /* Espacia los botones uniformemente */
-  background: rgba(0, 0, 0, 0.5); /* Fondo translúcido oscuro */
-  padding: 8px 0;
-  backdrop-filter: blur(6px);
-}
-
-#videoControls button {
-  background: transparent;
-  border: none;
-  color: white;
-  font-size: 20px;
-  cursor: pointer;
-  padding: 6px 12px;
-  transition: transform 0.2s, color 0.2s;
-}
-
-#videoControls button:hover {
-  transform: scale(1.2);
-  color: #ffd700;
-}
-
-/* Icono flotante cuando el video está cerrado */
-#videoIcon {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: rgba(255,255,255,0.25);
-  padding: 10px 14px;
-  border-radius: 50%;
-  backdrop-filter: blur(6px);
-  color: white;
-  font-size: 22px;
-  cursor: pointer;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.4);
-  z-index: 9000;
 }
 
 
@@ -172,7 +97,7 @@ html, body {
   }
     }
 
-/* 🔹 Mostrar siempre el nombre de los linkHotspots debajo del ícono */
+    /* 🔹 Mostrar siempre el nombre de los linkHotspots debajo del ícono */
     .link-hotspot-tooltip {
       position: absolute;
       top: 55px; /* coloca el texto debajo del ícono */
@@ -234,6 +159,49 @@ html, body {
   margin-bottom: 6px; /* separa un poco del texto */
 }
 
+/* Controles dentro del video */
+#videoControls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;              /* Toda la anchura del video */
+  display: flex;
+  justify-content: space-around; /* Espacia los botones uniformemente */
+  background: rgba(0, 0, 0, 0.5); /* Fondo translúcido oscuro */
+  padding: 8px 0;
+  backdrop-filter: blur(6px);
+}
+
+#videoControls button {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 6px 12px;
+  transition: transform 0.2s, color 0.2s;
+}
+
+#videoControls button:hover {
+  transform: scale(1.2);
+  color: #ffd700;
+}
+
+/* Icono flotante cuando el video está cerrado */
+#videoIcon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(255,255,255,0.25);
+  padding: 10px 14px;
+  border-radius: 50%;
+  backdrop-filter: blur(6px);
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+  z-index: 9999;
+}
 
 </style>
 
