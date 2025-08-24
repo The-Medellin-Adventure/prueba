@@ -94,13 +94,57 @@ html, body {
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0,0,0,0.4);
   background: rgba(0,0,0,0.7);
-  z-index: 100000;
+  z-index: 9000;
 }
 
 #videoCard video {
   width: 100%;
   height: auto;
   display: block;
+}
+
+/* Controles dentro del video */
+#videoControls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;              /* Toda la anchura del video */
+  display: flex;
+  justify-content: space-around; /* Espacia los botones uniformemente */
+  background: rgba(0, 0, 0, 0.5); /* Fondo translúcido oscuro */
+  padding: 8px 0;
+  backdrop-filter: blur(6px);
+}
+
+#videoControls button {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 6px 12px;
+  transition: transform 0.2s, color 0.2s;
+}
+
+#videoControls button:hover {
+  transform: scale(1.2);
+  color: #ffd700;
+}
+
+/* Icono flotante cuando el video está cerrado */
+#videoIcon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(255,255,255,0.25);
+  padding: 10px 14px;
+  border-radius: 50%;
+  backdrop-filter: blur(6px);
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+  z-index: 9000;
 }
 
 
@@ -177,49 +221,6 @@ html, body {
   margin-bottom: 6px; /* separa un poco del texto */
 }
 
-/* Controles dentro del video */
-#videoControls {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;              /* Toda la anchura del video */
-  display: flex;
-  justify-content: space-around; /* Espacia los botones uniformemente */
-  background: rgba(0, 0, 0, 0.5); /* Fondo translúcido oscuro */
-  padding: 8px 0;
-  backdrop-filter: blur(6px);
-}
-
-#videoControls button {
-  background: transparent;
-  border: none;
-  color: white;
-  font-size: 20px;
-  cursor: pointer;
-  padding: 6px 12px;
-  transition: transform 0.2s, color 0.2s;
-}
-
-#videoControls button:hover {
-  transform: scale(1.2);
-  color: #ffd700;
-}
-
-/* Icono flotante cuando el video está cerrado */
-#videoIcon {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: rgba(255,255,255,0.25);
-  padding: 10px 14px;
-  border-radius: 50%;
-  backdrop-filter: blur(6px);
-  color: white;
-  font-size: 22px;
-  cursor: pointer;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.4);
-  z-index: 100000;
-}
 
 </style>
 
