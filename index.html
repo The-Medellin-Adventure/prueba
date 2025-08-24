@@ -72,9 +72,14 @@
   position: fixed;
   bottom: 20px;
   right: 20px;
-    width: calc(75% + 100px); /* Ajustar el tamaño de la tarjeta de video visualmente */
-    max-height: 50vh; /* Altura máxima para mantener la proporción */
+  width: 320px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  background: rgba(0,0,0,0.7);
+  z-index: 9999;
 }
+
 #videoCard video {
   width: 100%;
   height: auto;
