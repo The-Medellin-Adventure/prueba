@@ -21,6 +21,7 @@
       border-radius: 50%;
       padding: 10px;
     }
+
 /* Marca de agua grande al centro */
 #watermark-bg {
   position: fixed;
@@ -64,6 +65,8 @@
   line-height: 1.2;
 }
 
+
+
 @media (max-width: 600px) {
   #sceneList {
     width: 90vw;        /* ocupa casi todo el ancho */
@@ -81,6 +84,38 @@
   #watermark-footer img {
     height: 22px;
   }
+}
+
+/* Tarjeta independiente de TecnoParque */
+#tecnoparque-card {
+  position: fixed;
+  top: 120px;   /* debajo del título y menú */
+  left: 20px;
+  width: 260px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 13px;
+  color: #f0f0f0;
+  z-index: 400;
+}
+
+/* Título y texto */
+#tecnoparque-card h3 {
+  margin: 0 0 5px;
+  font-size: 14px;
+  color: #ffd700;
+}
+#tecnoparque-card p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.3;
+}
+
+/* Ocultar/mostrar igual que el menú */
+.hidden {
+  display: none;
 }
 
 
@@ -431,27 +466,11 @@
      text-align: center;
      font-size: 10px;">
 
-<div style=
-/* Tarjeta de TecnoParque */
-.tecnoparque-card {
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.2);
-  border-radius: 8px;
-  padding: 10px;
-  margin-top: 10px;
-  font-size: 13px;
-  color: #f0f0f0;
-}
-.tecnoparque-card h3 {
-  margin: 0 0 5px;
-  font-size: 14px;
-  color: #ffd700; /* dorado para resaltar */
-}
-.tecnoparque-card p {
-  margin: 0;
-  font-size: 12px;
-  line-height: 1.3;
-}
+<div id="tecnoparque-card" class="hidden">
+  <h3>TecnoParque</h3>
+  <p>Centro de innovación y desarrollo donde nacen proyectos de tecnología,
+  ciencia y creatividad que transforman a Medellín.</p>
+</div>
 
 <div style= "✅ Proyecto avalado por">
   <img src="img/tecno.png" alt="TecnoParque SENA" style="height:40px;">
