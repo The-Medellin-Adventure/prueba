@@ -257,13 +257,23 @@
 
 /* ==== Video card: make it more discreet by default ==== */
 #videoCard {
-  width: clamp(180px, 32vw, 260px) !important;
-  bottom: 14px !important;
-  right: 14px !important;
-  background: rgba(0,0,0,0.55) !important;
-  border: 1px solid rgba(255,255,255,0.08) !important;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.35) !important;
-  border-radius: 12px !important;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.75);
+  border-radius: 12px;
+  padding: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  z-index: 9999;
+  max-width: 280px;      /* 🔹 tamaño máximo en pantallas grandes */
+  width: 22vw;           /* 🔹 proporcional a la pantalla */
+  min-width: 200px;      /* 🔹 tamaño mínimo */
+}
+
+#videoCard video {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
 }
 
 /* Hide controls until hover to keep it subtle */
@@ -290,11 +300,16 @@
 }
 
 /* Mobile: keep the same stacked visual and compact video */
-@media (max-width: 768px) {
-  #sceneList {
-    width: clamp(240px, 60vw, 320px) !important;
-    max-height: calc(100vh - 20px) !important;
+@media (max-width: 600px) {
+  #videoCard {
+    bottom: 10px;
+    right: 10px;
+    width: 40vw;        /* más angosto en móviles */
+    min-width: 160px;
+    max-width: 200px;
+    padding: 5px;
   }
+}
   #videoCard {
     width: clamp(160px, 44vw, 230px) !important;
   }
