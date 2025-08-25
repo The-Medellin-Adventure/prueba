@@ -43,15 +43,19 @@
   left: 20px;
   display: flex;
   align-items: center;
-  gap: 10px;
-  background: rgba(0, 0, 0, 0.45);
-  padding: 8px 14px;
-  border-radius: 6px;
-  z-index: 9999;
+  background: rgba(0,0,0,0.7);
+  padding: 6px 10px;
+  border-radius: 10px;
+  z-index: 500;
 }
-
 #watermark-footer img {
-  height: 32px;
+  height: 32px; /* logo más pequeño */
+  margin-right: 8px;
+}
+#watermark-footer span {
+  color: white;
+  font-size: 13px;
+  font-weight: 500;
 }
 
 .watermark-text {
@@ -60,11 +64,25 @@
   line-height: 1.2;
 }
 
-.watermark-text span {
-  font-size: 13px;
-  color: white;
-  font-weight: 500;
+@media (max-width: 600px) {
+  #sceneList {
+    width: 90vw;        /* ocupa casi todo el ancho */
+    font-size: 13px;
+    max-height: 40vh;   /* no ocupa más de 40% vertical */
+  }
+  .tecnoparque-card {
+    font-size: 12px;
+  }
+  #watermark-footer {
+    bottom: 10px;
+    left: 10px;
+    padding: 5px 8px;
+  }
+  #watermark-footer img {
+    height: 22px;
+  }
 }
+
 
 /* Tarjeta flotante para video vertical */
 #videoCard {
