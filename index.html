@@ -289,13 +289,11 @@
   max-height: 50vh;                /* nunca ocupa más de media pantalla */
   overflow-y: auto;                /* scroll si hay muchas escenas */
 }
-#sceneList ul {
-  list-style: none;
+#sceneList ul { list-style: none;
   padding: 0;
   margin: 0;
 }
-#sceneList li {
-  margin-bottom: 5px;
+#sceneList li { margin-bottom: 5px;
   cursor: pointer;
 }
 
@@ -320,11 +318,6 @@
   background: rgba(255,255,255,0.08) !important;
 }
 
-/* Make any left info cards stack and stretch */
-#sceneList .side-card {
-  display: block !important;
-  margin: 0 !important;
-}
 
 /* ==== Video card: make it more discreet by default ==== */
 #videoCard {
@@ -396,15 +389,8 @@
 
    <!-- Título de la escena -->
   <div id="titleBar">
-    <h1 id="sceneTitle"></h1>
+    <h1 id="sceneName"></h1>
   </div>
-
-  <!-- Menú de escenas -->
-  <div id="sceneList" class="hidden">
-    <ul></ul>
-  </div>
-
-
 
 <div id="sceneList">
 <h2 style="color:white; text-align:center; padding:10px; font-size:18px; background:rgba(0,0,0,0.6);">
@@ -480,14 +466,14 @@
      text-align: center;
      font-size: 10px;">
 
-<<!-- Tarjeta TecnoParque -->
+  </div>
+
+</div>
+
+<!-- Tarjeta TecnoParque -->
 <div id="tecnoparque-card">
   <p class="tecnoparque-texto">🌎 Proyecto avalado por</p>
   <img src="img/tecnoparque.png" alt="Logo TecnoParque">
-</div>
-
-  </div>
-
 </div>
 
 
@@ -564,6 +550,7 @@
     <source src="" type="video/mp4">
     Tu navegador no soporta el video.
   </video>
+
 
   <!-- Controles personalizados dentro del video -->
   <div id="videoControls">

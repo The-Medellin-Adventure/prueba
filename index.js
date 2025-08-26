@@ -530,7 +530,6 @@ function switchScene(scene) {
   // Toggle lista escenas (botón)
   var sceneListToggle = document.getElementById("sceneListToggle");
   var sceneList = document.getElementById("sceneList");
-  var tecnoparque = document.getElementById('tecnoparque-card');
   if (sceneListToggle && sceneList) {
     sceneListToggle.addEventListener("click", function () {
       var isEnabled = sceneList.classList.toggle("enabled");
@@ -538,13 +537,6 @@ function switchScene(scene) {
       var iconOff = sceneListToggle.querySelector(".icon.off");
       if (iconOn) iconOn.style.display = isEnabled ? "inline" : "none";
       if (iconOff) iconOff.style.display = isEnabled ? "none" : "inline";
-      if (sceneList.classList.contains('hidden')) {
-      sceneList.classList.remove('hidden');
-      if (tecnoparque) tecnoparque.classList.remove('hidden');
-      } else {
-      sceneList.classList.add('hidden');
-      if (tecnoparque) tecnoparque.classList.add('hidden');
-    }
     });
   }
 
