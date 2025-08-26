@@ -89,7 +89,7 @@
 /* Tarjeta independiente de TecnoParque */
 #tecnoparque-card {
   position: fixed;
-  top: 120px;   /* debajo del título y menú */
+  top: 150px;   /* debajo del título y menú */
   left: 20px;
   width: 260px;
   background: rgba(255,255,255,0.1);
@@ -101,23 +101,29 @@
   z-index: 400;
 }
 
-/* Título y texto */
-#tecnoparque-card h3 {
-  margin: 0 0 5px;
-  font-size: 14px;
-  color: #ffd700;
+#tecnoparque-card img {
+  width: 80%;
+  margin-top: 5px;
 }
-#tecnoparque-card p {
+
+.tecnoparque-texto {
   margin: 0;
   font-size: 12px;
-  line-height: 1.3;
+  color: #ffd700;
 }
 
-/* Ocultar/mostrar igual que el menú */
-.hidden {
-  display: none;
+/* Ajuste responsive */
+@media (max-width: 600px) {
+  #tecnoparque-card {
+    top: 120px;
+    left: 10px;
+    width: 160px;
+    font-size: 11px;
+  }
+  #tecnoparque-card img {
+    width: 70%;
+  }
 }
-
 
 /* Tarjeta flotante para video vertical */
 #videoCard {
@@ -388,9 +394,17 @@
 
 <div id="pano"></div>
 
-<div id="titleBar">
-  <h1 class="sceneName"></h1>
-</div>
+   <!-- Título de la escena -->
+  <div id="titleBar">
+    <h1 id="sceneTitle"></h1>
+  </div>
+
+  <!-- Menú de escenas -->
+  <div id="sceneList" class="hidden">
+    <ul></ul>
+  </div>
+
+
 
 <div id="sceneList">
 <h2 style="color:white; text-align:center; padding:10px; font-size:18px; background:rgba(0,0,0,0.6);">
@@ -466,14 +480,10 @@
      text-align: center;
      font-size: 10px;">
 
-<div id="tecnoparque-card" class="hidden">
-  <h3>TecnoParque</h3>
-  <p>Centro de innovación y desarrollo donde nacen proyectos de tecnología,
-  ciencia y creatividad que transforman a Medellín.</p>
-</div>
-
-<div style= "✅ Proyecto avalado por">
-  <img src="img/tecno.png" alt="TecnoParque SENA" style="height:40px;">
+<<!-- Tarjeta TecnoParque -->
+<div id="tecnoparque-card">
+  <p class="tecnoparque-texto">🌎 Proyecto avalado por</p>
+  <img src="img/tecnoparque.png" alt="Logo TecnoParque">
 </div>
 
   </div>
