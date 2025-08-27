@@ -614,43 +614,54 @@
 </div>
 
 
-<!-- Tarjeta de Video flotante -->
-<div id="videoCard" style="display:none;">
-  <video id="sceneVideo" playsinline muted>
+<!-- 🎬 Video lateral por escena -->
+<div id="videoCard" 
+     style="display:none;position:absolute;top:50%;right:20px;transform:translateY(-50%);
+            width:300px;background:rgba(0,0,0,0.85);padding:12px;border-radius:12px;
+            box-shadow:0 4px 16px rgba(0,0,0,0.4);z-index:1000;flex-direction:column;align-items:center;">
+  
+  <video id="sceneVideo" width="100%" height="170" playsinline style="border-radius:8px;">
     <source src="" type="video/mp4">
     Tu navegador no soporta el video.
   </video>
-  <div id="videoControls">
-    <button id="playPauseBtn">▶</button>
-    <button id="muteBtn">🔊</button>
-    <button id="closeBtn">✕</button>
+  
+  <div style="margin-top:10px;text-align:center;">
+    <button id="playPauseBtn" style="margin:0 4px;">▶</button>
+    <button id="muteBtn" style="margin:0 4px;">🔊</button>
+    <button id="closeVideoCard" style="margin:0 4px;">❌</button>
   </div>
+</div>
+
+<!-- 📹 Icono flotante para reabrir la tarjeta -->
+<div id="videoIcon" 
+     style="display:none;position:absolute;top:50%;right:20px;transform:translateY(-50%);
+            cursor:pointer;z-index:1000;width:40px;height:40px;">
+  <!-- SVG cámara de video -->
+  <svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24">
+    <path d="M17 10.5V7c0-1.1-.9-2-2-2H3C1.9 5 1 5.9 1 7v10c0 1.1.9 2 2 2h12c1.1 
+             0 2-.9 2-2v-3.5l4 4v-11l-4 4z"/>
+  </svg>
 </div>
 
 <!-- >>> NUEVO: Backdrop y Overlay de Video Grande <<< -->
 <div id="bigVideoBackdrop" style="display:none;"></div>
-<div id="bigVideoOverlay" style="display:none;">
-  <video id="bigSceneVideo" playsinline muted>
-  Tu navegador no soporta el video.
+<div id="bigVideoOverlay" 
+     style="display:none;position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);
+            width:min(1100px,85vw);max-height:80vh;background:rgba(12,12,12,0.95);
+            padding:20px;border-radius:16px;box-shadow:0 6px 24px rgba(0,0,0,0.6);
+            z-index:2000;display:flex;flex-direction:column;align-items:center;">
+  
+  <video id="bigSceneVideo" playsinline style="width:100%;height:auto;border-radius:12px;" muted>
+    <source src="" type="video/mp4">
+    Tu navegador no soporta el video.
   </video>
-  <div id="bigVideoControls" aria-label="Controles video grande">
-    <button id="bigPlayPauseBtn">▶</button>
-    <button id="bigMuteBtn">🔊</button>
-    <button id="bigCloseBtn">✕</button>
+  
+  <div id="bigVideoControls" style="margin-top:10px;text-align:center;">
+    <button id="bigPlayPauseBtn" style="margin:0 4px;">▶</button>
+    <button id="bigMuteBtn" style="margin:0 4px;">🔊</button>
+    <button id="bigCloseBtn" style="margin:0 4px;">✕</button>
   </div>
 </div>
-
-
-  <!-- Controles personalizados dentro del video -->
-  <div id="videoControls">
-    <button id="playPauseBtn">▶</button>
-    <button id="muteBtn">🔊</button>
-    <button id="closeVideoCard">✕</button>
-  </div>
-</div>
-
-<!-- Icono flotante cuando el video está cerrado -->
-<div id="videoIcon" style="display: none;">🎥</div>
 
 <!-- Marca de agua centrada -->
 <div id="watermark-bg">
