@@ -260,6 +260,78 @@
   z-index: 9999;
 }
 
+/* Backdrop oscuro */
+#bigVideoBackdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 10000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .35s ease;
+}
+
+/* Overlay grande */
+#bigVideoOverlay {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%) scale(.98);
+  width: min(1100px, 85vw);
+  max-height: 80vh;
+  background: rgba(12,12,12,0.96);
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+  z-index: 10001;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transition: opacity .35s ease, transform .35s ease;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Video dentro del overlay */
+#bigVideoOverlay video {
+  width: 100%;
+  height: auto;
+  max-height: calc(80vh - 56px);
+  object-fit: contain;
+  background: black;
+}
+
+/* Controles del overlay (barra abajo) */
+#bigVideoControls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  gap: 8px;
+  background: rgba(0,0,0,0.35);
+  backdrop-filter: blur(4px);
+}
+
+/* Botones */
+#bigVideoControls button {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 8px;
+}
+#bigVideoControls button:hover { transform: scale(1.08); color: #ffd700; }
+
+/* Clase visible (activa animación entrada) */
+#bigVideoBackdrop.visible { opacity: 1; pointer-events: auto; }
+#bigVideoOverlay.visible { opacity: 1; transform: translate(-50%,-50%) scale(1); pointer-events: auto; }
+
+/* Animación para la tarjeta lateral (entradas suaves) */
+#videoCard { transition: opacity .35s ease, transform .35s ease; opacity: 0; transform: translateY(6px); pointer-events: none; }
+#videoCard.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
+
+
 
 
 </style>
@@ -543,11 +615,31 @@
 
 
 <!-- Tarjeta de Video flotante -->
-<div id="videoCard" style="display: none;">
-  <video id="sceneVideo" muted playsinline>
+<div id="videoCard" style="display:none;">
+  <video id="sceneVideo" playsinline muted>
     <source src="" type="video/mp4">
     Tu navegador no soporta el video.
   </video>
+  <div id="videoControls">
+    <button id="playPauseBtn">▶</button>
+    <button id="muteBtn">🔊</button>
+    <button id="closeBtn">✕</button>
+  </div>
+</div>
+
+<!-- >>> NUEVO: Backdrop y Overlay de Video Grande <<< -->
+<div id="bigVideoBackdrop" style="display:none;"></div>
+<div id="bigVideoOverlay" style="display:none;">
+  <video id="bigSceneVideo" playsinline muted>
+    <source src="videos/instrucciones_scene1.mp4" type="video/mp4">
+    Tu navegador no soporta el video.
+  </video>
+  <div id="bigVideoControls" aria-label="Controles video grande">
+    <button id="bigPlayPauseBtn">▶</button>
+    <button id="bigMuteBtn">🔊</button>
+    <button id="bigCloseBtn">✕</button>
+  </div>
+</div>
 
 
   <!-- Controles personalizados dentro del video -->
