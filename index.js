@@ -161,6 +161,10 @@ let smallStartTimeout = null;
 
   var scenes = (data.scenes || []).map(createScene);
 
+// Video grande solo para la escena 1
+const bigSceneVideos = {
+  "0-plaza-botero-botero": "videos/instrucciones_scene1.mp4" // 👈 ajusta el nombre del ID de la escena y la ruta real de tu video
+};
 
 // =========================
 // VIDEO POR ESCENA — control independiente
