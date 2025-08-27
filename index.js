@@ -162,7 +162,7 @@ let smallStartTimeout = null;
   var scenes = (data.scenes || []).map(createScene);
 
 
-  // =========================
+// =========================
 // VIDEO POR ESCENA — control independiente
 // =========================
 const sceneVideos = {
@@ -558,6 +558,25 @@ updateVideoForScene(scene.data.id);
       if (iconOff) iconOff.style.display = isEnabled ? "none" : "inline";
     });
   }
+
+// =========================
+// BOTÓN DE PANTALLA COMPLETA
+// =========================
+if (document.fullscreenEnabled) {
+  const fsBtn = document.getElementById('fullscreenToggle');
+  if (fsBtn) {
+    fsBtn.addEventListener('click', function() {
+      if (document.fullscreenElement) {
+        document.exitFullscreen();
+      } else {
+        document.body.requestFullscreen();
+      }
+    });
+  }
+} else {
+  const fsBtn = document.getElementById('fullscreenToggle');
+  if (fsBtn) fsBtn.style.display = 'none';
+}
 
   // =========================
   // BOTONES DE CONTROL — usan activeView para funcionar en cualquier escena
