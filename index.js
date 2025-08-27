@@ -164,7 +164,7 @@
 
   // Video grande solo para la escena 1
   const bigSceneVideos = {
-    "0-plaza-botero-botero": "videos/instrucciones_scene1.mp4"
+    "0-plaza-botero-botero": "videos/instrucciones.mp4"
   };
 
   // =========================
