@@ -294,7 +294,7 @@
     sceneVideo.src = sceneVideos[sceneId];
     sceneVideo.load();
 
-    // Mostrar tarjeta del video
+ // Mostrar tarjeta del video
     videoCard.style.display = "block";
 
     // Delay dinámico: 5s en la primera escena (si se solicita por defecto),
