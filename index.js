@@ -172,8 +172,6 @@ const sceneVideos = {
   // "2-otra-escena": "videos/video3.mp4"
 };
 
-let currentVideoTimeout = null;
-
 function updateVideoForScene(sceneId) {
   const videoCard = document.getElementById("videoCard");
   const sceneVideo = document.getElementById("sceneVideo");
