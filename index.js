@@ -1,4 +1,5 @@
-// index.js — versión corregida y robusta
+
+// index.js — versión corregida y robusta con videos grandes y pequeños
 'use strict';
 
 (function () {
@@ -13,7 +14,9 @@
   const FIRST_SCENE_ID = "0-plaza-botero-botero";
 
   var panoElement = document.querySelector('#pano');
-  var sceneNameElement = document.querySelector('#titleBar .sceneName');
+  // Intento de mantener compatibilidad con tu HTML: uso #sceneTitle si existe,
+  // si no, caigo en el selector original.
+  var sceneNameElement = document.getElementById('sceneTitle') || document.querySelector('#titleBar .sceneName');
   var sceneListElement = document.querySelector('#sceneList');
   var sceneElements = document.querySelectorAll('#sceneList .scene');
   var sceneListToggleElement = document.querySelector('#sceneListToggle');
@@ -47,20 +50,18 @@
       .replace(/'/g, '&#39;');
   }
 
-// VARIABLES GLOBALES
-// =========================================================
-var viewer = new Marzipano.Viewer(document.getElementById('pano'));
-var currentScene = null;
-var currentVideoSceneId = null;
-var currentVideoTimeout = null;
+  // VARIABLES GLOBALES
+  // =========================================================
+  var currentScene = null;
+  var currentVideoSceneId = null;
+  var currentVideoTimeout = null;
 
-// NUEVAS VARIABLES para el overlay grande
-let bigOverlayOpen = false;
-let smallStartTimeout = null;
-
+  // NUEVAS VARIABLES para el overlay grande
+  let bigOverlayOpen = false;
+  let smallStartTimeout = null;
 
   // =========================
-  // FUNCIÓN MOSTRAR CARRUSEL 
+  // FUNCIÓN MOSTRAR CARRUSEL
   // =========================
   function mostrarCarrusel(imagenes, titulo) {
     imagenes = Array.isArray(imagenes) ? imagenes : [];
@@ -161,149 +162,218 @@ let smallStartTimeout = null;
 
   var scenes = (data.scenes || []).map(createScene);
 
-// Video grande solo para la escena 1
-const bigSceneVideos = {
-  "0-plaza-botero-botero": "videos/instrucciones_scene1.mp4" // 👈 ajusta el nombre del ID de la escena y la ruta real de tu video
-};
-
-// =========================
-// VIDEO POR ESCENA — control independiente
-// =========================
-const sceneVideos = {
-  "0-plaza-botero-botero": "videos/video1.mp4",
-  // Aquí puedes agregar más escenas y videos:
-  // "1-plaza-botero-y-palacio-rafael-uribe-uribe": "videos/video2.mp4",
-  // "2-otra-escena": "videos/video3.mp4"
-};
-
-function updateVideoForScene(sceneId) {
-  const videoCard = document.getElementById("videoCard");
-  const sceneVideo = document.getElementById("sceneVideo");
-  if (!videoCard || !sceneVideo) return;
-
-  // Limpiar cualquier timer anterior
-  if (currentVideoTimeout) {
-    clearTimeout(currentVideoTimeout);
-    currentVideoTimeout = null;
-  }
-
-  // Detener video si se cambia de escena
-  if (currentVideoSceneId && currentVideoSceneId !== sceneId) {
-    sceneVideo.pause();
-    sceneVideo.currentTime = 0;
-  }
-
-// 🚨 NUEVO: si la escena tiene video grande y está abierto → no mostrar el pequeño
-  if (bigSceneVideos[sceneId] && bigOverlayOpen) {
-    videoCard.style.display = "none";
-    currentVideoSceneId = null;
-    return;
-  }
-
-  // Verificar si hay video para la escena
-  if (!sceneVideos[sceneId]) {
-    videoCard.style.display = "none";
-    currentVideoSceneId = null;
-    return;
-  }
-
-  // Configurar nuevo video
-  currentVideoSceneId = sceneId;
-  sceneVideo.src = sceneVideos[sceneId];
-  sceneVideo.load();
-
-  // Mostrar tarjeta del video
-  videoCard.style.display = "block";
-
-  // Esperar 3 segundos antes de reproducir
-  currentVideoTimeout = setTimeout(() => {
-    sceneVideo.play().catch(err => console.warn("No se pudo reproducir el video:", err));
-  }, 3000);
-
-  // Si el video termina y seguimos en la misma escena → Pausar y dejar último frame
-  sceneVideo.onended = function () {
-    if (currentVideoSceneId === sceneId) {
-      sceneVideo.pause();
-      sceneVideo.currentTime = sceneVideo.duration; // Último frame
-    }
+  // Video grande solo para la escena 1
+  const bigSceneVideos = {
+    "0-plaza-botero-botero": "videos/instrucciones_scene1.mp4"
   };
- }
 
-// ---- Controles personalizados de video ----
-const video = document.getElementById("sceneVideo");
-const playPauseBtn = document.getElementById("playPauseBtn");
-const muteBtn = document.getElementById("muteBtn");
-const closeVideoBtn = document.getElementById("closeVideoCard");
-const videoCard = document.getElementById("videoCard");
-const videoIcon = document.getElementById("videoIcon");
+  // =========================
+  // VIDEO POR ESCENA — control independiente
+  // =========================
+  const sceneVideos = {
+    "0-plaza-botero-botero": "videos/video1.mp4",
+    // Aquí puedes agregar más escenas y videos:
+    // "1-plaza-botero-y-palacio-rafael-uribe-uribe": "videos/video2.mp4",
+    // "2-otra-escena": "videos/video3.mp4"
+  };
 
-if (video && playPauseBtn && muteBtn && closeVideoBtn && videoCard && videoIcon) {
-  playPauseBtn.addEventListener("click", () => {
-    if (video.paused) {
-      video.play();
-      playPauseBtn.textContent = "⏸";
-    } else {
-      video.pause();
-      playPauseBtn.textContent = "▶";
+  // =========================
+  // OVERLAY DE VIDEO GRANDE
+  // =========================
+  function showBigOverlayForScene(sceneId) {
+    const overlay = document.getElementById("bigVideoOverlay");
+    const backdrop = document.getElementById("bigVideoBackdrop");
+    const bigVideo = document.getElementById("bigSceneVideo");
+    const playBtn = document.getElementById("bigPlayPauseBtn");
+    const muteBtn = document.getElementById("bigMuteBtn");
+    const closeBtn = document.getElementById("bigCloseBtn");
+
+    if (!overlay || !bigVideo) return;
+
+    // Si no hay video configurado para esta escena, ocultar overlay
+    if (!bigSceneVideos[sceneId]) {
+      overlay.style.display = "none";
+      backdrop.style.display = "none";
+      bigOverlayOpen = false;
+      return;
     }
-  });
 
-  muteBtn.addEventListener("click", () => {
-    video.muted = !video.muted;
-    muteBtn.textContent = video.muted ? "🔇" : "🔊";
-  });
+    // Mostrar overlay
+    bigOverlayOpen = true;
+    overlay.style.display = "flex";
+    backdrop.style.display = "block";
+    requestAnimationFrame(() => {
+      overlay.classList.add("visible");
+      backdrop.classList.add("visible");
+    });
 
-  // Cerrar tarjeta → mostrar icono flotante
-  closeVideoBtn.addEventListener("click", () => {
-    video.pause();
-    videoCard.style.display = "none";
-    videoIcon.style.display = "block";
-  });
+    // Configurar fuente y reproducir (autoplay intent)
+    bigVideo.src = bigSceneVideos[sceneId];
+    bigVideo.load();
+    bigVideo.play().catch(() => { /* autoplay puede fallar en algunos navegadores */ });
 
-  // Reabrir tarjeta desde icono
-  videoIcon.addEventListener("click", () => {
-    videoCard.style.display = "block";
-    videoIcon.style.display = "none";
-  });
-}
+    // Controles
+    if (playBtn) {
+      playBtn.onclick = () => {
+        if (bigVideo.paused) { bigVideo.play(); playBtn.textContent = "⏸"; }
+        else { bigVideo.pause(); playBtn.textContent = "▶"; }
+      };
+    }
+    if (muteBtn) {
+      muteBtn.onclick = () => {
+        bigVideo.muted = !bigVideo.muted;
+        muteBtn.textContent = bigVideo.muted ? "🔇" : "🔊";
+      };
+    }
 
+    function closeOverlay() {
+      overlay.classList.remove("visible");
+      backdrop.classList.remove("visible");
+      setTimeout(() => {
+        overlay.style.display = "none";
+        backdrop.style.display = "none";
+      }, 350);
+      try { bigVideo.pause(); bigVideo.currentTime = 0; } catch (e) {}
+      bigOverlayOpen = false;
 
-// =========================
-// En tu función switchScene(scene) → después de cambiar de escena
-// =========================
-function switchScene(scene) {
-  if (!scene) return;
-  stopAutorotate();
-  try {
-    scene.view.setParameters(scene.data.initialViewParameters);
-  } catch (e) { }
-  scene.scene.switchTo();
-  updateSceneName(scene);
-  updateSceneList(scene);
+      // Iniciar video pequeño 5s después de cerrar/terminar
+      smallStartTimeout = setTimeout(() => {
+        updateVideoForScene(sceneId, 0);
+      }, 5000);
+    }
 
-  activeView = scene.view;
+    if (closeBtn) closeBtn.onclick = closeOverlay;
+    if (backdrop) backdrop.onclick = (e) => { if (e.target === backdrop) closeOverlay(); };
 
-  // ⬅ Aquí llamamos al video por escena
-showBigOverlayForScene(scene.data.id);
-updateVideoForScene(scene.data.id);
-
-  if (scene.data && scene.data.id === FIRST_SCENE_ID) {
-    showSceneList();
-  } else {
-    hideSceneList();
+    // Cuando termina → desencadena cierre y el arranque pequeño
+    bigVideo.onended = function () {
+      closeOverlay();
+    };
   }
-  startAutorotate();
-}
 
+  // =========================
+  // VIDEO PEQUEÑO LATERAL
+  // =========================
+  function updateVideoForScene(sceneId, forceDelay) {
+    const videoCard = document.getElementById("videoCard");
+    const sceneVideo = document.getElementById("sceneVideo");
+    if (!videoCard || !sceneVideo) return;
+
+    // Limpiar timers previos
+    if (currentVideoTimeout) {
+      clearTimeout(currentVideoTimeout);
+      currentVideoTimeout = null;
+    }
+    if (smallStartTimeout) {
+      clearTimeout(smallStartTimeout);
+      smallStartTimeout = null;
+    }
+
+    // Detener video si se cambia de escena
+    if (currentVideoSceneId && currentVideoSceneId !== sceneId) {
+      sceneVideo.pause();
+      try { sceneVideo.currentTime = 0; } catch (e) {}
+    }
+
+    // Si la escena tiene video grande y está abierto → ocultar el pequeño
+    if (bigSceneVideos[sceneId] && bigOverlayOpen) {
+      videoCard.style.display = "none";
+      currentVideoSceneId = null;
+      return;
+    }
+
+    // Verificar si hay video para la escena
+    if (!sceneVideos[sceneId]) {
+      videoCard.style.display = "none";
+      currentVideoSceneId = null;
+      return;
+    }
+
+    // Configurar nuevo video
+    currentVideoSceneId = sceneId;
+    sceneVideo.src = sceneVideos[sceneId];
+    sceneVideo.load();
+
+    // Mostrar tarjeta del video
+    videoCard.style.display = "block";
+
+    // Delay dinámico: 5s en la primera escena (si se solicita por defecto),
+    // 3s en las demás. Si se pasa forceDelay (número) se usa ese valor.
+    let delay = 3000;
+    if (typeof forceDelay === "number") delay = forceDelay;
+    else if (sceneId === FIRST_SCENE_ID) delay = 5000;
+
+    currentVideoTimeout = setTimeout(() => {
+      sceneVideo.play().catch(err => console.warn("No se pudo reproducir el video:", err));
+    }, delay);
+
+    // Si el video termina y seguimos en la misma escena → pausar y dejar último frame
+    sceneVideo.onended = function () {
+      if (currentVideoSceneId === sceneId) {
+        sceneVideo.pause();
+        try { sceneVideo.currentTime = sceneVideo.duration; } catch (e) {}
+      }
+    };
+  }
+
+  // ---- Controles personalizados de video (pequeño) ----
+  const video = document.getElementById("sceneVideo");
+  const playPauseBtn = document.getElementById("playPauseBtn");
+  const muteBtn = document.getElementById("muteBtn");
+  // Algunos HTML tenían dos ids diferentes para cerrar: closeVideoCard y closeBtn — intento soportar ambos.
+  const closeVideoBtn = document.getElementById("closeVideoCard") || document.getElementById("closeBtn");
+  const videoCardEl = document.getElementById("videoCard");
+  const videoIcon = document.getElementById("videoIcon");
+
+  if (video && playPauseBtn && muteBtn && closeVideoBtn && videoCardEl && videoIcon) {
+    playPauseBtn.addEventListener("click", () => {
+      if (video.paused) {
+        video.play();
+        playPauseBtn.textContent = "⏸";
+      } else {
+        video.pause();
+        playPauseBtn.textContent = "▶";
+      }
+    });
+
+    muteBtn.addEventListener("click", () => {
+      video.muted = !video.muted;
+      muteBtn.textContent = video.muted ? "🔇" : "🔊";
+    });
+
+    // Cerrar tarjeta → mostrar icono flotante
+    closeVideoBtn.addEventListener("click", () => {
+      video.pause();
+      videoCardEl.style.display = "none";
+      videoIcon.style.display = "block";
+    });
+
+    // Reabrir tarjeta desde icono
+    videoIcon.addEventListener("click", () => {
+      videoCardEl.style.display = "block";
+      videoIcon.style.display = "none";
+    });
+  }
 
   // =========================
   // SWITCH SCENE (único, robusto)
   // =========================
   function switchScene(scene) {
     if (!scene) return;
-    stopAutorotate();
 
-    // Ajustar parámetros iniciales de vista
+    // Limpieza: parar cualquier video / timers de la escena anterior para evitar interferencias
+    try {
+      if (currentVideoTimeout) { clearTimeout(currentVideoTimeout); currentVideoTimeout = null; }
+      if (smallStartTimeout) { clearTimeout(smallStartTimeout); smallStartTimeout = null; }
+      var smallV = document.getElementById('sceneVideo'); if (smallV) { smallV.pause(); try { smallV.currentTime = 0; } catch (e) {} }
+      var bigV = document.getElementById('bigSceneVideo'); if (bigV) { bigV.pause(); try { bigV.currentTime = 0; } catch (e) {} }
+      var overlay = document.getElementById('bigVideoOverlay'); var backdrop = document.getElementById('bigVideoBackdrop');
+      if (overlay) { overlay.classList.remove('visible'); overlay.style.display = 'none'; }
+      if (backdrop) { backdrop.classList.remove('visible'); backdrop.style.display = 'none'; }
+      bigOverlayOpen = false;
+    } catch (e) {}
+
+    stopAutorotate();
     try {
       scene.view.setParameters(scene.data.initialViewParameters);
     } catch (e) { /* ignore */ }
@@ -315,7 +385,10 @@ updateVideoForScene(scene.data.id);
     // actualizar la vista activa (para los botones)
     activeView = scene.view;
 
-    // Video por escena (lo hace visible/oculto según lo que exista)
+    // Video por escena y overlay
+    showBigOverlayForScene(scene.data.id);
+    // Si el overlay está activo, updateVideoForScene ocultará el pequeño. El inicio real
+    // del pequeño se hace después del cierre del grande según la lógica anterior.
     updateVideoForScene(scene.data.id);
 
     // Menú visible solo en la escena FIRST_SCENE_ID
@@ -328,10 +401,10 @@ updateVideoForScene(scene.data.id);
     startAutorotate();
   }
 
-  // Inicializar en la primera escena si existe
+  // Inicializar en la primera escena si existe (intento abrir FIRST_SCENE_ID si está presente)
   if (scenes.length > 0) {
-    // Si prefieres que la primera escena abierta sea otra, cambia FIRST_SCENE_ID arriba.
-    switchScene(scenes[0]);
+    var start = scenes.find(s => s.data && s.data.id === FIRST_SCENE_ID) || scenes[0];
+    switchScene(start);
   }
 
   // =========================
@@ -514,7 +587,7 @@ updateVideoForScene(scene.data.id);
     });
   });
 
-  // Fullscreen 
+  // Fullscreen
   if (screenfull && screenfull.enabled && data.settings && data.settings.fullscreenButton) {
     document.body.classList.add('fullscreen-enabled');
     if (fullscreenToggleElement) {
@@ -561,24 +634,24 @@ updateVideoForScene(scene.data.id);
     });
   }
 
-// =========================
-// BOTÓN DE PANTALLA COMPLETA
-// =========================
-if (document.fullscreenEnabled) {
-  const fsBtn = document.getElementById('fullscreenToggle');
-  if (fsBtn) {
-    fsBtn.addEventListener('click', function() {
-      if (document.fullscreenElement) {
-        document.exitFullscreen();
-      } else {
-        document.body.requestFullscreen();
-      }
-    });
+  // =========================
+  // BOTÓN DE PANTALLA COMPLETA
+  // =========================
+  if (document.fullscreenEnabled) {
+    const fsBtn = document.getElementById('fullscreenToggle');
+    if (fsBtn) {
+      fsBtn.addEventListener('click', function() {
+        if (document.fullscreenElement) {
+          document.exitFullscreen();
+        } else {
+          document.body.requestFullscreen();
+        }
+      });
+    }
+  } else {
+    const fsBtn = document.getElementById('fullscreenToggle');
+    if (fsBtn) fsBtn.style.display = 'none';
   }
-} else {
-  const fsBtn = document.getElementById('fullscreenToggle');
-  if (fsBtn) fsBtn.style.display = 'none';
-}
 
   // =========================
   // BOTONES DE CONTROL — usan activeView para funcionar en cualquier escena
