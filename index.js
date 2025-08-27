@@ -172,7 +172,6 @@ const sceneVideos = {
   // "2-otra-escena": "videos/video3.mp4"
 };
 
-let currentVideoSceneId = null;
 let currentVideoTimeout = null;
 
 function updateVideoForScene(sceneId) {
