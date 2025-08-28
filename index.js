@@ -306,6 +306,7 @@
 
  // Mostrar tarjeta del video
     videoCard.classList.add("visible");
+videoCard.style.display = "block";
 
     // Delay dinámico: 5s en la primera escena (si se solicita por defecto),
     // 3s en las demás. Si se pasa forceDelay (número) se usa ese valor.
