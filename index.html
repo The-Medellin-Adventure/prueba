@@ -130,29 +130,76 @@
   position: fixed;
   bottom: 20px;
   right: 20px;
-  width: 320px;
-  border-radius: 10px;
+  width: clamp(200px, 22vw, 320px);
+  border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-  background: rgba(0,0,0,0.7);
+  background: rgba(0,0,0,0.75);
   z-index: 9999;
+
+  /* Oculto por defecto con transición */
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(6px);
+  transition: opacity .35s ease, transform .35s ease;
 }
 
 #videoCard video {
   width: 100%;
   height: auto;
   display: block;
+  border-radius: 8px;
 }
 
+/* Estado visible: aparece con animación y se comporta como flex */
+#videoCard.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+  display: flex;
+  flex-direction: column;
+}
 
-/* En móviles, que ocupe un poco más pero siga siendo vertical */
+/* Controles del video dentro de la tarjeta */
+#videoControls {
+  opacity: 0;
+  transition: opacity .2s ease-in-out;
+  display: flex;
+  justify-content: space-around;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 6px 0;
+  backdrop-filter: blur(6px);
+}
+
+#videoCard:hover #videoControls {
+  opacity: 1;
+}
+
+#videoControls button {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 6px 10px;
+  transition: transform 0.2s, color 0.2s;
+}
+
+#videoControls button:hover {
+  transform: scale(1.2);
+  color: #ffd700;
+}
+
+/* Ajuste responsive */
 @media (max-width: 768px) {
   #videoCard {
-   width: calc(90% + 20px); /* Ajuste para dispositivos móviles */
-        max-height: 260px;
-    }
+    width: 45vw;
+    min-width: 160px;
+    max-width: 200px;
+    bottom: 10px;
+    right: 10px;
+  }
 }
-
 
     /* 🔹 Mostrar siempre el nombre de los linkHotspots debajo del ícono */
     .link-hotspot-tooltip {
@@ -651,7 +698,7 @@
 
 
 <!-- Tarjeta de Video flotante -->
-<div id="videoCard" style="display:none;">
+<div id="videoCard">
   <video id="sceneVideo" playsinline muted>
     <source src="" type="video/mp4">
     Tu navegador no soporta el video.

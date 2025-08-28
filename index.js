@@ -294,7 +294,7 @@
 
     // Verificar si hay video para la escena
     if (!sceneVideos[sceneId]) {
-      videoCard.style.display = "none";
+      videoCard.classList.remove("visible");
       currentVideoSceneId = null;
       return;
     }
@@ -305,7 +305,7 @@
     sceneVideo.load();
 
  // Mostrar tarjeta del video
-    videoCard.style.display = "block";
+    videoCard.classList.add("visible");
 
     // Delay dinámico: 5s en la primera escena (si se solicita por defecto),
     // 3s en las demás. Si se pasa forceDelay (número) se usa ese valor.
